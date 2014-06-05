@@ -27,6 +27,8 @@ public class UI : MonoBehaviour {
 	public UnityEngine.GameObject entityPerfab;
 	public UnityEngine.GameObject avatarPerfab;
 	
+	private bool showReliveGUI = false;
+	
 	// Use this for initialization
 	void Start () {
 		installEvents();
@@ -81,8 +83,19 @@ public class UI : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
-	
+	void Update () 
+	{
+        if (Input.GetKeyUp(KeyCode.Space))
+        {
+			Debug.Log("KeyCode.Space");
+			
+			if(KBEngineApp.app.entity_type == "Avatar")
+			{
+				KBEngine.Avatar avatar = (KBEngine.Avatar)KBEngineApp.app.player();
+				if(avatar != null)
+					avatar.jump();
+			}
+        }
 	}
 	
 	void onSelAvatarUI()
@@ -196,6 +209,18 @@ public class UI : MonoBehaviour {
    		}
    		else if(ui_state == 2)
    		{
+   			if(showReliveGUI)
+   			{
+				if(GUI.Button(new Rect(Screen.width / 2 - 100, Screen.height / 2, 200, 30), "Relive(复活)"))  
+		        {
+					if(KBEngineApp.app.entity_type == "Avatar")
+					{
+						KBEngine.Avatar avatar = (KBEngine.Avatar)KBEngineApp.app.player();
+						if(avatar != null)
+							avatar.relive(1);
+					}		        	
+		        }
+   			}
    		}
    		else
    		{
@@ -349,6 +374,11 @@ public class UI : MonoBehaviour {
 	
 	public void onAvatarEnterWorld(UInt64 rndUUID, Int32 eid, KBEngine.Avatar avatar)
 	{
+		if(!avatar.isPlayer())
+		{
+			return;
+		}
+		
 		ui_state = 2;
 		info("loading scene...(加载场景中...)");
 		Debug.Log("loading scene...");
@@ -372,9 +402,15 @@ public class UI : MonoBehaviour {
 		
 		object speed = entity.getDefinedPropterty("moveSpeed");
 		if(speed != null)
-		{
 			set_moveSpeed(entity, speed);
-		}
+		
+		object state = entity.getDefinedPropterty("state");
+		if(state != null)
+			set_state(entity, state);
+		
+		object modelScale = entity.getDefinedPropterty("modelScale");
+		if(modelScale != null)
+			set_modelScale(entity, modelScale);
 	}
 	
 	public void onLeaveWorld(KBEngine.Entity entity)
@@ -434,6 +470,22 @@ public class UI : MonoBehaviour {
 	
 	public void set_state(KBEngine.Entity entity, object v)
 	{
+		if(entity.renderObj != null)
+		{
+			((UnityEngine.GameObject)entity.renderObj).GetComponent<GameEntity>().set_state((SByte)v);
+		}
+		
+		if(entity.isPlayer())
+		{
+			Debug.Log("player->set_state: " + v);
+			
+			if(((SByte)v) == 1)
+				showReliveGUI = true;
+			else
+				showReliveGUI = false;
+			
+			return;
+		}
 	}
 
 	public void set_moveSpeed(KBEngine.Entity entity, object v)
@@ -460,5 +512,10 @@ public class UI : MonoBehaviour {
 	
 	public void otherAvatarOnJump(KBEngine.Entity entity)
 	{
+		Debug.Log("otherAvatarOnJump: " + entity.id);
+		if(entity.renderObj != null)
+		{
+			((UnityEngine.GameObject)entity.renderObj).GetComponent<GameEntity>().OnJump();
+		}
 	}
 }
