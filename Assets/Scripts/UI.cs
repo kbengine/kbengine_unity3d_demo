@@ -442,6 +442,14 @@ public class UI : MonoBehaviour {
 		object modelScale = entity.getDefinedPropterty("modelScale");
 		if(modelScale != null)
 			set_modelScale(entity, modelScale);
+		
+		object name = entity.getDefinedPropterty("name");
+		if(name != null)
+			set_entityName(entity, (string)name);
+		
+		object hp = entity.getDefinedPropterty("HP");
+		if(hp != null)
+			set_HP(entity, hp);
 	}
 	
 	public void onLeaveWorld(KBEngine.Entity entity)
@@ -472,12 +480,16 @@ public class UI : MonoBehaviour {
 		if(entity.renderObj == null)
 			return;
 		
-		Debug.Log("------------------" + entity.classtype);
-		((UnityEngine.GameObject)entity.renderObj).GetComponent<GameEntity>().destDirection = new Vector3(entity.direction.y, entity.direction.z, entity.direction.x); 
+		((UnityEngine.GameObject)entity.renderObj).GetComponent<GameEntity>().destDirection = 
+			new Vector3(entity.direction.y, entity.direction.z, entity.direction.x); 
 	}
 
 	public void set_HP(KBEngine.Entity entity, object v)
 	{
+		if(entity.renderObj != null)
+		{
+			((UnityEngine.GameObject)entity.renderObj).GetComponent<GameEntity>().hp = "" + (Int32)v + "/" + (Int32)entity.getDefinedPropterty("HP_Max");
+		}
 	}
 	
 	public void set_MP(KBEngine.Entity entity, object v)
@@ -486,6 +498,10 @@ public class UI : MonoBehaviour {
 	
 	public void set_HP_Max(KBEngine.Entity entity, object v)
 	{
+		if(entity.renderObj != null)
+		{
+			((UnityEngine.GameObject)entity.renderObj).GetComponent<GameEntity>().hp = (Int32)entity.getDefinedPropterty("HP") + "/" + (Int32)v;
+		}
 	}
 	
 	public void set_MP_Max(KBEngine.Entity entity, object v)
@@ -498,6 +514,10 @@ public class UI : MonoBehaviour {
 	
 	public void set_entityName(KBEngine.Entity entity, object v)
 	{
+		if(entity.renderObj != null)
+		{
+			((UnityEngine.GameObject)entity.renderObj).GetComponent<GameEntity>().name = (string)v;
+		}
 	}
 	
 	public void set_state(KBEngine.Entity entity, object v)
