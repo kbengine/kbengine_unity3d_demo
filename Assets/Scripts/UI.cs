@@ -7,7 +7,7 @@ using System.Linq;
 
 public class UI : MonoBehaviour {
 	
-	private int ui_state = 0;
+	public int ui_state = 0;
 	private string stringAccount = "";
 	private string stringPasswd = "";
 	private string labelMsg = "";
@@ -75,6 +75,7 @@ public class UI : MonoBehaviour {
 		KBEngine.Event.register("set_modelID", this, "set_modelID");
 		KBEngine.Event.register("recvDamage", this, "recvDamage");
 		KBEngine.Event.register("otherAvatarOnJump", this, "otherAvatarOnJump");
+		KBEngine.Event.register("onAddSkill", this, "onAddSkill");
 	}
 
 	void OnDestroy()
@@ -117,6 +118,8 @@ public class UI : MonoBehaviour {
 				Account account = (Account)KBEngineApp.app.player();
 				if(account != null)
 					account.selectAvatarGame(selAvatarDBID);
+				
+				Application.LoadLevel("world");
 			}
         }
 		
@@ -167,6 +170,15 @@ public class UI : MonoBehaviour {
 				GUI.contentColor = color;
 			}
 		}
+		else
+		{
+			if(KBEngineApp.app.entity_type == "Account")
+			{
+				KBEngine.Account account = (KBEngine.Account)KBEngineApp.app.player();
+				if(account != null)
+					ui_avatarList = new Dictionary<ulong, Dictionary<string, object>>(account.avatars);
+			}
+		}
 	}
 	
 	void onLoginUI()
@@ -209,6 +221,7 @@ public class UI : MonoBehaviour {
    		}
    		else if(ui_state == 2)
    		{
+			createPlayer();
    			if(showReliveGUI)
    			{
 				if(GUI.Button(new Rect(Screen.width / 2 - 100, Screen.height / 2, 200, 30), "Relive(复活)"))  
@@ -316,6 +329,8 @@ public class UI : MonoBehaviour {
 	{
 		info("login is successfully!(登陆成功!)");
 		ui_state = 1;
+
+		Application.LoadLevel("selavatars");
 	}
 	
 	public void Loginapp_importClientMessages()
@@ -378,16 +393,32 @@ public class UI : MonoBehaviour {
 		{
 			return;
 		}
-		
-		ui_state = 2;
+
 		info("loading scene...(加载场景中...)");
 		Debug.Log("loading scene...");
-		
+	}
+
+	public void createPlayer()
+	{
+		if (player != null)
+			return;
+
+		if (KBEngineApp.app.entity_type != "Avatar") {
+			return;
+		}
+
+		KBEngine.Avatar avatar = (KBEngine.Avatar)KBEngineApp.app.player();
+
 		player = Instantiate(avatarPerfab, new Vector3(avatar.position.x, 1.3f, avatar.position.z), 
-			Quaternion.Euler(new Vector3(avatar.direction.y, avatar.direction.z, avatar.direction.x))) as UnityEngine.GameObject;
+		                     Quaternion.Euler(new Vector3(avatar.direction.y, avatar.direction.z, avatar.direction.x))) as UnityEngine.GameObject;
 		
 		avatar.renderObj = player;
 		((UnityEngine.GameObject)avatar.renderObj).GetComponent<GameEntity>().isPlayer = true;
+	}
+
+	public void onAddSkill(KBEngine.Entity entity)
+	{
+		Debug.Log("onAddSkill");
 	}
 	
 	public void onEnterWorld(KBEngine.Entity entity)
@@ -441,6 +472,7 @@ public class UI : MonoBehaviour {
 		if(entity.renderObj == null)
 			return;
 		
+		Debug.Log("------------------" + entity.classtype);
 		((UnityEngine.GameObject)entity.renderObj).GetComponent<GameEntity>().destDirection = new Vector3(entity.direction.y, entity.direction.z, entity.direction.x); 
 	}
 
