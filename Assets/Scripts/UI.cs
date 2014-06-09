@@ -28,7 +28,7 @@ public class UI : MonoBehaviour {
 	public UnityEngine.GameObject avatarPerfab;
 	
 	private bool showReliveGUI = false;
-	
+
 	// Use this for initialization
 	void Start () {
 		installEvents();
@@ -472,7 +472,10 @@ public class UI : MonoBehaviour {
 
 	public void update_position(KBEngine.Entity entity)
 	{
-		set_position(entity);
+		if(entity.renderObj == null)
+			return;
+
+		((UnityEngine.GameObject)entity.renderObj).GetComponent<GameEntity>().destPosition = new Vector3(entity.position.x, 1.3f, entity.position.z);
 	}
 	
 	public void set_direction(KBEngine.Entity entity)
