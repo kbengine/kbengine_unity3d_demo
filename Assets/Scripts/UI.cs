@@ -93,6 +93,7 @@ public class UI : MonoBehaviour {
 			if(KBEngineApp.app.entity_type == "Avatar")
 			{
 				KBEngine.Avatar avatar = (KBEngine.Avatar)KBEngineApp.app.player();
+				avatar.isOnGound = false;
 				if(avatar != null)
 					avatar.jump();
 			}
