@@ -39,48 +39,48 @@ public class UI : MonoBehaviour {
 		CancelInvoke("installEvents");
 		
 		// login
-		KBEngine.Event.register("onCreateAccountResult", this, "onCreateAccountResult");
-		KBEngine.Event.register("onLoginFailed", this, "onLoginFailed");
-		KBEngine.Event.register("onVersionNotMatch", this, "onVersionNotMatch");
-		KBEngine.Event.register("onLoginGatewayFailed", this, "onLoginGatewayFailed");
-		KBEngine.Event.register("onLoginSuccessfully", this, "onLoginSuccessfully");
-		KBEngine.Event.register("login_baseapp", this, "login_baseapp");
-		KBEngine.Event.register("Loginapp_importClientMessages", this, "Loginapp_importClientMessages");
-		KBEngine.Event.register("Baseapp_importClientMessages", this, "Baseapp_importClientMessages");
-		KBEngine.Event.register("Baseapp_importClientEntityDef", this, "Baseapp_importClientEntityDef");
+		KBEngine.Event.registerOut("onCreateAccountResult", this, "onCreateAccountResult");
+		KBEngine.Event.registerOut("onLoginFailed", this, "onLoginFailed");
+		KBEngine.Event.registerOut("onVersionNotMatch", this, "onVersionNotMatch");
+		KBEngine.Event.registerOut("onLoginGatewayFailed", this, "onLoginGatewayFailed");
+		KBEngine.Event.registerOut("onLoginSuccessfully", this, "onLoginSuccessfully");
+		KBEngine.Event.registerOut("login_baseapp", this, "login_baseapp");
+		KBEngine.Event.registerOut("Loginapp_importClientMessages", this, "Loginapp_importClientMessages");
+		KBEngine.Event.registerOut("Baseapp_importClientMessages", this, "Baseapp_importClientMessages");
+		KBEngine.Event.registerOut("Baseapp_importClientEntityDef", this, "Baseapp_importClientEntityDef");
 		
 		// selavatars
-		KBEngine.Event.register("onReqAvatarList", this, "onReqAvatarList");
-		KBEngine.Event.register("onCreateAvatarResult", this, "onCreateAvatarResult");
-		KBEngine.Event.register("onRemoveAvatar", this, "onRemoveAvatar");
-		KBEngine.Event.register("onAvatarEnterWorld", this, "onAvatarEnterWorld");
-		KBEngine.Event.register("onDisableConnect", this, "onDisableConnect");
+		KBEngine.Event.registerOut("onReqAvatarList", this, "onReqAvatarList");
+		KBEngine.Event.registerOut("onCreateAvatarResult", this, "onCreateAvatarResult");
+		KBEngine.Event.registerOut("onRemoveAvatar", this, "onRemoveAvatar");
+		KBEngine.Event.registerOut("onAvatarEnterWorld", this, "onAvatarEnterWorld");
+		KBEngine.Event.registerOut("onDisableConnect", this, "onDisableConnect");
 		
 		// in world
-		KBEngine.Event.register("addSpaceGeometryMapping", this, "addSpaceGeometryMapping");
-		KBEngine.Event.register("onEnterWorld", this, "onEnterWorld");
-		KBEngine.Event.register("onLeaveWorld", this, "onLeaveWorld");
-		KBEngine.Event.register("set_position", this, "set_position");
-		KBEngine.Event.register("set_direction", this, "set_direction");
-		KBEngine.Event.register("update_position", this, "update_position");
-		KBEngine.Event.register("set_HP", this, "set_HP");
-		KBEngine.Event.register("set_MP", this, "set_MP");
-		KBEngine.Event.register("set_HP_Max", this, "set_HP_Max");
-		KBEngine.Event.register("set_MP_Max", this, "set_MP_Max");
-		KBEngine.Event.register("set_level", this, "set_level");
-		KBEngine.Event.register("set_name", this, "set_entityName");
-		KBEngine.Event.register("set_state", this, "set_state");
-		KBEngine.Event.register("set_moveSpeed", this, "set_moveSpeed");
-		KBEngine.Event.register("set_modelScale", this, "set_modelScale");
-		KBEngine.Event.register("set_modelID", this, "set_modelID");
-		KBEngine.Event.register("recvDamage", this, "recvDamage");
-		KBEngine.Event.register("otherAvatarOnJump", this, "otherAvatarOnJump");
-		KBEngine.Event.register("onAddSkill", this, "onAddSkill");
+		KBEngine.Event.registerOut("addSpaceGeometryMapping", this, "addSpaceGeometryMapping");
+		KBEngine.Event.registerOut("onEnterWorld", this, "onEnterWorld");
+		KBEngine.Event.registerOut("onLeaveWorld", this, "onLeaveWorld");
+		KBEngine.Event.registerOut("set_position", this, "set_position");
+		KBEngine.Event.registerOut("set_direction", this, "set_direction");
+		KBEngine.Event.registerOut("update_position", this, "update_position");
+		KBEngine.Event.registerOut("set_HP", this, "set_HP");
+		KBEngine.Event.registerOut("set_MP", this, "set_MP");
+		KBEngine.Event.registerOut("set_HP_Max", this, "set_HP_Max");
+		KBEngine.Event.registerOut("set_MP_Max", this, "set_MP_Max");
+		KBEngine.Event.registerOut("set_level", this, "set_level");
+		KBEngine.Event.registerOut("set_name", this, "set_entityName");
+		KBEngine.Event.registerOut("set_state", this, "set_state");
+		KBEngine.Event.registerOut("set_moveSpeed", this, "set_moveSpeed");
+		KBEngine.Event.registerOut("set_modelScale", this, "set_modelScale");
+		KBEngine.Event.registerOut("set_modelID", this, "set_modelID");
+		KBEngine.Event.registerOut("recvDamage", this, "recvDamage");
+		KBEngine.Event.registerOut("otherAvatarOnJump", this, "otherAvatarOnJump");
+		KBEngine.Event.registerOut("onAddSkill", this, "onAddSkill");
 	}
 
 	void OnDestroy()
 	{
-		KBEngine.Event.deregister(this);
+		KBEngine.Event.deregisterOut(this);
 	}
 	
 	// Update is called once per frame
