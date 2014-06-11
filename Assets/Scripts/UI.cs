@@ -93,7 +93,6 @@ public class UI : MonoBehaviour {
 			if(KBEngineApp.app.entity_type == "Avatar")
 			{
 				KBEngine.Avatar avatar = (KBEngine.Avatar)KBEngineApp.app.player();
-				avatar.isOnGound = false;
 				if(avatar != null)
 					avatar.jump();
 			}
@@ -409,8 +408,12 @@ public class UI : MonoBehaviour {
 		}
 
 		KBEngine.Avatar avatar = (KBEngine.Avatar)KBEngineApp.app.player();
-
-		player = Instantiate(avatarPerfab, new Vector3(avatar.position.x, 1.3f, avatar.position.z), 
+		
+		float y = avatar.position.y;
+		if(avatar.isOnGound)
+			y = 1.3f;
+		
+		player = Instantiate(avatarPerfab, new Vector3(avatar.position.x, y, avatar.position.z), 
 		                     Quaternion.Euler(new Vector3(avatar.direction.y, avatar.direction.z, avatar.direction.x))) as UnityEngine.GameObject;
 		
 		avatar.renderObj = player;
@@ -427,7 +430,11 @@ public class UI : MonoBehaviour {
 		if(entity.isPlayer())
 			return;
 		
-		entity.renderObj = Instantiate(entityPerfab, new Vector3(entity.position.x, 1.3f, entity.position.z), 
+		float y = entity.position.y;
+		if(entity.isOnGound)
+			y = 1.3f;
+		
+		entity.renderObj = Instantiate(entityPerfab, new Vector3(entity.position.x, y, entity.position.z), 
 			Quaternion.Euler(new Vector3(entity.direction.y, entity.direction.z, entity.direction.x))) as UnityEngine.GameObject;
 		
 		((UnityEngine.GameObject)entity.renderObj).name = entity.classtype + entity.id;
@@ -467,16 +474,18 @@ public class UI : MonoBehaviour {
 		if(entity.renderObj == null)
 			return;
 
-		((UnityEngine.GameObject)entity.renderObj).GetComponent<GameEntity>().destPosition = new Vector3(entity.position.x, 1.3f, entity.position.z);
-		((UnityEngine.GameObject)entity.renderObj).GetComponent<GameEntity>().position = new Vector3(entity.position.x, 1.3f, entity.position.z);
+		((UnityEngine.GameObject)entity.renderObj).GetComponent<GameEntity>().destPosition = entity.position;
+		((UnityEngine.GameObject)entity.renderObj).GetComponent<GameEntity>().position = entity.position;
 	}
 
 	public void update_position(KBEngine.Entity entity)
 	{
 		if(entity.renderObj == null)
 			return;
-
-		((UnityEngine.GameObject)entity.renderObj).GetComponent<GameEntity>().destPosition = new Vector3(entity.position.x, 1.3f, entity.position.z);
+		
+		GameEntity gameEntity = ((UnityEngine.GameObject)entity.renderObj).GetComponent<GameEntity>();
+		gameEntity.destPosition = entity.position;
+		gameEntity.isOnGound = entity.isOnGound;
 	}
 	
 	public void set_direction(KBEngine.Entity entity)
