@@ -27,7 +27,7 @@ http://www.kbengine.org
 ##Installation:
 
 	Change the login address:
-		kbengine_unity3d_demo\Assets\Plugins\kbengine\core\kbengine.cs -> ip
+		kbengine_unity3d_demo\Assets\Plugins\kbengine\clientapp.cs -> ip
 
 
 ![screenshots1](http://www.kbengine.org/assets/img/screenshots/unity3d_demo9.jpg)
