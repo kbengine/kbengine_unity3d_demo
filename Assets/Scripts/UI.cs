@@ -76,6 +76,7 @@ public class UI : MonoBehaviour {
 		KBEngine.Event.registerOut("recvDamage", this, "recvDamage");
 		KBEngine.Event.registerOut("otherAvatarOnJump", this, "otherAvatarOnJump");
 		KBEngine.Event.registerOut("onAddSkill", this, "onAddSkill");
+		KBEngine.Event.registerOut("onConnectStatus", this, "onConnectStatus");
 	}
 
 	void OnDestroy()
@@ -261,8 +262,6 @@ public class UI : MonoBehaviour {
 		info("connect to server...(连接到服务端...)");
 		
 		KBEngine.Event.fireIn("login", new object[]{stringAccount, stringPasswd});
-		
-		info("connect successfully, please wait...(连接成功，请等候...)");
 	}
 	
 	public void createAccount()
@@ -270,8 +269,6 @@ public class UI : MonoBehaviour {
 		info("connect to server...(连接到服务端...)");
 		
 		KBEngine.Event.fireIn("createAccount", new object[]{stringAccount, stringPasswd});
-		
-		info("connect successfully, please wait...(连接成功，请等候...)");
 	}
 	
 	public void onCreateAccountResult(UInt16 retcode, byte[] datas)
@@ -290,6 +287,14 @@ public class UI : MonoBehaviour {
 		{
 			info("createAccount is successfully!(注册账号成功!)");
 		}
+	}
+	
+	public void onConnectStatus(bool success)
+	{
+		if(!success)
+			err("connect is error! (连接错误)");
+		else
+			info("connect successfully, please wait...(连接成功，请等候...)");
 	}
 	
 	public void onLoginFailed(UInt16 failedcode)
