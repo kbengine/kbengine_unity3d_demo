@@ -260,14 +260,7 @@ public class UI : MonoBehaviour {
 	{
 		info("connect to server...(连接到服务端...)");
 		
-		KBEngineApp.app.username = stringAccount;
-		KBEngineApp.app.password = stringPasswd;
-		
-		if(!KBEngineApp.app.login_loginapp(true))
-		{
-			err("connect is error!(连接错误!)");
-			return;
-		}
+		KBEngine.Event.fireIn("login", new object[]{stringAccount, stringPasswd});
 		
 		info("connect successfully, please wait...(连接成功，请等候...)");
 	}
@@ -276,13 +269,7 @@ public class UI : MonoBehaviour {
 	{
 		info("connect to server...(连接到服务端...)");
 		
-		KBEngineApp.app.username = stringAccount;
-		KBEngineApp.app.password = stringPasswd;
-		if(!KBEngineApp.app.createAccount_loginapp(true))
-		{
-			err("connect is error!(连接错误!)");
-			return;
-		}
+		KBEngine.Event.fireIn("createAccount", new object[]{stringAccount, stringPasswd});
 		
 		info("connect successfully, please wait...(连接成功，请等候...)");
 	}
