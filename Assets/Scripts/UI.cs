@@ -28,7 +28,8 @@ public class UI : MonoBehaviour {
 	public UnityEngine.GameObject avatarPerfab;
 	
 	private bool showReliveGUI = false;
-
+	private string versionErrorStr = "";
+	
 	// Use this for initialization
 	void Start () {
 		installEvents();
@@ -241,7 +242,14 @@ public class UI : MonoBehaviour {
    			onLoginUI();
    		}
    		
-   		GUI.contentColor = labelColor;
+		if(KBEngineApp.app != null && KBEngineApp.app.serverVersion != "" 
+			&& KBEngineApp.app.serverVersion != KBEngineApp.app.clientVersion)
+		{
+			labelColor = Color.red;
+			labelMsg = "version not match(curr=" + KBEngineApp.app.clientVersion + ", srv=" + KBEngineApp.app.serverVersion + " )(版本不匹配)";
+		}
+		
+		GUI.contentColor = labelColor;
 		GUI.Label(new Rect((Screen.width / 2) - 100, 40, 400, 100), labelMsg);
 	}  
 	
@@ -304,7 +312,7 @@ public class UI : MonoBehaviour {
 	
 	public void onVersionNotMatch(string verInfo, string serVerInfo)
 	{
-		err("version not match(curr=" + verInfo + ", srv" + serVerInfo + " )(版本不匹配)");
+		err("");
 	}
 	
 	public void onLoginGatewayFailed(UInt16 failedcode)
