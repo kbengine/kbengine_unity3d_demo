@@ -21,6 +21,7 @@ http://www.kbengine.org
 
 
 ##Start the client:
+
 			Direct start.
 
 
@@ -28,6 +29,14 @@ http://www.kbengine.org
 
 	Change the login address:
 		kbengine_unity3d_demo\Assets\Plugins\kbengine\clientapp.cs -> ip
+
+##Navmesh-navigation:
+	
+	The server to use recastnavigation navigation.
+		kbengine\demo\res\spaces\*
+
+	Generation Navmeshs:
+		https://github.com/kbengine/unity3d_nav_critterai
 
 
 ![screenshots1](http://www.kbengine.org/assets/img/screenshots/unity3d_demo9.jpg)
