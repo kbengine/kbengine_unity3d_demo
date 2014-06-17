@@ -283,7 +283,7 @@ public class UI : MonoBehaviour {
 	{
 		if(retcode != 0)
 		{
-			err("createAccount is error(注册账号错误)! errcode(错误码)=" + KBEngineApp.app.serverErr(retcode));
+			err("createAccount is error(注册账号错误)! err=" + retcode);
 			return;
 		}
 		
@@ -307,7 +307,7 @@ public class UI : MonoBehaviour {
 	
 	public void onLoginFailed(UInt16 failedcode)
 	{
-		err("login is failed(登陆失败), errcode(错误码)=" + failedcode);
+		err("login is failed(登陆失败), err=" + KBEngineApp.app.serverErr(failedcode));
 	}
 	
 	public void onVersionNotMatch(string verInfo, string serVerInfo)
@@ -317,7 +317,7 @@ public class UI : MonoBehaviour {
 	
 	public void onLoginGatewayFailed(UInt16 failedcode)
 	{
-		err("loginGateway is failed(登陆网关失败), errcode(错误码)=" + failedcode);
+		err("loginGateway is failed(登陆网关失败), err=" + KBEngineApp.app.serverErr(failedcode));
 	}
 	
 	public void login_baseapp()
@@ -357,7 +357,7 @@ public class UI : MonoBehaviour {
 	{
 		if(retcode != 0)
 		{
-			err("Error creating avatar, errcode(错误码)=" + retcode);
+			err("Error creating avatar, errcode=" + retcode);
 			return;
 		}
 		
