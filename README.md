@@ -22,7 +22,7 @@ http://www.kbengine.org
 
 ##Start the client:
 
-			Direct start.
+			Directly start.
 
 
 ##Installation:
