@@ -28,7 +28,6 @@ public class UI : MonoBehaviour {
 	public UnityEngine.GameObject avatarPerfab;
 	
 	private bool showReliveGUI = false;
-	private string versionErrorStr = "";
 	
 	// Use this for initialization
 	void Start () {
