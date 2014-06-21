@@ -29,15 +29,24 @@ public class UI : MonoBehaviour {
 	
 	private bool showReliveGUI = false;
 	
+	void Awake() 
+	 {
+		DontDestroyOnLoad(transform.gameObject);
+	 }
+	 
 	// Use this for initialization
 	void Start () {
 		installEvents();
+		Application.LoadLevel("login");
 	}
 
 	void installEvents()
 	{
 		CancelInvoke("installEvents");
-		
+
+		// common
+		KBEngine.Event.registerOut("onKicked", this, "onKicked");
+
 		// login
 		KBEngine.Event.registerOut("onCreateAccountResult", this, "onCreateAccountResult");
 		KBEngine.Event.registerOut("onLoginFailed", this, "onLoginFailed");
@@ -121,6 +130,7 @@ public class UI : MonoBehaviour {
 					account.selectAvatarGame(selAvatarDBID);
 				
 				Application.LoadLevel("world");
+				ui_state = 2;
 			}
         }
 		
@@ -331,7 +341,14 @@ public class UI : MonoBehaviour {
 
 		Application.LoadLevel("selavatars");
 	}
-	
+
+	public void onKicked(UInt16 failedcode)
+	{
+		err("kick, disconnect!, reason=" + KBEngineApp.app.serverErr(failedcode));
+		Application.LoadLevel("login");
+		ui_state = 0;
+	}
+
 	public void Loginapp_importClientMessages()
 	{
 		info("Loginapp_importClientMessages ...");
