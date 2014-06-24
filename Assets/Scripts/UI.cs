@@ -159,9 +159,9 @@ public class UI : MonoBehaviour {
 			foreach(UInt64 dbid in ui_avatarList.Keys)
 			{
 				Dictionary<string, object> info = ui_avatarList[dbid];
-				Byte roleType = (Byte)info["roleType"];
+			//	Byte roleType = (Byte)info["roleType"];
 				string name = (string)info["name"];
-				UInt16 level = (UInt16)info["level"];
+			//	UInt16 level = (UInt16)info["level"];
 				UInt64 idbid = (UInt64)info["dbid"];
 
 				idx++;
@@ -430,6 +430,11 @@ public class UI : MonoBehaviour {
 		}
 
 		KBEngine.Avatar avatar = (KBEngine.Avatar)KBEngineApp.app.player();
+		if(avatar == null)
+		{
+			Debug.Log("wait create(palyer)!");
+			return;
+		}
 		
 		float y = avatar.position.y;
 		if(avatar.isOnGound)
@@ -551,7 +556,7 @@ public class UI : MonoBehaviour {
 	{
 		if(entity.renderObj != null)
 		{
-			((UnityEngine.GameObject)entity.renderObj).GetComponent<GameEntity>().name = (string)v;
+			((UnityEngine.GameObject)entity.renderObj).GetComponent<GameEntity>().entity_name = (string)v;
 		}
 	}
 	
