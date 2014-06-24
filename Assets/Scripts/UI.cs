@@ -245,6 +245,12 @@ public class UI : MonoBehaviour {
 					}		        	
 		        }
    			}
+   			
+			UnityEngine.GameObject obj = UnityEngine.GameObject.Find("player(Clone)");
+			if(obj != null)
+			{
+				GUI.Label(new Rect((Screen.width / 2) - 100, 20, 400, 100), "position=" + obj.transform.position.ToString()); 
+			}
    		}
    		else
    		{
@@ -398,7 +404,7 @@ public class UI : MonoBehaviour {
 	public void addSpaceGeometryMapping(string respath)
 	{
 		Debug.Log("loading scene(" + respath + ")...");
-		info("scene(" + respath + ")");
+		info("scene(" + respath + "), spaceID=" + KBEngineApp.app.spaceID);
 		if(terrain == null)
 			terrain = Instantiate(terrainPerfab) as UnityEngine.GameObject;
 	}	
