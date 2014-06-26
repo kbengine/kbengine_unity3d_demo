@@ -418,6 +418,26 @@ public class UI : MonoBehaviour {
 
 		info("loading scene...(加载场景中...)");
 		Debug.Log("loading scene...");
+		
+		object speed = avatar.getDefinedPropterty("moveSpeed");
+		if(speed != null)
+			set_moveSpeed(avatar, speed);
+		
+		object state = avatar.getDefinedPropterty("state");
+		if(state != null)
+			set_state(avatar, state);
+		
+		object modelScale = avatar.getDefinedPropterty("modelScale");
+		if(modelScale != null)
+			set_modelScale(avatar, modelScale);
+		
+		object name = avatar.getDefinedPropterty("name");
+		if(name != null)
+			set_entityName(avatar, (string)name);
+		
+		object hp = avatar.getDefinedPropterty("HP");
+		if(hp != null)
+			set_HP(avatar, hp);
 	}
 
 	public void createPlayer()
