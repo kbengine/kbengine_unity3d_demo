@@ -11,8 +11,11 @@ http://www.kbengine.org
 
 
 ##Build:
-
-		Unity Editor -> File -> Build Settings -> PC, MAC & Linux Standalone.
+		1: Update kbengine_plugins:
+			git submodule update
+		
+		2: Build:
+			Unity Editor -> File -> Build Settings -> PC, MAC & Linux Standalone.
 
 
 ##Start the servers:
