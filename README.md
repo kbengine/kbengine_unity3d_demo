@@ -11,9 +11,12 @@ http://www.kbengine.org
 
 
 ##Build:
-		1: Update kbengine_plugins:
-			git submodule update
-		
+		1: Update submodule(kbengine_unity3d_plugins):
+			* git command: git submodule update
+
+			* use TortoiseGit(menu): TortoiseGit -> Submodule Update:
+![submodule_update](http://www.kbengine.org/assets/img/screenshots/unity3d_plugins_submodule_update.jpg)
+
 		2: Build:
 			Unity Editor -> File -> Build Settings -> PC, MAC & Linux Standalone.
 
