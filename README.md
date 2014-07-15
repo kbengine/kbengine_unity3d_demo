@@ -12,7 +12,7 @@ http://www.kbengine.org
 
 ##Build:
 		1: Update submodule(https://github.com/kbengine/kbengine_unity3d_plugins):
-			* git command: git submodule update
+			* git command: git submodule update --init
 
 			* use TortoiseGit(menu): TortoiseGit -> Submodule Update:
 ![submodule_update](http://www.kbengine.org/assets/img/screenshots/unity3d_plugins_submodule_update.jpg)
