@@ -322,7 +322,14 @@ public class UI : MonoBehaviour {
 	
 	public void onLoginFailed(UInt16 failedcode)
 	{
-		err("login is failed(登陆失败), err=" + KBEngineApp.app.serverErr(failedcode));
+		if(failedcode == 20)
+		{
+			err("login is failed(登陆失败), err=" + KBEngineApp.app.serverErr(failedcode) + ", " + System.Text.Encoding.ASCII.GetString(KBEngineApp.app.serverdatas()));
+		}
+		else
+		{
+			err("login is failed(登陆失败), err=" + KBEngineApp.app.serverErr(failedcode));
+		}
 	}
 	
 	public void onVersionNotMatch(string verInfo, string serVerInfo)
