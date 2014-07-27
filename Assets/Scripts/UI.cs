@@ -200,9 +200,13 @@ public class UI : MonoBehaviour {
         	Debug.Log("stringPasswd:" + stringPasswd);
         	
 			if(stringAccount.Length > 0 && stringPasswd.Length > 5)
+			{
 				login();
+			}
 			else
-				err("account is error!(账号错误!)");
+			{
+				err("account is error, length < 6!(账号错误，长度必须大于5!)");
+			}
         }
 
         if (GUI.Button(new Rect(Screen.width / 2 - 100, Screen.height / 2 + 70, 200, 30), "CreateAccount(注册账号)"))  
