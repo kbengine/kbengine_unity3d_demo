@@ -205,7 +205,7 @@ public class UI : MonoBehaviour {
 			}
 			else
 			{
-				err("account is error, length < 6!(账号错误，长度必须大于5!)");
+				err("account or password is error, length < 6!(账号或者密码错误，长度必须大于5!)");
 			}
         }
 
@@ -220,7 +220,7 @@ public class UI : MonoBehaviour {
 			}
 			else
 			{
-				err("account is error!(账号错误!)");
+				err("account or password is error, length < 6!(账号或者密码错误，长度必须大于5!)");
 			}
         }
         
