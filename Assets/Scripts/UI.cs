@@ -302,7 +302,7 @@ public class UI : MonoBehaviour {
 	{
 		if(retcode != 0)
 		{
-			err("createAccount is error(注册账号错误)! err=" + retcode);
+			err("createAccount is error(注册账号错误)! err=" + KBEngineApp.app.serverErr(retcode));
 			return;
 		}
 		
