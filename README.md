@@ -1,7 +1,7 @@
 KBEngine_unity3d_demo
 =============
 
-##This project is written for kbengine
+##This project is written for kbengine(a MMOG engine of server)
 http://www.kbengine.org
 
 
