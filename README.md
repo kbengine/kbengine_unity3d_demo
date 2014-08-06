@@ -1,7 +1,7 @@
 KBEngine_unity3d_demo
 =============
 
-##Homepage
+##This project is written for kbengine
 http://www.kbengine.org
 
 
