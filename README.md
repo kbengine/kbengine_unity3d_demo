@@ -12,7 +12,7 @@ http://www.kbengine.org
 
 ##Build:
 		1: Use git to update the KBE plugin(https://github.com/kbengine/kbengine_unity3d_plugins):
-			In the XXX directory:
+			In the kbengine_unity3d_** directory:
 			* Git command: git submodule update --init
 			* Or use TortoiseGit(menu): TortoiseGit -> Submodule Update:
 ![submodule_update](http://www.kbengine.org/assets/img/screenshots/unity3d_plugins_submodule_update.jpg)
