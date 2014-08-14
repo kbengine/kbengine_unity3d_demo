@@ -11,11 +11,15 @@ http://www.kbengine.org
 
 
 ##Build:
-		1: Update submodule(https://github.com/kbengine/kbengine_unity3d_plugins):
-			* git command: git submodule update --init
-
-			* use TortoiseGit(menu): TortoiseGit -> Submodule Update:
+		1: Use git to update the KBE plugin(https://github.com/kbengine/kbengine_unity3d_plugins):
+			In the XXX directory:
+			* Git command: git submodule update --init
+			* Or use TortoiseGit(menu): TortoiseGit -> Submodule Update:
 ![submodule_update](http://www.kbengine.org/assets/img/screenshots/unity3d_plugins_submodule_update.jpg)
+
+		2: Or manually update the plugin
+			git clone https://github.com/kbengine/kbengine_unity3d_plugins.git
+			clone to Assets/plugins/kbengine/kbengine_unity3d_plugins
 
 		2: Build:
 			Unity Editor -> File -> Build Settings -> PC, MAC & Linux Standalone.
