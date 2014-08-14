@@ -21,7 +21,7 @@ http://www.kbengine.org
 			git clone https://github.com/kbengine/kbengine_unity3d_plugins.git
 			clone to Assets/plugins/kbengine/kbengine_unity3d_plugins
 
-		2: Build:
+		3: Build:
 			Unity Editor -> File -> Build Settings -> PC, MAC & Linux Standalone.
 
 
