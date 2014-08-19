@@ -51,6 +51,7 @@ public class UI : MonoBehaviour {
 		KBEngine.Event.registerOut("onCreateAccountResult", this, "onCreateAccountResult");
 		KBEngine.Event.registerOut("onLoginFailed", this, "onLoginFailed");
 		KBEngine.Event.registerOut("onVersionNotMatch", this, "onVersionNotMatch");
+		KBEngine.Event.registerOut("onScriptVersionNotMatch", this, "onScriptVersionNotMatch");
 		KBEngine.Event.registerOut("onLoginGatewayFailed", this, "onLoginGatewayFailed");
 		KBEngine.Event.registerOut("onLoginSuccessfully", this, "onLoginSuccessfully");
 		KBEngine.Event.registerOut("login_baseapp", this, "login_baseapp");
@@ -267,6 +268,12 @@ public class UI : MonoBehaviour {
 			labelColor = Color.red;
 			labelMsg = "version not match(curr=" + KBEngineApp.app.clientVersion + ", srv=" + KBEngineApp.app.serverVersion + " )(版本不匹配)";
 		}
+		else if(KBEngineApp.app != null && KBEngineApp.app.serverScriptVersion != "" 
+			&& KBEngineApp.app.serverScriptVersion != KBEngineApp.app.clientScriptVersion)
+		{
+			labelColor = Color.red;
+			labelMsg = "scriptVersion not match(curr=" + KBEngineApp.app.clientScriptVersion + ", srv=" + KBEngineApp.app.serverScriptVersion + " )(脚本版本不匹配)";
+		}
 		
 		GUI.contentColor = labelColor;
 		GUI.Label(new Rect((Screen.width / 2) - 100, 40, 400, 100), labelMsg);
@@ -337,6 +344,11 @@ public class UI : MonoBehaviour {
 	}
 	
 	public void onVersionNotMatch(string verInfo, string serVerInfo)
+	{
+		err("");
+	}
+
+	public void onScriptVersionNotMatch(string verInfo, string serVerInfo)
 	{
 		err("");
 	}
