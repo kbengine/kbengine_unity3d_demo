@@ -1,6 +1,7 @@
 ﻿using KBEngine;
 using UnityEngine;
 using System; 
+using System.IO;  
 using System.Collections; 
 using System.Collections.Generic;
 using System.Linq;
@@ -58,6 +59,10 @@ public class UI : MonoBehaviour {
 		KBEngine.Event.registerOut("Loginapp_importClientMessages", this, "Loginapp_importClientMessages");
 		KBEngine.Event.registerOut("Baseapp_importClientMessages", this, "Baseapp_importClientMessages");
 		KBEngine.Event.registerOut("Baseapp_importClientEntityDef", this, "Baseapp_importClientEntityDef");
+		
+		KBEngine.Event.registerOut("onImportClientMessages", this, "onImportClientMessages");
+		KBEngine.Event.registerOut("onImportClientEntityDef", this, "onImportClientEntityDef");
+		KBEngine.Event.registerOut("onImportServerErrorsDescr", this, "onImportServerErrorsDescr");
 		
 		// selavatars
 		KBEngine.Event.registerOut("onReqAvatarList", this, "onReqAvatarList");
@@ -391,6 +396,21 @@ public class UI : MonoBehaviour {
 	public void Baseapp_importClientEntityDef()
 	{
 		info("importClientEntityDef ...");
+	}
+	
+	public void onImportClientMessages(string currserver, byte[] stream)
+	{
+		info("importClientMessages successfully!");
+	}
+
+	public void onImportServerErrorsDescr(byte[] stream)
+	{
+		info("importServerErrorsDescr successfully!");
+	}
+	
+	public void onImportClientEntityDef(byte[] stream)
+	{
+		info("importClientEntityDef successfully!");
 	}
 	
 	public void onReqAvatarList(Dictionary<UInt64, Dictionary<string, object>> avatarList)
