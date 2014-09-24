@@ -6,8 +6,8 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
-public class UI : MonoBehaviour {
-	
+public class UI : MonoBehaviour 
+{
 	public int ui_state = 0;
 	private string stringAccount = "";
 	private string stringPasswd = "";
@@ -450,6 +450,8 @@ public class UI : MonoBehaviour {
 		info("scene(" + respath + "), spaceID=" + KBEngineApp.app.spaceID);
 		if(terrain == null)
 			terrain = Instantiate(terrainPerfab) as UnityEngine.GameObject;
+
+		player.GetComponent<GameEntity>().enable();
 	}	
 	
 	public void onAvatarEnterWorld(UInt64 rndUUID, Int32 eid, KBEngine.Avatar avatar)
@@ -505,7 +507,8 @@ public class UI : MonoBehaviour {
 		
 		player = Instantiate(avatarPerfab, new Vector3(avatar.position.x, y, avatar.position.z), 
 		                     Quaternion.Euler(new Vector3(avatar.direction.y, avatar.direction.z, avatar.direction.x))) as UnityEngine.GameObject;
-		
+
+		player.GetComponent<GameEntity>().disable();
 		avatar.renderObj = player;
 		((UnityEngine.GameObject)avatar.renderObj).GetComponent<GameEntity>().isPlayer = true;
 	}
@@ -526,7 +529,7 @@ public class UI : MonoBehaviour {
 		
 		entity.renderObj = Instantiate(entityPerfab, new Vector3(entity.position.x, y, entity.position.z), 
 			Quaternion.Euler(new Vector3(entity.direction.y, entity.direction.z, entity.direction.x))) as UnityEngine.GameObject;
-		
+
 		((UnityEngine.GameObject)entity.renderObj).name = entity.classtype + entity.id;
 		
 		object speed = entity.getDefinedPropterty("moveSpeed");
