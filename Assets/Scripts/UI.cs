@@ -18,7 +18,7 @@ public class UI : MonoBehaviour
 	
 	private string stringAvatarName = "";
 	private bool startCreateAvatar = false;
-	
+
 	private UInt64 selAvatarDBID = 0;
 	
 	private UnityEngine.GameObject terrain = null;
@@ -117,12 +117,30 @@ public class UI : MonoBehaviour
 	
 	void onSelAvatarUI()
 	{
-        if (startCreateAvatar == false && GUI.Button(new Rect(Screen.width / 2 - 100, Screen.height - 40, 200, 30), "CreateAvatar(创建角色)"))    
+		if (startCreateAvatar == false && GUI.Button(new Rect(Screen.width / 2 - 100, Screen.height - 40, 200, 30), "RemoveAvatar(删除角色)"))    
         {
-        	startCreateAvatar = !startCreateAvatar;
+			if(selAvatarDBID == 0)
+			{
+				err("Please select a Avatar!(请选择角色!)");
+			}
+			else
+			{
+				info("Please wait...(请稍后...)");
+				Account account = (Account)KBEngineApp.app.player();
+				if(account != null)
+				{
+					Dictionary<string, object> avatarinfo = ui_avatarList[selAvatarDBID];
+					account.reqRemoveAvatar((string)avatarinfo["name"]);
+				}
+			}
         }
 
-        if (startCreateAvatar == false && GUI.Button(new Rect(Screen.width / 2 - 100, Screen.height - 75, 200, 30), "EnterGame(进入游戏)"))    
+		if (startCreateAvatar == false && GUI.Button(new Rect(Screen.width / 2 - 100, Screen.height - 75, 200, 30), "CreateAvatar(创建角色)"))    
+		{
+			startCreateAvatar = !startCreateAvatar;
+		}
+
+        if (startCreateAvatar == false && GUI.Button(new Rect(Screen.width / 2 - 100, Screen.height - 110, 200, 30), "EnterGame(进入游戏)"))    
         {
         	if(selAvatarDBID == 0)
         	{
