@@ -80,7 +80,7 @@ public class World : MonoBehaviour
 		if(terrain == null)
 			terrain = Instantiate(terrainPerfab) as UnityEngine.GameObject;
 
-		player.GetComponent<GameEntity>().enable();
+		player.GetComponent<GameEntity>().entityEnable();
 	}	
 	
 	public void onAvatarEnterWorld(UInt64 rndUUID, Int32 eid, KBEngine.Avatar avatar)
@@ -137,7 +137,7 @@ public class World : MonoBehaviour
 		player = Instantiate(avatarPerfab, new Vector3(avatar.position.x, y, avatar.position.z), 
 		                     Quaternion.Euler(new Vector3(avatar.direction.y, avatar.direction.z, avatar.direction.x))) as UnityEngine.GameObject;
 
-		player.GetComponent<GameEntity>().disable();
+		player.GetComponent<GameEntity>().entityDisable();
 		avatar.renderObj = player;
 		((UnityEngine.GameObject)avatar.renderObj).GetComponent<GameEntity>().isPlayer = true;
 	}
