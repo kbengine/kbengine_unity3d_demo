@@ -251,7 +251,30 @@ public class UI : MonoBehaviour
 		stringAccount = GUI.TextField(new Rect (Screen.width / 2 - 100, Screen.height / 2 - 50, 200, 30), stringAccount, 20);
 		stringPasswd = GUI.PasswordField(new Rect (Screen.width / 2 - 100, Screen.height / 2 - 10, 200, 30), stringPasswd, '*');
 	}
-	
+
+	void onWorldUI()
+	{
+		createPlayer();
+		if(showReliveGUI)
+		{
+			if(GUI.Button(new Rect(Screen.width / 2 - 100, Screen.height / 2, 200, 30), "Relive(复活)"))  
+			{
+				if(KBEngineApp.app.entity_type == "Avatar")
+				{
+					KBEngine.Avatar avatar = (KBEngine.Avatar)KBEngineApp.app.player();
+					if(avatar != null)
+						avatar.relive(1);
+				}		        	
+			}
+		}
+		
+		UnityEngine.GameObject obj = UnityEngine.GameObject.Find("player(Clone)");
+		if(obj != null)
+		{
+			GUI.Label(new Rect((Screen.width / 2) - 100, 20, 400, 100), "position=" + obj.transform.position.ToString()); 
+		}
+	}
+
     void OnGUI()  
     {  
 		if(ui_state == 1)
@@ -260,25 +283,7 @@ public class UI : MonoBehaviour
    		}
    		else if(ui_state == 2)
    		{
-			createPlayer();
-   			if(showReliveGUI)
-   			{
-				if(GUI.Button(new Rect(Screen.width / 2 - 100, Screen.height / 2, 200, 30), "Relive(复活)"))  
-		        {
-					if(KBEngineApp.app.entity_type == "Avatar")
-					{
-						KBEngine.Avatar avatar = (KBEngine.Avatar)KBEngineApp.app.player();
-						if(avatar != null)
-							avatar.relive(1);
-					}		        	
-		        }
-   			}
-   			
-			UnityEngine.GameObject obj = UnityEngine.GameObject.Find("player(Clone)");
-			if(obj != null)
-			{
-				GUI.Label(new Rect((Screen.width / 2) - 100, 20, 400, 100), "position=" + obj.transform.position.ToString()); 
-			}
+			onWorldUI();
    		}
    		else
    		{
