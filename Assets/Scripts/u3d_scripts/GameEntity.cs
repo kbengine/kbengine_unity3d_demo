@@ -181,7 +181,7 @@ public class GameEntity : MonoBehaviour
 	
     void FixedUpdate () 
     {
-		if (!enabled)
+		if (!entityEnabled)
 			return;
 
     	if(isPlayer == false && KBEngineApp.app != null)
@@ -201,7 +201,7 @@ public class GameEntity : MonoBehaviour
     
 	void Update () 
 	{
-		if (!enabled) 
+		if (!entityEnabled) 
 		{
 			position = destPosition;
 			return;
