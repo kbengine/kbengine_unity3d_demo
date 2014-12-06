@@ -1,2 +1,4 @@
-请注意，kbe_scripts默认在子线程处理， 请不要和u3d_scripts直接交互。
+请注意，kbe_scripts默认在子线程处理，请不要和u3d_scripts直接交互。
 应该通过kbe提供的事件机制交互。
+
+这一层脚本类似于服务端中client中写逻辑， Avatar也是由KBEngine.Entity继承而来。
