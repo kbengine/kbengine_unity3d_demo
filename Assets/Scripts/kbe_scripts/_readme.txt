@@ -1,4 +1,4 @@
-��ע�⣬kbe_scriptsĬ�������̴߳������벻Ҫ��u3d_scriptsֱ�ӽ�����
-Ӧ��ͨ��kbe�ṩ���¼����ƽ�����
+请注意，如果KBEngine插件使用的是多线程模式，kbe_scripts默认在子线程处理，请不要和u3d_scripts直接交互。
+应该通过KBE提供的事件机制交互。
 
-��һ��ű������ڷ������client��д�߼��� AvatarҲ����KBEngine.Entity�̳ж�����
+这一层脚本类似于服务端中client中写逻辑， Avatar也是由KBEngine.Entity继承而来。
