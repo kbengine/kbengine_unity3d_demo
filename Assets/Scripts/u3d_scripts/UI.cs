@@ -276,6 +276,11 @@ public class UI : MonoBehaviour
 		
 		GUI.contentColor = labelColor;
 		GUI.Label(new Rect((Screen.width / 2) - 100, 40, 400, 100), labelMsg);
+
+		GUI.Label(new Rect(0, 5, 400, 100), "client version: " + KBEngine.KBEngineApp.app.clientVersion);
+		GUI.Label(new Rect(0, 20, 400, 100), "client script version: " + KBEngine.KBEngineApp.app.clientScriptVersion);
+		GUI.Label(new Rect(0, 35, 400, 100), "server version: " + KBEngine.KBEngineApp.app.serverVersion);
+		GUI.Label(new Rect(0, 50, 400, 100), "server script version: " + KBEngine.KBEngineApp.app.serverScriptVersion);
 	}  
 	
 	public void err(string s)
