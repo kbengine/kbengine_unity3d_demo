@@ -159,7 +159,7 @@ public class World : MonoBehaviour
 		entity.renderObj = Instantiate(entityPerfab, new Vector3(entity.position.x, y, entity.position.z), 
 			Quaternion.Euler(new Vector3(entity.direction.y, entity.direction.z, entity.direction.x))) as UnityEngine.GameObject;
 
-		((UnityEngine.GameObject)entity.renderObj).name = entity.classtype + entity.id;
+		((UnityEngine.GameObject)entity.renderObj).name = entity.className + entity.id;
 		
 		object speed = entity.getDefinedPropterty("moveSpeed");
 		if(speed != null)
