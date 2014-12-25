@@ -40,6 +40,8 @@ http://www.kbengine.org
 	Change the login address:
 		kbengine_unity3d_demo\Scripts\kbe_scripts\clientapp.cs -> ip
 		kbengine_unity3d_demo\Scripts\kbe_scripts\clientapp.cs -> port
+![demo_configure](http://www.kbengine.org/assets/img/screenshots/demo_configure.jpg)
+
 
 ##Navmesh-navigation:
 	
