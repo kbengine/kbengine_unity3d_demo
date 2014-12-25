@@ -13,9 +13,10 @@ http://www.kbengine.org
 ##Build:
 		1: Use git to update the KBE plugin(https://github.com/kbengine/kbengine_unity3d_plugins):
 			In the kbengine_unity3d_** directory:
-			* Git command: git submodule update --init
+			* Git command: git submodule update --init --remote
+![submodule_update1](http://www.kbengine.org/assets/img/screenshots/gitbash_submodule.png)
 			* Or use TortoiseGit(menu): TortoiseGit -> Submodule Update:
-![submodule_update](http://www.kbengine.org/assets/img/screenshots/unity3d_plugins_submodule_update.jpg)
+![submodule_update2](http://www.kbengine.org/assets/img/screenshots/unity3d_plugins_submodule_update.jpg)
 
 		2: Or manually update the plugin
 			git clone https://github.com/kbengine/kbengine_unity3d_plugins.git
@@ -25,17 +26,7 @@ http://www.kbengine.org
 			Unity Editor -> File -> Build Settings -> PC, MAC & Linux Standalone.
 
 
-##Start the servers:
-
-	http://www.kbengine.org/docs/installation.html
-
-
-##Start the client:
-
-			Directly start.
-
-
-##Installation:
+##Configure demo:
 
 	Change the login address:
 		kbengine_unity3d_demo\Scripts\kbe_scripts\clientapp.cs -> ip
@@ -43,13 +34,28 @@ http://www.kbengine.org
 ![demo_configure](http://www.kbengine.org/assets/img/screenshots/demo_configure.jpg)
 
 
-##Navmesh-navigation:
+##Navmesh-navigation(Optional):
 	
 	The server to use recastnavigation navigation.
 		kbengine\demo\res\spaces\*
 
 	Generation Navmeshs:
 		https://github.com/kbengine/unity3d_nav_critterai
+
+
+##Start the servers:
+
+	Installation:
+		http://www.kbengine.org/docs/installation.html
+
+	Start:
+		http://www.kbengine.org/docs/startup_shutdown.html
+
+
+##Start the client:
+
+			Directly start.
+
 
 
 ![screenshots1](http://www.kbengine.org/assets/img/screenshots/unity3d_demo9.jpg)

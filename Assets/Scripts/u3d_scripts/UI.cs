@@ -330,7 +330,7 @@ public class UI : MonoBehaviour
 	public void onConnectStatus(bool success)
 	{
 		if(!success)
-			err("connect is error! (连接错误)");
+			err("connect(" + KBEngineApp.app.getInitArgs().ip + ":" + KBEngineApp.app.getInitArgs().port + ") is error! (连接错误)");
 		else
 			info("connect successfully, please wait...(连接成功，请等候...)");
 	}
