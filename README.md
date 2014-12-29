@@ -32,9 +32,10 @@ http://www.kbengine.org
 ##Configure demo:
 
 	Change the login address:
+![demo_configure](http://www.kbengine.org/assets/img/screenshots/demo_configure.jpg)
+
 		kbengine_unity3d_demo\Scripts\kbe_scripts\clientapp.cs -> ip
 		kbengine_unity3d_demo\Scripts\kbe_scripts\clientapp.cs -> port
-![demo_configure](http://www.kbengine.org/assets/img/screenshots/demo_configure.jpg)
 
 
 ##Navmesh-navigation(Optional):
@@ -48,16 +49,22 @@ http://www.kbengine.org
 
 ##Start the servers:
 
-	Installation:
+	Installation(KBEngine):
 		http://www.kbengine.org/docs/installation.html
 
-	Start:
-		http://www.kbengine.org/docs/startup_shutdown.html
+	copy demo_assets to kbengine\
+
+	Start server:
+		kbengine\demo_assets\start_server_fixed.bat
+		(more: http://www.kbengine.org/docs/startup_shutdown.html)
+
+	Kill server:
+		kbengine\demo_assets\kill_server.bat
 
 
 ##Start the client:
 
-			Directly start.
+			Directly start(U3DEditor or Executable file).
 
 
 
