@@ -7,11 +7,12 @@ http://www.kbengine.org
 
 ##Releases
 
+	sources		: https://github.com/kbengine/kbengine_unity3d_demo/releases/latest
 	binarys		: https://sourceforge.net/projects/kbengine/files/
 
 
-##Build:
-		1: Use git to update the KBE plugin(https://github.com/kbengine/kbengine_unity3d_plugins) and server-assets:
+##Start:
+		1: Use git to get the client-plugin(https://github.com/kbengine/kbengine_unity3d_plugins) and server-assets:
 
 			In the kbengine_unity3d_demo directory:
 
@@ -22,10 +23,10 @@ http://www.kbengine.org
 ![submodule_update2](http://www.kbengine.org/assets/img/screenshots/unity3d_plugins_submodule_update.jpg)
 
 			*Or manually get the client-plugin and server-assets
-				download client-plugin:
+				Download client-plugin:
 					https://github.com/kbengine/kbengine_unity3d_plugins/archive/master.zip
 					unzip and copy to Assets/plugins/kbengine/kbengine_unity3d_plugins
-				download server-assets:
+				Download server-assets:
 					https://github.com/kbengine/kbengine_demos_assets/archive/master.zip
 					unzip and copy to kbengine/
 
@@ -42,6 +43,28 @@ http://www.kbengine.org
 		kbengine_unity3d_demo\Scripts\kbe_scripts\clientapp.cs -> port
 
 
+##Start the servers:
+
+	Build(KBEngine):
+		http://www.kbengine.org/docs/build.html
+
+	Installation(KBEngine):
+		http://www.kbengine.org/docs/installation.html
+
+	Copy "kbengine_unity3d_demo\kbengine_demos_assets" to KBEngine root directory:
+		"kbengine\" is the engine root.
+
+	Start server:
+		kbengine\kbengine_demos_assets\start_server_fixed.bat
+		(More: http://www.kbengine.org/docs/startup_shutdown.html)
+
+
+##Start the client:
+
+			Directly start(U3DEditor or Executable file).
+
+
+
 ##Navmesh-navigation(Optional):
 	
 	The server to use recastnavigation navigation.
@@ -49,27 +72,6 @@ http://www.kbengine.org
 
 	Generation Navmeshs:
 		https://github.com/kbengine/unity3d_nav_critterai
-
-
-##Start the servers:
-
-	Installation(KBEngine):
-		http://www.kbengine.org/docs/installation.html
-
-	copy kbengine_demos_assets to kbengine\
-
-	Start server:
-		kbengine\kbengine_demos_assets\start_server_fixed.bat
-		(more: http://www.kbengine.org/docs/startup_shutdown.html)
-
-	Kill server:
-		kbengine\kbengine_demos_assets\kill_server.bat
-
-
-##Start the client:
-
-			Directly start(U3DEditor or Executable file).
-
 
 
 ![screenshots1](http://www.kbengine.org/assets/img/screenshots/unity3d_demo9.jpg)
