@@ -29,7 +29,7 @@ http://www.kbengine.org
 					unzip and copy to Assets/plugins/kbengine/kbengine_unity3d_plugins
 
 				Download demo-assets(server):
-					https://github.com/kbengine/kbengine_demos_assets/archive/master.zip
+					https://github.com/kbengine/kbengine_demos_assets/releases/latest
 					unzip and copy to kbengine/
 
 		2: Build:
@@ -61,10 +61,9 @@ http://www.kbengine.org
 
 	Start server:
 		Windows:
-
 			kbengine\kbengine_demos_assets\start_server_fixed.bat
-		Linux:
 
+		Linux:
 			kbengine\kbengine_demos_assets\start_server_fixed.sh
 
 		(More: http://www.kbengine.org/docs/startup_shutdown.html)
