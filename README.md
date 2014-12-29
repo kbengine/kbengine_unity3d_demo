@@ -60,7 +60,13 @@ http://www.kbengine.org
 
 
 	Start server:
-		kbengine\kbengine_demos_assets\start_server_fixed.bat
+		Windows:
+
+			kbengine\kbengine_demos_assets\start_server_fixed.bat
+		Linux:
+
+			kbengine\kbengine_demos_assets\start_server_fixed.sh
+
 		(More: http://www.kbengine.org/docs/startup_shutdown.html)
 
 
