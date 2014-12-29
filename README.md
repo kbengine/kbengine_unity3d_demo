@@ -12,7 +12,7 @@ http://www.kbengine.org
 
 
 ##Start:
-		1: Use git to get the client-plugin(https://github.com/kbengine/kbengine_unity3d_plugins) and server-assets:
+		1: Use git to get the plugin(client) and demo-assets(server):
 
 			In the kbengine_unity3d_demo directory:
 
@@ -22,11 +22,13 @@ http://www.kbengine.org
 			* Or use TortoiseGit(menu): TortoiseGit -> Submodule Update:
 ![submodule_update2](http://www.kbengine.org/assets/img/screenshots/unity3d_plugins_submodule_update.jpg)
 
-			*Or manually get the client-plugin and server-assets
-				Download client-plugin:
+			*Or manually get the plugin(client) and demo-assets(server)
+
+				Download plugin(client):
 					https://github.com/kbengine/kbengine_unity3d_plugins/archive/master.zip
 					unzip and copy to Assets/plugins/kbengine/kbengine_unity3d_plugins
-				Download server-assets:
+
+				Download demo-assets(server):
 					https://github.com/kbengine/kbengine_demos_assets/archive/master.zip
 					unzip and copy to kbengine/
 
