@@ -56,6 +56,9 @@ http://www.kbengine.org
 	Copy "kbengine_unity3d_demo\kbengine_demos_assets" to KBEngine root directory:
 		"kbengine\" is the engine root.
 
+![demo_configure](http://www.kbengine.org/assets/img/screenshots/demo_configure.jpg)
+
+
 	Start server:
 		kbengine\kbengine_demos_assets\start_server_fixed.bat
 		(More: http://www.kbengine.org/docs/startup_shutdown.html)
