@@ -55,11 +55,11 @@ http://www.kbengine.org
 	copy kbengine_demos_assets to kbengine\
 
 	Start server:
-		kbengine\demo_assets\start_server_fixed.bat
+		kbengine\kbengine_demos_assets\start_server_fixed.bat
 		(more: http://www.kbengine.org/docs/startup_shutdown.html)
 
 	Kill server:
-		kbengine\demo_assets\kill_server.bat
+		kbengine\kbengine_demos_assets\kill_server.bat
 
 
 ##Start the client:
