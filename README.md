@@ -52,7 +52,7 @@ http://www.kbengine.org
 	Installation(KBEngine):
 		http://www.kbengine.org/docs/installation.html
 
-	copy demo_assets to kbengine\
+	copy kbengine_demos_assets to kbengine\
 
 	Start server:
 		kbengine\demo_assets\start_server_fixed.bat
