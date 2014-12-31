@@ -26,11 +26,11 @@ http://www.kbengine.org
 
 				Download plugin(client):
 					https://github.com/kbengine/kbengine_unity3d_plugins/archive/master.zip
-					unzip and copy to Assets/plugins/kbengine/kbengine_unity3d_plugins
+					unzip and copy to "Assets/plugins/kbengine/kbengine_unity3d_plugins"
 
 				Download demo-assets(server):
 					https://github.com/kbengine/kbengine_demos_assets/releases/latest
-					unzip and copy to kbengine/
+					unzip and copy to "kbengine/"  (The root directory server engine, such as $KBE_ROOT)
 
 		2: Build:
 			Unity Editor -> File -> Build Settings -> PC, MAC & Linux Standalone.
