@@ -56,6 +56,11 @@ http://www.kbengine.org
 	Copy "kbengine_unity3d_demo\kbengine_demos_assets" to KBEngine root directory:
 		"kbengine\" is the engine root.
 
+	Check the startup status:
+		If successful will find log "Components::process(): Found all the components!".
+		Otherwise, please search the "ERROR" keyword in logs, according to the error description to try to solve.
+		(More: http://www.kbengine.org/docs/startup_shutdown.html)
+
 ![demo_configure](http://www.kbengine.org/assets/img/screenshots/demo_copy_kbengine.jpg)
 
 
