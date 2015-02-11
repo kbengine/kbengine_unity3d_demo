@@ -1,9 +1,12 @@
 KBEngine_unity3d_demo
 =============
 
-##This client-project is written for kbengine(a MMOG engine of server)
+##This client-project is written for KBEngine(a MMOG engine of server)
 http://www.kbengine.org
 
+##中文
+Demo搭建：[文档](https://github.com/kbengine/kbengine_unity3d_demo/blob/master/README_CN.md)
+QQ交流群：16535321 
 
 ##Releases
 
@@ -12,31 +15,29 @@ http://www.kbengine.org
 
 
 ##Start:
-		1: Use git to get the plugin(client) and demo-assets(server):
+	Use git to get the plugin(client) and demo-assets(server):
 
-			In the kbengine_unity3d_demo directory:
+		In the kbengine_unity3d_demo directory:
 
-			* Git command: git submodule update --init --remote
+		* Git command: git submodule update --init --remote
 ![submodule_update1](http://www.kbengine.org/assets/img/screenshots/gitbash_submodule.png)
 
-			* Or use TortoiseGit(menu): TortoiseGit -> Submodule Update:
+		* Or use TortoiseGit(menu): TortoiseGit -> Submodule Update:
 ![submodule_update2](http://www.kbengine.org/assets/img/screenshots/unity3d_plugins_submodule_update.jpg)
 
-			*Or manually get the plugin(client) and demo-assets(server)
+		* Or manually get the plugin(client) and demo-assets(server)
 
-				Download plugin(client):
-					https://github.com/kbengine/kbengine_unity3d_plugins/archive/master.zip
-					unzip and copy to "Assets/plugins/kbengine/kbengine_unity3d_plugins"
+			Download plugin(client):
+				https://github.com/kbengine/kbengine_unity3d_plugins/archive/master.zip
+				unzip and copy to "Assets/plugins/kbengine/kbengine_unity3d_plugins"
 
-				Download demo-assets(server):
-					https://github.com/kbengine/kbengine_demos_assets/releases/latest
-					unzip and copy to "kbengine/"  (The root directory server engine, such as $KBE_ROOT)
-
-		2: Build:
-			Unity Editor -> File -> Build Settings -> PC, MAC & Linux Standalone.
+			Download demo-assets(server):
+				https://github.com/kbengine/kbengine_demos_assets/releases/latest
+				unzip and copy to "kbengine/"  (The root directory server engine, such as $KBE_ROOT)
 
 
-##Configure demo:
+
+##Configure Demo(Optional):
 
 	Change the login address:
 ![demo_configure](http://www.kbengine.org/assets/img/screenshots/demo_configure.jpg)
@@ -45,7 +46,7 @@ http://www.kbengine.org
 		kbengine_unity3d_demo\Scripts\kbe_scripts\clientapp.cs -> port
 
 
-##Start the servers:
+##Start the Servers:
 
 	Build(KBEngine):
 		http://www.kbengine.org/docs/build.html
@@ -74,15 +75,16 @@ http://www.kbengine.org
 		(More: http://www.kbengine.org/docs/startup_shutdown.html)
 
 
-##Start the client:
+##Start the Client:
 
-			Directly start(U3DEditor or Executable file).
-
+	Directly start(U3DEditor or Executable file).
+	(Build Client：Unity Editor -> File -> Build Settings -> PC, MAC & Linux Standalone.)
 
 
 ##Navmesh-navigation(Optional):
 	
 	The server to use recastnavigation navigation.
+	Recastnavigation generated navigation mesh (Navmeshs) placed on the:
 		kbengine\demo\res\spaces\*
 
 	Generation Navmeshs:
