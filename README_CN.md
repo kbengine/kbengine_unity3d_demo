@@ -18,7 +18,7 @@ http://www.kbengine.org
 ##开始:
 	下载kbengine客户端插件与服务端Demo资产库:
 
-	    * 使用git命令行，进入到kbengine_unity3d_warring目录执行：
+	    * 使用git命令行，进入到kbengine_unity3d_demo目录执行：
 
 	        git submodule update --init --remote
 ![submodule_update1](http://www.kbengine.org/assets/img/screenshots/gitbash_submodule.png)
