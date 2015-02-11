@@ -55,12 +55,7 @@ http://www.kbengine.org
 		http://www.kbengine.org/docs/installation.html
 
 	拷贝“kbengine_unity3d_demo\kbengine_demos_assets”到KBEngine根目录：
-		"kbengine\" 通常是引擎的根目录。
-
-	检查启动状态：
-			如果启动成功将会在日志中找到"Components::process(): Found all the components!"。
-			任何其他情况请在日志中搜索"ERROR"关键字，根据错误描述尝试解决。
-			(More: http://www.kbengine.org/cn/docs/startup_shutdown.html)
+		"kbengine\" 通常是引擎的根目录，如下图。
 
 ![demo_configure](http://www.kbengine.org/assets/img/screenshots/demo_copy_kbengine.jpg)
 
@@ -72,7 +67,10 @@ http://www.kbengine.org
 		Linux:
 			kbengine\kbengine_demos_assets\start_server_fixed.sh
 
-		(更多参考: http://www.kbengine.org/docs/startup_shutdown.html)
+	检查启动状态：
+			如果启动成功将会在日志中找到"Components::process(): Found all the components!"。
+			任何其他情况请在日志中搜索"ERROR"关键字，根据错误描述尝试解决。
+			(更多参考: http://www.kbengine.org/docs/startup_shutdown.html)
 
 
 ##启动客户端:
