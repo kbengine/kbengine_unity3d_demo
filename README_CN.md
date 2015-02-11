@@ -16,7 +16,17 @@ http://www.kbengine.org
 
 
 ##开始:
-	下载kbengine客户端插件与服务端Demo资产库:
+	1. 确保已经下载过KBEngine服务端引擎，如果没有下载请先下载
+		下载服务端源码(KBEngine)：
+			https://github.com/kbengine/kbengine/releases/latest
+
+		编译(KBEngine)：
+			http://www.kbengine.org/docs/build.html
+
+		安装(KBEngine)：
+			http://www.kbengine.org/docs/installation.html
+
+	2. 下载kbengine客户端插件与服务端Demo资产库:
 
 	    * 使用git命令行，进入到kbengine_unity3d_demo目录执行：
 
@@ -26,15 +36,16 @@ http://www.kbengine.org
 		* 或者使用 TortoiseGit(选择菜单): TortoiseGit -> Submodule Update:
 ![submodule_update2](http://www.kbengine.org/assets/img/screenshots/unity3d_plugins_submodule_update.jpg)
 
-                * 也可以手动下载kbengine插件与服务端Demo资产库
+                * 也可以手动下载kbengine客户端插件与服务端Demo资产库
 
-		        插件下载：
+		        客户端插件下载：
 		            https://github.com/kbengine/kbengine_unity3d_plugins/archive/master.zip
-		            下载后请将其解压缩,插件源码请放置在: Assets/plugins/kbengine/kbengine_unity3d_plugins
+		            下载后请将其解压缩，插件源码请放置在: Assets/plugins/kbengine/kbengine_unity3d_plugins
 
 		        服务端资产库下载：
 		            https://github.com/kbengine/kbengine_demos_assets/releases/latest
-		            下载后请将其解压缩,并将目录文件放置于服务端引擎根目录"kbengine/"之下
+		            下载后请将其解压缩,并将目录文件放置于服务端引擎根目录"kbengine/"之下，如下图：
+![demo_configure](http://www.kbengine.org/assets/img/screenshots/demo_copy_kbengine.jpg)
 
 
 ##配置Demo(可选):
@@ -48,24 +59,15 @@ http://www.kbengine.org
 
 ##启动服务器:
 
-	编译(KBEngine)：
-		http://www.kbengine.org/docs/build.html
-
-	安装(KBEngine)：
-		http://www.kbengine.org/docs/installation.html
-
-	拷贝“kbengine_unity3d_demo\kbengine_demos_assets”到KBEngine根目录：
-		"kbengine\" 通常是引擎的根目录，如下图。
-
-![demo_configure](http://www.kbengine.org/assets/img/screenshots/demo_copy_kbengine.jpg)
-
+	确保“kbengine_unity3d_demo\kbengine_demos_assets”已经拷贝到KBEngine根目录：
+		参考上方章节：开始->服务端资产库下载
 
 	使用启动脚本启动服务端：
 		Windows:
-			kbengine\kbengine_demos_assets\start_server_fixed.bat
+			kbengine\kbengine_demos_assets\start_server.bat
 
 		Linux:
-			kbengine\kbengine_demos_assets\start_server_fixed.sh
+			kbengine\kbengine_demos_assets\start_server.sh
 
 	检查启动状态：
 			如果启动成功将会在日志中找到"Components::process(): Found all the components!"。
@@ -81,7 +83,7 @@ http://www.kbengine.org
 
 ##生成导航网格(可选):
 	
-	服务端使用recastnavigation在3D世界寻路，recastnavigation生成的导航网格（Navmeshs）放置于：
+	服务端使用Recastnavigation在3D世界寻路，recastnavigation生成的导航网格（Navmeshs）放置于：
 		kbengine\demo\res\spaces\*
 
 	在Unity3D中使用插件生成导航网格（Navmeshs）:

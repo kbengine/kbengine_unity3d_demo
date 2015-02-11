@@ -14,7 +14,17 @@ http://www.kbengine.org
 
 
 ##Start:
-	Use git to get the plugin(client) and demo-assets(server):
+	1. Download KBEngine(a MMOG engine of server):
+		Download(KBEngine):
+			https://github.com/kbengine/kbengine/releases/latest
+
+		Build(KBEngine):
+			http://www.kbengine.org/docs/build.html
+
+		Installation(KBEngine):
+			http://www.kbengine.org/docs/installation.html
+
+	2. Use git to get the plugin(client) and demo-assets(server):
 
 		In the kbengine_unity3d_demo directory:
 
@@ -33,7 +43,7 @@ http://www.kbengine.org
 			Download demo-assets(server):
 				https://github.com/kbengine/kbengine_demos_assets/releases/latest
 				unzip and copy to "kbengine/"  (The root directory server engine, such as $KBE_ROOT)
-
+![demo_configure](http://www.kbengine.org/assets/img/screenshots/demo_copy_kbengine.jpg)
 
 
 ##Configure Demo(Optional):
@@ -47,29 +57,20 @@ http://www.kbengine.org
 
 ##Start the Servers:
 
-	Build(KBEngine):
-		http://www.kbengine.org/docs/build.html
-
-	Installation(KBEngine):
-		http://www.kbengine.org/docs/installation.html
-
-	Copy "kbengine_unity3d_demo\kbengine_demos_assets" to KBEngine root directory:
-		"kbengine\" is the engine root.
+	Ensure that the "kbengine_unity3d_demo\kbengine_demos_assets" has been copied to the "kbengine\" directory
+		Reference£ºStart->Download demo-assets(server)
 
 	Check the startup status:
 		If successful will find log "Components::process(): Found all the components!".
 		Otherwise, please search the "ERROR" keyword in logs, according to the error description to try to solve.
 		(More: http://www.kbengine.org/docs/startup_shutdown.html)
 
-![demo_configure](http://www.kbengine.org/assets/img/screenshots/demo_copy_kbengine.jpg)
-
-
 	Start server:
 		Windows:
-			kbengine\kbengine_demos_assets\start_server_fixed.bat
+			kbengine\kbengine_demos_assets\start_server.bat
 
 		Linux:
-			kbengine\kbengine_demos_assets\start_server_fixed.sh
+			kbengine\kbengine_demos_assets\start_server.sh
 
 		(More: http://www.kbengine.org/docs/startup_shutdown.html)
 
