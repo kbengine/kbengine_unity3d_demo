@@ -45,6 +45,8 @@ http://www.kbengine.org
 		        服务端资产库下载：
 		            https://github.com/kbengine/kbengine_demos_assets/releases/latest
 		            下载后请将其解压缩,并将目录文件放置于服务端引擎根目录"kbengine/"之下，如下图：
+
+	3. 拷贝服务端资产库"kbengine_demos_assets"到服务端引擎根目录"kbengine/"之下，如下图：
 ![demo_configure](http://www.kbengine.org/assets/img/screenshots/demo_copy_kbengine.jpg)
 
 
@@ -60,7 +62,7 @@ http://www.kbengine.org
 ##启动服务器:
 
 	确保“kbengine_unity3d_demo\kbengine_demos_assets”已经拷贝到KBEngine根目录：
-		参考上方章节：开始->服务端资产库下载
+		参考上方章节：开始
 
 	使用启动脚本启动服务端：
 		Windows:

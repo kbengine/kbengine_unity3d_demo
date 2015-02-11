@@ -43,6 +43,8 @@ http://www.kbengine.org
 			Download demo-assets(server):
 				https://github.com/kbengine/kbengine_demos_assets/releases/latest
 				unzip and copy to "kbengine/"  (The root directory server engine, such as $KBE_ROOT)
+
+	3. Copy "kbengine_unity3d_demo\kbengine_demos_assets" to "kbengine\" root directory
 ![demo_configure](http://www.kbengine.org/assets/img/screenshots/demo_copy_kbengine.jpg)
 
 
@@ -58,7 +60,7 @@ http://www.kbengine.org
 ##Start the Servers:
 
 	Ensure that the "kbengine_unity3d_demo\kbengine_demos_assets" has been copied to the "kbengine\" directory
-		Reference£ºStart->Download demo-assets(server)
+		Reference£ºStart
 
 	Check the startup status:
 		If successful will find log "Components::process(): Found all the components!".
