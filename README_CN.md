@@ -4,6 +4,11 @@ KBEngine_unity3d_demo
 ##本项目作为KBEngine服务端引擎的客户端演示而写
 http://www.kbengine.org
 
+##官方论坛
+
+	http://bbs.kbengine.org
+
+
 ##QQ交流群
 
 	16535321 
