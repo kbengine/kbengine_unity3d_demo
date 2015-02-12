@@ -5,7 +5,7 @@ KBEngine_unity3d_demo
 http://www.kbengine.org
 
 ##中文
-[Demo搭建文档](https://github.com/kbengine/kbengine_unity3d_demo/blob/master/README_CN.md)，QQ交流群：16535321 
+[Demo搭建文档](https://github.com/kbengine/kbengine_unity3d_demo/blob/master/README_CN.md)，QQ交流群：16535321，[中文论坛](http://bbs.kbengine.org)
 
 ##Releases
 
