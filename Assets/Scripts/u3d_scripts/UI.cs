@@ -298,15 +298,14 @@ public class UI : MonoBehaviour
 	public void login()
 	{
 		info("connect to server...(连接到服务端...)");
-		
-		KBEngine.Event.fireIn("login", new object[]{stringAccount, stringPasswd});
+		KBEngine.Event.fireIn("login", stringAccount, stringPasswd, System.Text.Encoding.UTF8.GetBytes("kbengine_unity_demo"));
 	}
 	
 	public void createAccount()
 	{
 		info("connect to server...(连接到服务端...)");
 		
-		KBEngine.Event.fireIn("createAccount", new object[]{stringAccount, stringPasswd});
+		KBEngine.Event.fireIn("createAccount", stringAccount, stringPasswd, System.Text.Encoding.UTF8.GetBytes("kbengine_unity_demo"));
 	}
 	
 	public void onCreateAccountResult(UInt16 retcode, byte[] datas)
