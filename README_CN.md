@@ -44,7 +44,7 @@ http://www.kbengine.org
                 * 也可以手动下载kbengine客户端插件与服务端Demo资产库
 
 		        客户端插件下载：
-		            https://github.com/kbengine/kbengine_unity3d_plugins/archive/master.zip
+		            https://github.com/kbengine/kbengine_unity3d_plugins/releases/latest
 		            下载后请将其解压缩，插件源码请放置在: Assets/plugins/kbengine/kbengine_unity3d_plugins
 
 		        服务端资产库下载：
@@ -91,7 +91,7 @@ http://www.kbengine.org
 ##生成导航网格(可选):
 	
 	服务端使用Recastnavigation在3D世界寻路，recastnavigation生成的导航网格（Navmeshs）放置于：
-		kbengine\demo\res\spaces\*
+		kbengine\kbengine_demos_assets\res\spaces\*
 
 	在Unity3D中使用插件生成导航网格（Navmeshs）:
 		https://github.com/kbengine/unity3d_nav_critterai

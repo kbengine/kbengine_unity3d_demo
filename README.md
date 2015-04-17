@@ -37,7 +37,7 @@ http://www.kbengine.org
 		* Or manually get the plugin(client) and demo-assets(server)
 
 			Download plugin(client):
-				https://github.com/kbengine/kbengine_unity3d_plugins/archive/master.zip
+				https://github.com/kbengine/kbengine_unity3d_plugins/releases/latest
 				unzip and copy to "Assets/plugins/kbengine/kbengine_unity3d_plugins"
 
 			Download demo-assets(server):
@@ -87,7 +87,7 @@ http://www.kbengine.org
 	
 	The server to use recastnavigation navigation.
 	Recastnavigation generated navigation mesh (Navmeshs) placed on the:
-		kbengine\demo\res\spaces\*
+		kbengine\kbengine_demos_assets\res\spaces\*
 
 	Generation Navmeshs:
 		https://github.com/kbengine/unity3d_nav_critterai
