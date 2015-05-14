@@ -63,14 +63,33 @@ public class World : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.Space))
         {
 			Debug.Log("KeyCode.Space");
-			
-			if(KBEngineApp.app.entity_type == "Avatar")
-			{
-				KBEngine.Avatar avatar = (KBEngine.Avatar)KBEngineApp.app.player();
-				if(avatar != null)
-					avatar.jump();
-			}
+			KBEngine.Event.fireIn("jump");
         }
+		else if (Input.GetMouseButton (0))     
+		{   
+			// 射线选择，攻击
+			if(Camera.main)
+			{
+				Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);   
+				RaycastHit hit;   
+
+				if (Physics.Raycast(ray, out hit))     
+				{   
+					Debug.DrawLine (ray.origin, hit.point); 
+					UnityEngine.GameObject gameObj = hit.collider.gameObject;
+					if(gameObj.name.IndexOf("terrain") == -1)
+					{
+						string[] s = gameObj.name.Split(new char[]{'_' });
+						
+						if(s.Length > 0)
+						{
+							int targetEntityID = Convert.ToInt32(s[s.Length - 1]);
+							KBEngine.Event.fireIn("useTargetSkill", (Int32)1, (Int32)targetEntityID);	
+						}	
+					}
+				}  
+			}
+		}    
 	}
 	
 	public void addSpaceGeometryMapping(string respath)
@@ -159,7 +178,7 @@ public class World : MonoBehaviour
 		entity.renderObj = Instantiate(entityPerfab, new Vector3(entity.position.x, y, entity.position.z), 
 			Quaternion.Euler(new Vector3(entity.direction.y, entity.direction.z, entity.direction.x))) as UnityEngine.GameObject;
 
-		((UnityEngine.GameObject)entity.renderObj).name = entity.className + entity.id;
+		((UnityEngine.GameObject)entity.renderObj).name = entity.className + "_" + entity.id;
 		
 		object speed = entity.getDefinedPropterty("moveSpeed");
 		if(speed != null)

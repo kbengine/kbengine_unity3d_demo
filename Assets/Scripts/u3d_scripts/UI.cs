@@ -230,12 +230,7 @@ public class UI : MonoBehaviour
 		{
 			if(GUI.Button(new Rect(Screen.width / 2 - 100, Screen.height / 2, 200, 30), "Relive(复活)"))  
 			{
-				if(KBEngineApp.app.entity_type == "Avatar")
-				{
-					KBEngine.Avatar avatar = (KBEngine.Avatar)KBEngineApp.app.player();
-					if(avatar != null)
-						avatar.relive(1);
-				}		        	
+				KBEngine.Event.fireIn("relive", (Byte)1);		        	
 			}
 		}
 		
