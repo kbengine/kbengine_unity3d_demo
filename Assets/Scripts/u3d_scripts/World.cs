@@ -179,7 +179,10 @@ public class World : MonoBehaviour
 			Quaternion.Euler(new Vector3(entity.direction.y, entity.direction.z, entity.direction.x))) as UnityEngine.GameObject;
 
 		((UnityEngine.GameObject)entity.renderObj).name = entity.className + "_" + entity.id;
-		
+
+		set_position(entity);
+		set_direction(entity);
+						
 		object speed = entity.getDefinedPropterty("moveSpeed");
 		if(speed != null)
 			set_moveSpeed(entity, speed);
