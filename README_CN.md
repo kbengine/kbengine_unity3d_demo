@@ -20,6 +20,11 @@ http://www.kbengine.org
 	binarys		: https://sourceforge.net/projects/kbengine/files/
 
 
+##KBE插件文档
+
+	https://github.com/kbengine/kbengine_unity3d_plugins/blob/master/README.md
+
+
 ##开始:
 	1. 确保已经下载过KBEngine服务端引擎，如果没有下载请先下载
 		下载服务端源码(KBEngine)：
@@ -86,11 +91,6 @@ http://www.kbengine.org
 
 	直接在Unity3D编辑器启动或者编译后启动
 	（编译客户端：Unity Editor -> File -> Build Settings -> PC, MAC & Linux Standalone.）
-
-
-##KBE插件文档
-
-	https://github.com/kbengine/kbengine_unity3d_plugins/blob/master/README.md
 
 
 ##生成导航网格(可选):

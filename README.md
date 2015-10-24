@@ -13,6 +13,11 @@ http://www.kbengine.org
 	binarys		: https://sourceforge.net/projects/kbengine/files/
 
 
+##KBE-Plugins docs
+
+	https://github.com/kbengine/kbengine_unity3d_plugins/blob/master/README.md
+
+
 ##Start:
 	1. Download KBEngine(a MMOG engine of server):
 		Download(KBEngine):
@@ -82,10 +87,6 @@ http://www.kbengine.org
 	Directly start(U3DEditor or Executable file).
 	(Build Client£ºUnity Editor -> File -> Build Settings -> PC, MAC & Linux Standalone.)
 
-
-##KBE-Plugins docs
-
-	https://github.com/kbengine/kbengine_unity3d_plugins/blob/master/README.md
 
 ##Navmesh-navigation(Optional):
 	
