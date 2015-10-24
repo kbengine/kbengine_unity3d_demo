@@ -88,6 +88,11 @@ http://www.kbengine.org
 	（编译客户端：Unity Editor -> File -> Build Settings -> PC, MAC & Linux Standalone.）
 
 
+##KBE插件文档
+
+	https://github.com/kbengine/kbengine_unity3d_plugins/blob/master/README.md
+
+
 ##生成导航网格(可选):
 	
 	服务端使用Recastnavigation在3D世界寻路，recastnavigation生成的导航网格（Navmeshs）放置于：

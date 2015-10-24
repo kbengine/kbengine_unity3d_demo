@@ -83,6 +83,10 @@ http://www.kbengine.org
 	(Build Client£ºUnity Editor -> File -> Build Settings -> PC, MAC & Linux Standalone.)
 
 
+##KBE-Plugins docs
+
+	https://github.com/kbengine/kbengine_unity3d_plugins/blob/master/README.md
+
 ##Navmesh-navigation(Optional):
 	
 	The server to use recastnavigation navigation.
