@@ -35,7 +35,7 @@ public class World : MonoBehaviour
 		KBEngine.Event.registerOut("onLeaveWorld", this, "onLeaveWorld");
 		KBEngine.Event.registerOut("set_position", this, "set_position");
 		KBEngine.Event.registerOut("set_direction", this, "set_direction");
-		KBEngine.Event.registerOut("update_position", this, "update_position");
+		KBEngine.Event.registerOut("updatePosition", this, "updatePosition");
 		KBEngine.Event.registerOut("set_HP", this, "set_HP");
 		KBEngine.Event.registerOut("set_MP", this, "set_MP");
 		KBEngine.Event.registerOut("set_HP_Max", this, "set_HP_Max");
@@ -222,7 +222,7 @@ public class World : MonoBehaviour
 		((UnityEngine.GameObject)entity.renderObj).GetComponent<GameEntity>().position = entity.position;
 	}
 
-	public void update_position(KBEngine.Entity entity)
+	public void updatePosition(KBEngine.Entity entity)
 	{
 		if(entity.renderObj == null)
 			return;

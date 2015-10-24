@@ -49,18 +49,14 @@ public class UI : MonoBehaviour
 		KBEngine.Event.registerOut("onLoginFailed", this, "onLoginFailed");
 		KBEngine.Event.registerOut("onVersionNotMatch", this, "onVersionNotMatch");
 		KBEngine.Event.registerOut("onScriptVersionNotMatch", this, "onScriptVersionNotMatch");
-		KBEngine.Event.registerOut("onLoginGatewayFailed", this, "onLoginGatewayFailed");
+		KBEngine.Event.registerOut("onLoginBaseappFailed", this, "onLoginBaseappFailed");
 		KBEngine.Event.registerOut("onLoginSuccessfully", this, "onLoginSuccessfully");
-		KBEngine.Event.registerOut("login_baseapp", this, "login_baseapp");
+		KBEngine.Event.registerOut("onLoginBaseapp", this, "onLoginBaseapp");
 		KBEngine.Event.registerOut("Loginapp_importClientMessages", this, "Loginapp_importClientMessages");
 		KBEngine.Event.registerOut("Baseapp_importClientMessages", this, "Baseapp_importClientMessages");
 		KBEngine.Event.registerOut("Baseapp_importClientEntityDef", this, "Baseapp_importClientEntityDef");
 		
-		KBEngine.Event.registerOut("onImportClientMessages", this, "onImportClientMessages");
-		KBEngine.Event.registerOut("onImportClientEntityDef", this, "onImportClientEntityDef");
-		KBEngine.Event.registerOut("onImportServerErrorsDescr", this, "onImportServerErrorsDescr");
-		
-		// selavatars
+		// select-avatars
 		KBEngine.Event.registerOut("onReqAvatarList", this, "onReqAvatarList");
 		KBEngine.Event.registerOut("onCreateAvatarResult", this, "onCreateAvatarResult");
 		KBEngine.Event.registerOut("onRemoveAvatar", this, "onRemoveAvatar");
@@ -351,14 +347,14 @@ public class UI : MonoBehaviour
 		err("");
 	}
 	
-	public void onLoginGatewayFailed(UInt16 failedcode)
+	public void onLoginBaseappFailed(UInt16 failedcode)
 	{
-		err("loginGateway is failed(登陆网关失败), err=" + KBEngineApp.app.serverErr(failedcode));
+		err("loginBaseapp is failed(登陆网关失败), err=" + KBEngineApp.app.serverErr(failedcode));
 	}
 	
-	public void login_baseapp()
+	public void onLoginBaseapp()
 	{
-		info("connect to loginGateway, please wait...(连接到网关， 请稍后...)");
+		info("connect to loginBaseapp, please wait...(连接到网关， 请稍后...)");
 	}
 
 	public void onLoginSuccessfully(UInt64 rndUUID, Int32 eid, Account accountEntity)
@@ -389,21 +385,6 @@ public class UI : MonoBehaviour
 	public void Baseapp_importClientEntityDef()
 	{
 		info("importClientEntityDef ...");
-	}
-	
-	public void onImportClientMessages(string currserver, byte[] stream)
-	{
-		info("importClientMessages successfully!");
-	}
-
-	public void onImportServerErrorsDescr(byte[] stream)
-	{
-		info("importServerErrorsDescr successfully!");
-	}
-	
-	public void onImportClientEntityDef(byte[] stream)
-	{
-		info("importClientEntityDef successfully!");
 	}
 	
 	public void onReqAvatarList(Dictionary<UInt64, Dictionary<string, object>> avatarList)
