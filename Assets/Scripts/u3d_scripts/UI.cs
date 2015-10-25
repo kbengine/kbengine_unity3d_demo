@@ -68,18 +68,12 @@ public class UI : MonoBehaviour
 	}
 	
 	// Update is called once per frame
-	void Update () 
+	void Update ()
 	{
         if (Input.GetKeyUp(KeyCode.Space))
         {
 			Debug.Log("KeyCode.Space");
-			
-			if(KBEngineApp.app.entity_type == "Avatar")
-			{
-				KBEngine.Avatar avatar = (KBEngine.Avatar)KBEngineApp.app.player();
-				if(avatar != null)
-					avatar.jump();
-			}
+			KBEngine.Event.fireIn("jump");
         }
 	}
 	

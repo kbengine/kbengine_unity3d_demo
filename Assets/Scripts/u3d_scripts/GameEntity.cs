@@ -183,20 +183,12 @@ public class GameEntity : MonoBehaviour
     {
 		if (!entityEnabled)
 			return;
-
+		
     	if(isPlayer == false && KBEngineApp.app != null)
     		return;
     	
-    	KBEngine.Entity player = KBEngineApp.app.player();
-
-    	if(player != null)
-    	{
-	    	player.position.x = gameObject.transform.position.x;
-	    	player.position.y = gameObject.transform.position.y;
-	    	player.position.z = gameObject.transform.position.z;
-			
-	    	player.direction.z = gameObject.transform.rotation.eulerAngles.y;
-	    }
+		KBEngine.Event.fireIn("updatePlayer", gameObject.transform.position.x, 
+			gameObject.transform.position.y, gameObject.transform.position.z, gameObject.transform.rotation.eulerAngles.y);
     }
     
 	void Update () 
