@@ -31,7 +31,7 @@ public class GameEntity : MonoBehaviour
 	
 	public CharacterController characterController;
 	
-	public bool isOnGound = true;
+	public bool isOnGround = true;
 
 	public bool entityEnabled = true;
 
@@ -205,11 +205,11 @@ public class GameEntity : MonoBehaviour
 		{
 			characterController.stepOffset = deltaSpeed;
 			
-			if(isOnGound != characterController.isGrounded)
+			if(isOnGround != characterController.isGrounded)
 			{
 		    	KBEngine.Entity player = KBEngineApp.app.player();
-		    	player.isOnGound = characterController.isGrounded;
-		    	isOnGound = characterController.isGrounded;
+		    	player.isOnGround = characterController.isGrounded;
+		    	isOnGround = characterController.isGrounded;
 		    }
 		    
 			return;
@@ -222,7 +222,7 @@ public class GameEntity : MonoBehaviour
 
 		float dist = 0.0f;
 
-		if(isOnGound)
+		if(isOnGround)
 		{
 			dist = Vector3.Distance(new Vector3(destPosition.x, 0f, destPosition.z), 
 				new Vector3(position.x, 0f, position.z));
@@ -271,7 +271,7 @@ public class GameEntity : MonoBehaviour
 			else
 				pos = destPosition;
 			
-			if(isOnGound)
+			if(isOnGround)
 				pos.y = currY;
 			
 			position = pos;

@@ -150,7 +150,7 @@ public class World : MonoBehaviour
 		}
 		
 		float y = avatar.position.y;
-		if(avatar.isOnGound)
+		if(avatar.isOnGround)
 			y = 1.3f;
 		
 		player = Instantiate(avatarPerfab, new Vector3(avatar.position.x, y, avatar.position.z), 
@@ -172,7 +172,7 @@ public class World : MonoBehaviour
 			return;
 		
 		float y = entity.position.y;
-		if(entity.isOnGound)
+		if(entity.isOnGround)
 			y = 1.3f;
 		
 		entity.renderObj = Instantiate(entityPerfab, new Vector3(entity.position.x, y, entity.position.z), 
@@ -229,7 +229,7 @@ public class World : MonoBehaviour
 		
 		GameEntity gameEntity = ((UnityEngine.GameObject)entity.renderObj).GetComponent<GameEntity>();
 		gameEntity.destPosition = entity.position;
-		gameEntity.isOnGound = entity.isOnGound;
+		gameEntity.isOnGround = entity.isOnGround;
 	}
 	
 	public void set_direction(KBEngine.Entity entity)
