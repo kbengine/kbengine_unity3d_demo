@@ -125,7 +125,7 @@ public class UI : MonoBehaviour
 	        	if(stringAvatarName.Length > 1)
 	        	{
 		        	startCreateAvatar = !startCreateAvatar;
-					KBEngine.Event.fireIn("reqCreateAvatar", 1, stringAvatarName);
+					KBEngine.Event.fireIn("reqCreateAvatar", (Byte)1, stringAvatarName);
 				}
 				else
 				{
