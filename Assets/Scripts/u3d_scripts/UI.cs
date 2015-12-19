@@ -88,11 +88,11 @@ public class UI : MonoBehaviour
 			else
 			{
 				info("Please wait...(请稍后...)");
-				Account account = (Account)KBEngineApp.app.player();
-				if(account != null)
+				
+				if(ui_avatarList != null && ui_avatarList.Count > 0)
 				{
 					Dictionary<string, object> avatarinfo = ui_avatarList[selAvatarDBID];
-					account.reqRemoveAvatar((string)avatarinfo["name"]);
+					KBEngine.Event.fireIn("reqRemoveAvatar", (string)avatarinfo["name"]);
 				}
 			}
         }
@@ -111,10 +111,8 @@ public class UI : MonoBehaviour
         	else
         	{
         		info("Please wait...(请稍后...)");
-				Account account = (Account)KBEngineApp.app.player();
-				if(account != null)
-					account.selectAvatarGame(selAvatarDBID);
-				
+        		
+				KBEngine.Event.fireIn("selectAvatarGame", selAvatarDBID);
 				Application.LoadLevel("world");
 				ui_state = 2;
 			}
@@ -127,8 +125,7 @@ public class UI : MonoBehaviour
 	        	if(stringAvatarName.Length > 1)
 	        	{
 		        	startCreateAvatar = !startCreateAvatar;
-					Account account = (Account)KBEngineApp.app.player();
-					account.reqCreateAvatar(1, stringAvatarName);
+					KBEngine.Event.fireIn("reqCreateAvatar", 1, stringAvatarName);
 				}
 				else
 				{
