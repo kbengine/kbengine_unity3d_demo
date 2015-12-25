@@ -111,26 +111,6 @@ public class World : MonoBehaviour
 
 		UI.inst.info("loading scene...(加载场景中...)");
 		Debug.Log("loading scene...");
-		
-		object speed = avatar.getDefinedPropterty("moveSpeed");
-		if(speed != null)
-			set_moveSpeed(avatar, speed);
-		
-		object state = avatar.getDefinedPropterty("state");
-		if(state != null)
-			set_state(avatar, state);
-		
-		object modelScale = avatar.getDefinedPropterty("modelScale");
-		if(modelScale != null)
-			set_modelScale(avatar, modelScale);
-		
-		object name = avatar.getDefinedPropterty("name");
-		if(name != null)
-			set_entityName(avatar, (string)name);
-		
-		object hp = avatar.getDefinedPropterty("HP");
-		if(hp != null)
-			set_HP(avatar, hp);
 	}
 
 	public void createPlayer()
@@ -179,29 +159,6 @@ public class World : MonoBehaviour
 			Quaternion.Euler(new Vector3(entity.direction.y, entity.direction.z, entity.direction.x))) as UnityEngine.GameObject;
 
 		((UnityEngine.GameObject)entity.renderObj).name = entity.className + "_" + entity.id;
-
-		set_position(entity);
-		set_direction(entity);
-						
-		object speed = entity.getDefinedPropterty("moveSpeed");
-		if(speed != null)
-			set_moveSpeed(entity, speed);
-		
-		object state = entity.getDefinedPropterty("state");
-		if(state != null)
-			set_state(entity, state);
-		
-		object modelScale = entity.getDefinedPropterty("modelScale");
-		if(modelScale != null)
-			set_modelScale(entity, modelScale);
-		
-		object name = entity.getDefinedPropterty("name");
-		if(name != null)
-			set_entityName(entity, (string)name);
-		
-		object hp = entity.getDefinedPropterty("HP");
-		if(hp != null)
-			set_HP(entity, hp);
 	}
 	
 	public void onLeaveWorld(KBEngine.Entity entity)
