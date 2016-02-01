@@ -98,6 +98,62 @@ http://www.kbengine.org
 		https://github.com/kbengine/unity3d_nav_critterai
 
 
+##Structure and interpretation:
+			
+	The relationship between plug-ins(KBE) and U3D and servers:
+		Plug-in and servers: Responsible for processing and server network packet. account login/logout process. 
+				     By server notification logic entities are created and destroyed. Processing synchronous logical entity attribute data. etc.
+		Plug-in and U3D: The plug-in will trigger some events to the U3D graphics layer, the graphics layer determines whether to capture some events, 
+				get data to render performance (for example: create a monster, a NPC move-speed increase, HP changes).
+				U3D graphics layer will input the event trigger to the plug-in layer (for example: the player moved, hit the relive button UI), 
+				the plug-in logic script layer determines whether the need to transfer to the server. etc.
+				
+
+	Plugins\kbengine\kbengine_unity3d_plugins:
+		Client plug-in core codes.
+
+	Scripts\kbe_scripts:
+		KBE client logic scripts(in this implementation of the server side of the entity script, the entity's bag data structure, skills in client condition checks, etc.).
+
+		Scripts\kbe_scripts\Account.cs£º
+			Corresponds to the client side of the KBE server account entity.
+
+		Scripts\kbe_scripts\Avatar.cs£º
+			Corresponds to the client side of the KBE server avatar entity.
+
+		Scripts\kbe_scripts\Monster.cs£º
+			Corresponds to the client side of the KBE server monster entity.
+
+		Scripts\kbe_scripts\clientapp.cs£º
+			In the system of KBE abstraction of a client APP, which contains the KBE client plug-in initialization and destruction, etc.
+
+		Scripts\kbe_scripts\interfaces£º
+			Corresponding to the module defined in KBE(entity_defs\interfaces).
+
+	Scripts\u3d_scripts:
+		Unity graphics layer (including scene rendering, UI, object, character model, monster model).
+
+		Scripts\u3d_scripts\GameEntity.cs£º
+			Monster/NPC or player script (management model and animation, etc.).
+
+		Scripts\u3d_scripts\World.cs:
+			Manage a map of the game script, for example: to create a specific 3D monster into the scene.
+
+		Scripts\u3d_scripts\UI.cs:
+			the game's UI processing script.
+
+	Scenes\start.unity:
+		Start the scene, which starts to enter the game.
+
+	Scenes\_scenes\login.unity:
+		login map.
+
+	Scenes\_scenes\selavatars.unity:
+		Game character selection map.
+
+	Scenes\_scenes\world.unity:
+		A map of the scene in the game.
+
 ##Screenshots:
 ![screenshots1](http://www.kbengine.org/assets/img/screenshots/unity3d_demo9.jpg)
 ![screenshots2](http://www.kbengine.org/assets/img/screenshots/unity3d_demo10.jpg)
