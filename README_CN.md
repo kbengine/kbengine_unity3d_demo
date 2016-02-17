@@ -102,6 +102,58 @@ http://www.kbengine.org
 		https://github.com/kbengine/unity3d_nav_critterai
 
 
+##结构与释义：
+
+	KBE插件与U3D和服务器之间的关系：
+		插件与服务器：负责处理与服务端之间的网络消息包、账号登陆/登出流程、由服务端通知创建和销毁逻辑实体、维护同步的逻辑实体属性数据等等。
+		插件与U3D：插件将某些事件触发给U3D图形层，图形层决定是否需要捕获某些事件获得数据进行渲染表现（例如：创建怪物、某个NPC的移动速度增加、HP变化）、
+			U3D图形层将输入事件触发到插件层（例如：玩家移动了、点击了复活按钮UI），插件逻辑脚本层决定是否需要中转到服务器等等。
+
+	Plugins\kbengine\kbengine_unity3d_plugins：
+		KBE客户端插件的核心层代码。
+
+	Scripts\kbe_scripts：
+		KBE客户端的逻辑脚本（在此实现对应服务端的实体脚本、实体的背包数据结构、技能客户端判断等）。
+
+		Scripts\kbe_scripts\Account.cs：
+			对应KBE服务端的账号实体的客户端部分。
+
+		Scripts\kbe_scripts\Avatar.cs：
+			对应KBE服务端的账游戏中玩家实体的客户端部分。
+
+		Scripts\kbe_scripts\Monster.cs：
+			对应KBE服务端的怪物实体的客户端部分。
+
+		Scripts\kbe_scripts\clientapp.cs：
+			在KBE的体系中抽象出一个客户端APP，其中包含KBE客户端插件的初始化和销毁等等。
+
+		Scripts\kbe_scripts\interfaces：
+			对应KBE中entity_defs\interfaces中所声明的模块。
+
+	Scripts\u3d_scripts：
+		Unity3D图形层（包括场景渲染、UI、物体部件、人物模型、怪物模型、一切关于显示的东西等等）。
+
+		Scripts\u3d_scripts\GameEntity.cs：
+			无论是怪物还是玩家都由此脚本负责模型动画等表现部分。
+
+		Scripts\u3d_scripts\World.cs:
+			管理游戏中大地图或副本的渲染层脚本，例如：负责将具体的3D怪物创建到场景中。
+
+		Scripts\u3d_scripts\UI.cs:
+			维护游戏的UI处理脚本。
+
+	Scenes\start.unity:
+		起始场景，由此启动进入游戏。
+
+	Scenes\_scenes\login.unity:
+		登陆场景。
+
+	Scenes\_scenes\selavatars.unity:
+		角色选取场景。
+
+	Scenes\_scenes\world.unity:
+		游戏中大地图/副本场景。
+
 ##演示截图:
 ![screenshots1](http://www.kbengine.org/assets/img/screenshots/unity3d_demo9.jpg)
 ![screenshots2](http://www.kbengine.org/assets/img/screenshots/unity3d_demo10.jpg)
