@@ -202,7 +202,7 @@ public class World : MonoBehaviour
 	{
 		if(entity.renderObj != null)
 		{
-			((UnityEngine.GameObject)entity.renderObj).GetComponent<GameEntity>().hp = "" + (Int32)v + "/" + (Int32)entity.getDefinedPropterty("HP_Max");
+			((UnityEngine.GameObject)entity.renderObj).GetComponent<GameEntity>().hp = "" + (Int32)v + "/" + (Int32)entity.getDefinedProperty("HP_Max");
 		}
 	}
 	
@@ -214,7 +214,7 @@ public class World : MonoBehaviour
 	{
 		if(entity.renderObj != null)
 		{
-			((UnityEngine.GameObject)entity.renderObj).GetComponent<GameEntity>().hp = (Int32)entity.getDefinedPropterty("HP") + "/" + (Int32)v;
+			((UnityEngine.GameObject)entity.renderObj).GetComponent<GameEntity>().hp = (Int32)entity.getDefinedProperty("HP") + "/" + (Int32)v;
 		}
 	}
 	
