@@ -11,7 +11,7 @@ http://www.kbengine.org
 
 ##QQ½»Á÷Èº
 
-	461368412¡¢16535321
+	461368412
 
 
 ##Releases
