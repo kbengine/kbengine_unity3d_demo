@@ -99,7 +99,8 @@ public class World : MonoBehaviour
 		if(terrain == null)
 			terrain = Instantiate(terrainPerfab) as UnityEngine.GameObject;
 
-		player.GetComponent<GameEntity>().entityEnable();
+		if(player)
+			player.GetComponent<GameEntity>().entityEnable();
 	}	
 	
 	public void onAvatarEnterWorld(UInt64 rndUUID, Int32 eid, KBEngine.Avatar avatar)
