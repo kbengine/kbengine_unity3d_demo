@@ -33,6 +33,8 @@ public class GameEntity : MonoBehaviour
 	
 	public bool isOnGround = true;
 
+	public bool isControlled = false;
+	
 	public bool entityEnabled = true;
 
 	void Awake ()   
@@ -181,12 +183,12 @@ public class GameEntity : MonoBehaviour
 	
     void FixedUpdate () 
     {
-		if (!entityEnabled)
+		if (!entityEnabled || KBEngineApp.app == null)
 			return;
 		
-    	if(isPlayer == false && KBEngineApp.app != null)
+    	if(isPlayer == isControlled)
     		return;
-    	
+
 		KBEngine.Event.fireIn("updatePlayer", gameObject.transform.position.x, 
 			gameObject.transform.position.y, gameObject.transform.position.z, gameObject.transform.rotation.eulerAngles.y);
     }
@@ -201,7 +203,7 @@ public class GameEntity : MonoBehaviour
 
 		float deltaSpeed = (speed * Time.deltaTime);
 		
-		if(isPlayer == true)
+		if(isPlayer == true && isControlled == false)
 		{
 			characterController.stepOffset = deltaSpeed;
 			
