@@ -141,6 +141,11 @@ public class World : MonoBehaviour
 		player.GetComponent<GameEntity>().entityDisable();
 		avatar.renderObj = player;
 		((UnityEngine.GameObject)avatar.renderObj).GetComponent<GameEntity>().isPlayer = true;
+		
+		// 有必要设置一下，有可能set_position已经先触发了，那么如果不设置
+		// renderObj的位置和方向将为0，人物会陷入地下
+		set_position(avatar);
+		set_direction(avatar);
 	}
 
 	public void onAddSkill(KBEngine.Entity entity)
