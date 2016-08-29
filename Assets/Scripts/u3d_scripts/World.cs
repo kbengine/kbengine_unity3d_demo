@@ -142,8 +142,8 @@ public class World : MonoBehaviour
 		avatar.renderObj = player;
 		((UnityEngine.GameObject)avatar.renderObj).GetComponent<GameEntity>().isPlayer = true;
 		
-		// 有必要设置一下，有可能set_position已经先触发了，那么如果不设置
-		// renderObj的位置和方向将为0，人物会陷入地下
+		// 有必要设置一下，由于该接口由Update异步调用，有可能set_position等初始化信息已经先触发了
+		// 那么如果不设置renderObj的位置和方向将为0，人物会陷入地下
 		set_position(avatar);
 		set_direction(avatar);
 	}
