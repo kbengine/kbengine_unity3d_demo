@@ -118,8 +118,12 @@ public class World : MonoBehaviour
 	public void createPlayer()
 	{
 		if (player != null)
+		{
+			if(terrain != null)
+				player.GetComponent<GameEntity>().entityEnable();
 			return;
-
+		}
+		
 		if (KBEngineApp.app.entity_type != "Avatar") {
 			return;
 		}
