@@ -56,7 +56,7 @@ public class UI : MonoBehaviour
 		KBEngine.Event.registerOut("Baseapp_importClientMessages", this, "Baseapp_importClientMessages");
 		KBEngine.Event.registerOut("Baseapp_importClientEntityDef", this, "Baseapp_importClientEntityDef");
 		
-		// select-avatars
+		// select-avatars(register by scripts)
 		KBEngine.Event.registerOut("onReqAvatarList", this, "onReqAvatarList");
 		KBEngine.Event.registerOut("onCreateAvatarResult", this, "onCreateAvatarResult");
 		KBEngine.Event.registerOut("onRemoveAvatar", this, "onRemoveAvatar");

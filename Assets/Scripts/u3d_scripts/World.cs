@@ -30,13 +30,15 @@ public class World : MonoBehaviour
 	{
 		// in world
 		KBEngine.Event.registerOut("addSpaceGeometryMapping", this, "addSpaceGeometryMapping");
-		KBEngine.Event.registerOut("onAvatarEnterWorld", this, "onAvatarEnterWorld");
 		KBEngine.Event.registerOut("onEnterWorld", this, "onEnterWorld");
 		KBEngine.Event.registerOut("onLeaveWorld", this, "onLeaveWorld");
 		KBEngine.Event.registerOut("set_position", this, "set_position");
 		KBEngine.Event.registerOut("set_direction", this, "set_direction");
 		KBEngine.Event.registerOut("updatePosition", this, "updatePosition");
 		KBEngine.Event.registerOut("onControlled", this, "onControlled");
+		
+		// in world(register by scripts)
+		KBEngine.Event.registerOut("onAvatarEnterWorld", this, "onAvatarEnterWorld");
 		KBEngine.Event.registerOut("set_HP", this, "set_HP");
 		KBEngine.Event.registerOut("set_MP", this, "set_MP");
 		KBEngine.Event.registerOut("set_HP_Max", this, "set_HP_Max");
