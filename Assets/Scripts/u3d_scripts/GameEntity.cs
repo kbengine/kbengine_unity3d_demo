@@ -280,6 +280,7 @@ public class GameEntity : MonoBehaviour
 		}
 		else
 		{
+			position = destPosition;
 		}
 	}
 	
