@@ -431,8 +431,11 @@ public class UI : MonoBehaviour
 	public void onReloginBaseappTimer() 
 	{
 		if(ui_state == 0)
+		{
+			err("disconnect! (你已掉线!)");
 			return;
-
+		}
+	
 		KBEngineApp.app.reloginBaseapp();
 		
 		if(startRelogin)
