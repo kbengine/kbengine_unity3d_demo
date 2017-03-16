@@ -24,6 +24,8 @@ public class UI : MonoBehaviour
 	private UInt64 selAvatarDBID = 0;
 	public bool showReliveGUI = false;
 	
+	bool startRelogin = false;
+	
 	void Awake() 
 	 {
 		inst = this;
@@ -51,6 +53,8 @@ public class UI : MonoBehaviour
 		KBEngine.Event.registerOut("onScriptVersionNotMatch", this, "onScriptVersionNotMatch");
 		KBEngine.Event.registerOut("onLoginBaseappFailed", this, "onLoginBaseappFailed");
 		KBEngine.Event.registerOut("onLoginSuccessfully", this, "onLoginSuccessfully");
+		KBEngine.Event.registerOut("onReloginBaseappFailed", this, "onReloginBaseappFailed");
+		KBEngine.Event.registerOut("onReloginBaseappSuccessfully", this, "onReloginBaseappSuccessfully");
 		KBEngine.Event.registerOut("onLoginBaseapp", this, "onLoginBaseapp");
 		KBEngine.Event.registerOut("Loginapp_importClientMessages", this, "Loginapp_importClientMessages");
 		KBEngine.Event.registerOut("Baseapp_importClientMessages", this, "Baseapp_importClientMessages");
@@ -348,6 +352,18 @@ public class UI : MonoBehaviour
 		info("connect to loginBaseapp, please wait...(连接到网关， 请稍后...)");
 	}
 
+	public void onReloginBaseappFailed(UInt16 failedcode)
+	{
+		err("relogin is failed(重连网关失败), err=" + KBEngineApp.app.serverErr(failedcode));
+		startRelogin = false;
+	}
+	
+	public void onReloginBaseappSuccessfully()
+	{
+		info("relogin is successfully!(重连成功!)");
+		startRelogin = false;
+	}
+	
 	public void onLoginSuccessfully(UInt64 rndUUID, Int32 eid, Account accountEntity)
 	{
 		info("login is successfully!(登陆成功!)");
@@ -407,5 +423,19 @@ public class UI : MonoBehaviour
 	
 	public void onDisconnected()
 	{
+		err("disconnect! will try to reconnect...(你已掉线，尝试重连中!)");
+		startRelogin = true;
+		Invoke("onReloginBaseappTimer", 1.0f);
+	}
+	
+	public void onReloginBaseappTimer() 
+	{
+		if(ui_state == 0)
+			return;
+
+		KBEngineApp.app.reloginBaseapp();
+		
+		if(startRelogin)
+			Invoke("onReloginBaseappTimer", 3.0f);
 	}
 }
