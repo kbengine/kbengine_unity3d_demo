@@ -1,24 +1,26 @@
 KBEngine_unity3d_demo
 =============
 
-##This client-project is written for KBEngine(a MMOG engine of server)
+## This client-project is written for KBEngine(a MMOG engine of server)
+
 http://www.kbengine.org
 
-##ÖÐÎÄ
-[Demo´î½¨ÎÄµµ](https://github.com/kbengine/kbengine_unity3d_demo/blob/master/README_CN.md)£¬QQ½»Á÷Èº£º461368412£¬[ÂÛÌ³](http://bbs.kbengine.org)
+## ä¸­æ–‡
 
-##Releases
+[Demoæ­å»ºæ–‡æ¡£](https://github.com/kbengine/kbengine_unity3d_demo/blob/master/README_CN.md)ï¼ŒQQäº¤æµç¾¤ï¼š461368412ï¼Œ[è®ºå›](http://bbs.kbengine.org)
+
+## Releases
 
 	sources		: https://github.com/kbengine/kbengine_unity3d_demo/releases/latest
 	binarys		: https://sourceforge.net/projects/kbengine/files/
 
 
-##KBE-Plugins docs
+## KBE-Plugins docs
 
 	https://github.com/kbengine/kbengine_unity3d_plugins/blob/master/README.md
 
 
-##Start:
+## Start:
 	1. Download KBEngine(a MMOG engine of server):
 		Download(KBEngine):
 			https://github.com/kbengine/kbengine/releases/latest
@@ -53,7 +55,7 @@ http://www.kbengine.org
 ![demo_configure](http://www.kbengine.org/assets/img/screenshots/demo_copy_kbengine.jpg)
 
 
-##Configure Demo(Optional):
+## Configure Demo(Optional):
 
 	Change the login address:
 ![demo_configure](http://www.kbengine.org/assets/img/screenshots/demo_configure.jpg)
@@ -62,10 +64,10 @@ http://www.kbengine.org
 		kbengine_unity3d_demo\Scripts\kbe_scripts\clientapp.cs -> port
 
 
-##Start the Servers:
+## Start the Servers:
 
 	Ensure that the "kbengine_unity3d_demo\kbengine_demos_assets" has been copied to the "kbengine\" directory
-		Reference£ºStart
+		Referenceï¼šStart
 
 	Check the startup status:
 		If successful will find log "Components::process(): Found all the components!".
@@ -82,13 +84,13 @@ http://www.kbengine.org
 		(More: http://www.kbengine.org/docs/startup_shutdown.html)
 
 
-##Start the Client:
+## Start the Client:
 
 	Directly start(U3DEditor or Executable file).
-	(Build Client£ºUnity Editor -> File -> Build Settings -> PC, MAC & Linux Standalone.)
+	(Build Clientï¼šUnity Editor -> File -> Build Settings -> PC, MAC & Linux Standalone.)
 
 
-##Navmesh-navigation(Optional):
+## Navmesh-navigation(Optional):
 	
 	The server to use recastnavigation navigation.
 	Recastnavigation generated navigation mesh (Navmeshs) placed on the:
@@ -98,7 +100,7 @@ http://www.kbengine.org
 		https://github.com/kbengine/unity3d_nav_critterai
 
 
-##Structure and interpretation:
+## Structure and interpretation:
 			
 	The relationship between plug-ins(KBE) and U3D and servers:
 		Plug-in and servers: Responsible for processing and server network packet. account login/logout process. 
@@ -115,25 +117,25 @@ http://www.kbengine.org
 	Scripts\kbe_scripts:
 		KBE client logic scripts(in this implementation of the server side of the entity script, the entity's bag data structure, skills in client condition checks, etc.).
 
-		Scripts\kbe_scripts\Account.cs£º
+		Scripts\kbe_scripts\Account.csï¼š
 			Corresponds to the client side of the KBE server account entity.
 
-		Scripts\kbe_scripts\Avatar.cs£º
+		Scripts\kbe_scripts\Avatar.csï¼š
 			Corresponds to the client side of the KBE server avatar entity.
 
-		Scripts\kbe_scripts\Monster.cs£º
+		Scripts\kbe_scripts\Monster.csï¼š
 			Corresponds to the client side of the KBE server monster entity.
 
-		Scripts\kbe_scripts\clientapp.cs£º
+		Scripts\kbe_scripts\clientapp.csï¼š
 			In the system of KBE abstraction of a client APP, which contains the KBE client plug-in initialization and destruction, etc.
 
-		Scripts\kbe_scripts\interfaces£º
+		Scripts\kbe_scripts\interfacesï¼š
 			Corresponding to the module defined in KBE(entity_defs\interfaces).
 
 	Scripts\u3d_scripts:
 		Unity graphics layer (including scene rendering, UI, object, character model, monster model).
 
-		Scripts\u3d_scripts\GameEntity.cs£º
+		Scripts\u3d_scripts\GameEntity.csï¼š
 			Monster/NPC or player script (management model and animation, etc.).
 
 		Scripts\u3d_scripts\World.cs:
@@ -154,7 +156,8 @@ http://www.kbengine.org
 	Scenes\_scenes\world.unity:
 		A map of the scene in the game.
 
-##Screenshots:
+## Screenshots:
+
 ![screenshots1](http://www.kbengine.org/assets/img/screenshots/unity3d_demo9.jpg)
 ![screenshots2](http://www.kbengine.org/assets/img/screenshots/unity3d_demo10.jpg)
 ![screenshots3](http://www.kbengine.org/assets/img/screenshots/unity3d_demo11.jpg)
