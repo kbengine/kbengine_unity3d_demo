@@ -188,8 +188,10 @@ public class World : MonoBehaviour
 		if(entity.renderObj == null)
 			return;
 
-		((UnityEngine.GameObject)entity.renderObj).GetComponent<GameEntity>().destPosition = entity.position;
-		((UnityEngine.GameObject)entity.renderObj).GetComponent<GameEntity>().position = entity.position;
+		GameEntity gameEntity = ((UnityEngine.GameObject)entity.renderObj).GetComponent<GameEntity>();
+		gameEntity.destPosition = entity.position;
+		gameEntity.position = entity.position;
+		gameEntity.spaceID = KBEngineApp.app.spaceID;
 	}
 
 	public void updatePosition(KBEngine.Entity entity)
@@ -200,6 +202,7 @@ public class World : MonoBehaviour
 		GameEntity gameEntity = ((UnityEngine.GameObject)entity.renderObj).GetComponent<GameEntity>();
 		gameEntity.destPosition = entity.position;
 		gameEntity.isOnGround = entity.isOnGround;
+		gameEntity.spaceID = KBEngineApp.app.spaceID;
 	}
 	
 	public void onControlled(KBEngine.Entity entity, bool isControlled)
@@ -216,8 +219,9 @@ public class World : MonoBehaviour
 		if(entity.renderObj == null)
 			return;
 		
-		((UnityEngine.GameObject)entity.renderObj).GetComponent<GameEntity>().destDirection = 
-			new Vector3(entity.direction.y, entity.direction.z, entity.direction.x); 
+		GameEntity gameEntity = ((UnityEngine.GameObject)entity.renderObj).GetComponent<GameEntity>();
+		gameEntity.destDirection = new Vector3(entity.direction.y, entity.direction.z, entity.direction.x); 
+		gameEntity.spaceID = KBEngineApp.app.spaceID;
 	}
 
 	public void set_HP(KBEngine.Entity entity, object v)

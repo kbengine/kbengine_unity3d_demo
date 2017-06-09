@@ -13,6 +13,7 @@ public class GameEntity : MonoBehaviour
 	private Vector3 _position = Vector3.zero;
 	private Vector3 _eulerAngles = Vector3.zero;
 	private Vector3 _scale = Vector3.zero;
+	private UInt32 _spaceID = 0;
 	
 	public Vector3 destPosition = Vector3.zero;
 	public Vector3 destDirection = Vector3.zero;
@@ -152,6 +153,18 @@ public class GameEntity : MonoBehaviour
 		}    
     } 
 
+    public UInt32 spaceID {  
+		get
+		{
+			return _spaceID;
+		}
+
+		set
+		{
+			_spaceID = value;
+		}    
+    } 
+    
 	public void entityEnable()
 	{
 		entityEnabled = true;
@@ -189,7 +202,7 @@ public class GameEntity : MonoBehaviour
     	if(isPlayer == isControlled)
     		return;
 
-		KBEngine.Event.fireIn("updatePlayer", gameObject.transform.position.x, 
+		KBEngine.Event.fireIn("updatePlayer", spaceID, gameObject.transform.position.x, 
 			gameObject.transform.position.y, gameObject.transform.position.z, gameObject.transform.rotation.eulerAngles.y);
     }
     
