@@ -228,7 +228,7 @@ public class UI : MonoBehaviour
 		UnityEngine.GameObject obj = UnityEngine.GameObject.Find("player(Clone)");
 		if(obj != null)
 		{
-			GUI.Label(new Rect((Screen.width / 2) - 100, 20, 400, 100), "position=" + obj.transform.position.ToString()); 
+			GUI.Label(new Rect((Screen.width / 2) - 100, 20, 400, 100), "id=" + KBEngineApp.app.entity_id + ", position=" + obj.transform.position.ToString()); 
 		}
 	}
 
