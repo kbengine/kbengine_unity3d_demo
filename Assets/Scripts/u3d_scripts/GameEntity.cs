@@ -49,7 +49,7 @@ public class GameEntity : MonoBehaviour
 	
 	void OnGUI()
 	{
-		if(!gameObject.transform.FindChild ("Graphics").GetComponent<MeshRenderer> ().renderer.isVisible)
+		if(!gameObject.transform.Find ("Graphics").GetComponent<MeshRenderer> ().GetComponent<Renderer>().isVisible)
 			return;
 		
 		Vector3 worldPosition = new Vector3 (transform.position.x , transform.position.y + npcHeight, transform.position.z);
@@ -180,17 +180,17 @@ public class GameEntity : MonoBehaviour
 		if (v == 3) 
 		{
 			if(isPlayer)
-				gameObject.transform.FindChild ("Graphics").GetComponent<MeshRenderer> ().material.color = Color.green;
+				gameObject.transform.Find ("Graphics").GetComponent<MeshRenderer> ().material.color = Color.green;
 			else
-				gameObject.transform.FindChild ("Graphics").GetComponent<MeshRenderer> ().material.color = Color.red;
+				gameObject.transform.Find ("Graphics").GetComponent<MeshRenderer> ().material.color = Color.red;
 		} else if (v == 0) 
 		{
 			if(isPlayer)
-				gameObject.transform.FindChild ("Graphics").GetComponent<MeshRenderer> ().material.color = Color.blue;
+				gameObject.transform.Find ("Graphics").GetComponent<MeshRenderer> ().material.color = Color.blue;
 			else
-				gameObject.transform.FindChild ("Graphics").GetComponent<MeshRenderer> ().material.color = Color.white;
+				gameObject.transform.Find ("Graphics").GetComponent<MeshRenderer> ().material.color = Color.white;
 		} else if (v == 1) {
-			gameObject.transform.FindChild ("Graphics").GetComponent<MeshRenderer> ().material.color = Color.black;
+			gameObject.transform.Find ("Graphics").GetComponent<MeshRenderer> ().material.color = Color.black;
 		}
 	}
 	

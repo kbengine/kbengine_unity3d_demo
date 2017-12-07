@@ -49,7 +49,7 @@ function Awake ()
 	
 	if (controller)
 	{
-		var characterController : CharacterController = _target.collider;
+		var characterController : CharacterController = _target.GetComponent.<Collider>();
 		centerOffset = characterController.bounds.center - _target.position;
 		headOffset = centerOffset;
 		headOffset.y = characterController.bounds.max.y - _target.position.y;
@@ -202,8 +202,8 @@ function SetUpRotation (centerPos : Vector3, headPos : Vector3)
 	cameraTransform.rotation = yRotation * Quaternion.LookRotation(relativeOffset);
 
 	// Calculate the projected center position and top position in world space
-	var centerRay = cameraTransform.camera.ViewportPointToRay(Vector3(.5, 0.5, 1));
-	var topRay = cameraTransform.camera.ViewportPointToRay(Vector3(.5, clampHeadPositionScreenSpace, 1));
+	var centerRay = cameraTransform.GetComponent.<Camera>().ViewportPointToRay(Vector3(.5, 0.5, 1));
+	var topRay = cameraTransform.GetComponent.<Camera>().ViewportPointToRay(Vector3(.5, clampHeadPositionScreenSpace, 1));
 
 	var centerRayPos = centerRay.GetPoint(distance);
 	var topRayPos = topRay.GetPoint(distance);
