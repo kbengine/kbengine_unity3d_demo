@@ -12,12 +12,11 @@ http://www.kbengine.org
 ## Releases
 
 	sources		: https://github.com/kbengine/kbengine_unity3d_demo/releases/latest
-	binarys		: https://sourceforge.net/projects/kbengine/files/
 
 
 ## KBE-Plugins docs
 
-	https://github.com/kbengine/kbengine_unity3d_plugins/blob/master/README.md
+	kbengine_unity3d_demo\Assets\Plugins\kbengine_unity3d_plugins\README.md
 
 
 ## Start:
@@ -31,7 +30,7 @@ http://www.kbengine.org
 		Installation(KBEngine):
 			http://www.kbengine.org/docs/installation.html
 
-	2. Use git to get the plugin(client) and demo-assets(server):
+	2. Use git to get the demo-assets(server):
 
 		In the kbengine_unity3d_demo directory:
 
@@ -41,11 +40,7 @@ http://www.kbengine.org
 		* Or use TortoiseGit(menu): TortoiseGit -> Submodule Update:
 ![submodule_update2](http://www.kbengine.org/assets/img/screenshots/unity3d_plugins_submodule_update.jpg)
 
-		* Or manually get the plugin(client) and demo-assets(server)
-
-			Download plugin(client):
-				https://github.com/kbengine/kbengine_unity3d_plugins/releases/latest
-				unzip and copy to "Assets/plugins/kbengine/kbengine_unity3d_plugins"
+		* Or manually get the demo-assets(server)
 
 			Download demo-assets(server):
 				https://github.com/kbengine/kbengine_demos_assets/releases/latest
@@ -53,6 +48,11 @@ http://www.kbengine.org
 
 	3. Copy "kbengine_unity3d_demo\kbengine_demos_assets" to "kbengine\" root directory
 ![demo_configure](http://www.kbengine.org/assets/img/screenshots/demo_copy_kbengine.jpg)
+
+
+	4. Generate a Client plugins from the server-side asset library (optional, one by default unless the server-assets is modified)
+		1: Double-click to run kbengine/kbengine_demos_asset/gensdk.bat
+		2: Copy kbengine_unity3d_plugins to kbengine_unity3d_demo\Assets\Plugins\
 
 
 ## Configure Demo(Optional):
