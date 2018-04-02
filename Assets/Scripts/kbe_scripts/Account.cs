@@ -1,4 +1,4 @@
-﻿namespace KBEngine
+namespace KBEngine
 {
   	using UnityEngine; 
 	using System; 
@@ -6,11 +6,11 @@
 	using System.Collections.Generic;
 	using System.Linq;
 	
-    public class Account : KBEngine.GameObject 
+    public class Account : AccountBase 
     {
-		public Dictionary<UInt64, Dictionary<string, object>> avatars = new Dictionary<UInt64, Dictionary<string, object>>();
+		public Dictionary<UInt64, AVATAR_INFOS> avatars = new Dictionary<UInt64, AVATAR_INFOS>();
 		
-		public Account()
+		public Account() : base()
 		{
 		}
 		
@@ -25,7 +25,7 @@
 			Event.fireOut("onLoginSuccessfully", new object[]{KBEngineApp.app.entity_uuid, id, this});
 			
 			// 向服务端请求获得角色列表
-			baseCall("reqAvatarList");
+			baseEntityCall.reqAvatarList();
 		}
 
 		public override void onDestroy ()
@@ -33,12 +33,12 @@
 			KBEngine.Event.deregisterIn(this);
 		}
 		
-		public void onCreateAvatarResult(Byte retcode, object info)
+		public override void onCreateAvatarResult(Byte retcode, AVATAR_INFOS info)
 		{
 			if(retcode == 0)
 			{
-				avatars.Add((UInt64)((Dictionary<string, object>)info)["dbid"], (Dictionary<string, object>)info);
-				Dbg.DEBUG_MSG("Account::onCreateAvatarResult: name=" + (string)((Dictionary<string, object>)info)["name"]);
+				avatars.Add(info.dbid, info);
+				Dbg.DEBUG_MSG("Account::onCreateAvatarResult: name=" + info.name);
 			}
 			else
 			{
@@ -49,7 +49,7 @@
 			Event.fireOut("onCreateAvatarResult", new object[]{retcode, info, avatars});
 		}
 		
-		public void onRemoveAvatar(UInt64 dbid)
+		public override void onRemoveAvatar(UInt64 dbid)
 		{
 			Dbg.DEBUG_MSG("Account::onRemoveAvatar: dbid=" + dbid);
 			
@@ -59,25 +59,23 @@
 			Event.fireOut("onRemoveAvatar", new object[]{dbid, avatars});
 		}
 		
-		public void onReqAvatarList(Dictionary<string, object> infos)
+		public override void onReqAvatarList(AVATAR_INFOS_LIST infos)
 		{
 			avatars.Clear();
-			
-			List<object> listinfos = (List<object>)infos["values"];
 				
-			Dbg.DEBUG_MSG("Account::onReqAvatarList: avatarsize=" + listinfos.Count);
-			for(int i=0; i< listinfos.Count; i++)
+			Dbg.DEBUG_MSG("Account::onReqAvatarList: avatarsize=" + infos.values.Count);
+			for(int i=0; i< infos.values.Count; i++)
 			{
-				Dictionary<string, object> info = (Dictionary<string, object>)listinfos[i];
-				Dbg.DEBUG_MSG("Account::onReqAvatarList: name" + i + "=" + (string)info["name"]);
-				avatars.Add((UInt64)info["dbid"], info);
+				AVATAR_INFOS info = infos.values[i];
+				Dbg.DEBUG_MSG("Account::onReqAvatarList: name" + i + "=" + info.name);
+				avatars.Add(info.dbid, info);
 			}
 			
 			// ui event
-			Dictionary<UInt64, Dictionary<string, object>> avatarList = new Dictionary<ulong, Dictionary<string, object>>(avatars);
+			Dictionary<UInt64, AVATAR_INFOS> avatarList = new Dictionary<UInt64, AVATAR_INFOS>(avatars);
 			Event.fireOut("onReqAvatarList", new object[]{avatarList});
 
-			if(listinfos.Count == 0)
+			if(infos.values.Count == 0)
 				return;
 			
 			// selectAvatarGame(avatars.Keys.ToList()[0]);
@@ -86,19 +84,19 @@
 		public void reqCreateAvatar(Byte roleType, string name)
 		{
 			Dbg.DEBUG_MSG("Account::reqCreateAvatar: roleType=" + roleType);
-			baseCall("reqCreateAvatar", roleType, name);
+			baseEntityCall.reqCreateAvatar(roleType, name);
 		}
 
 		public void reqRemoveAvatar(string name)
 		{
 			Dbg.DEBUG_MSG("Account::reqRemoveAvatar: name=" + name);
-			baseCall("reqRemoveAvatar", name);
+			baseEntityCall.reqRemoveAvatar(name);
 		}
 		
 		public void selectAvatarGame(UInt64 dbid)
 		{
 			Dbg.DEBUG_MSG("Account::selectAvatarGame: dbid=" + dbid);
-			baseCall("selectAvatarGame", dbid);
+			baseEntityCall.selectAvatarGame(dbid);
 		}
     }
 } 

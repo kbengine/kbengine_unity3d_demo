@@ -17,7 +17,7 @@ public class UI : MonoBehaviour
 	private string labelMsg = "";
 	private Color labelColor = Color.green;
 	
-	private Dictionary<UInt64, Dictionary<string, object>> ui_avatarList = null;
+	private Dictionary<UInt64, AVATAR_INFOS> ui_avatarList = null;
 	
 	private string stringAvatarName = "";
 	private bool startCreateAvatar = false;
@@ -96,8 +96,8 @@ public class UI : MonoBehaviour
 				
 				if(ui_avatarList != null && ui_avatarList.Count > 0)
 				{
-					Dictionary<string, object> avatarinfo = ui_avatarList[selAvatarDBID];
-					KBEngine.Event.fireIn("reqRemoveAvatar", (string)avatarinfo["name"]);
+					AVATAR_INFOS avatarinfo = ui_avatarList[selAvatarDBID];
+					KBEngine.Event.fireIn("reqRemoveAvatar", avatarinfo.name);
 				}
 			}
         }
@@ -146,24 +146,20 @@ public class UI : MonoBehaviour
 			int idx = 0;
 			foreach(UInt64 dbid in ui_avatarList.Keys)
 			{
-				Dictionary<string, object> info = ui_avatarList[dbid];
-			//	Byte roleType = (Byte)info["roleType"];
-				string name = (string)info["name"];
-			//	UInt16 level = (UInt16)info["level"];
-				UInt64 idbid = (UInt64)info["dbid"];
+				AVATAR_INFOS info = ui_avatarList[dbid];
 
 				idx++;
 				
 				Color color = GUI.contentColor;
-				if(selAvatarDBID == idbid)
+				if(selAvatarDBID == info.dbid)
 				{
 					GUI.contentColor = Color.red;
 				}
 				
-				if (GUI.Button(new Rect(Screen.width / 2 - 100, Screen.height / 2 + 120 - 35 * idx, 200, 30), name))    
+				if (GUI.Button(new Rect(Screen.width / 2 - 100, Screen.height / 2 + 120 - 35 * idx, 200, 30), info.name))    
 				{
-					Debug.Log("selAvatar:" + name);
-					selAvatarDBID = idbid;
+					Debug.Log("selAvatar:" + info.name);
+					selAvatarDBID = info.dbid;
 				}
 				
 				GUI.contentColor = color;
@@ -175,7 +171,7 @@ public class UI : MonoBehaviour
 			{
 				KBEngine.Account account = (KBEngine.Account)KBEngineApp.app.player();
 				if(account != null)
-					ui_avatarList = new Dictionary<ulong, Dictionary<string, object>>(account.avatars);
+					ui_avatarList = new Dictionary<UInt64, AVATAR_INFOS>(account.avatars);
 			}
 		}
 	}
@@ -395,12 +391,12 @@ public class UI : MonoBehaviour
 		info("importClientEntityDef ...");
 	}
 	
-	public void onReqAvatarList(Dictionary<UInt64, Dictionary<string, object>> avatarList)
+	public void onReqAvatarList(Dictionary<UInt64, AVATAR_INFOS> avatarList)
 	{
 		ui_avatarList = avatarList;
 	}
 	
-	public void onCreateAvatarResult(Byte retcode, object info, Dictionary<UInt64, Dictionary<string, object>> avatarList)
+	public void onCreateAvatarResult(UInt64 retcode, AVATAR_INFOS info, Dictionary<UInt64, AVATAR_INFOS> avatarList)
 	{
 		if(retcode != 0)
 		{
@@ -411,7 +407,7 @@ public class UI : MonoBehaviour
 		onReqAvatarList(avatarList);
 	}
 	
-	public void onRemoveAvatar(UInt64 dbid, Dictionary<UInt64, Dictionary<string, object>> avatarList)
+	public void onRemoveAvatar(UInt64 dbid, Dictionary<UInt64, AVATAR_INFOS> avatarList)
 	{
 		if(dbid == 0)
 		{

@@ -1,4 +1,4 @@
-﻿namespace KBEngine
+namespace KBEngine
 {
   	using UnityEngine; 
 	using System; 
