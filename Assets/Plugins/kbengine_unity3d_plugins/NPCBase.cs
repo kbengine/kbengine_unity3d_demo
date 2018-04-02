@@ -214,7 +214,7 @@ namespace KBEngine
 						}
 
 						break;
-					case 33:
+					case 43:
 						Byte oldval_moveSpeed = moveSpeed;
 						moveSpeed = stream.readUint8();
 

@@ -370,11 +370,47 @@ namespace KBEngine
 
 			//Dbg.DEBUG_MSG("EntityDef::initScriptModules: add(Avatar), property(MP_Max / 47004).");
 
+			Property pAvatar_component1 = new Property();
+			pAvatar_component1.name = "component1";
+			pAvatar_component1.properUtype = 16;
+			pAvatar_component1.properFlags = 255;
+			pAvatar_component1.aliasID = 8;
+			pAvatarModule.propertys["component1"] = pAvatar_component1; 
+
+			pAvatarModule.usePropertyDescrAlias = true;
+			pAvatarModule.idpropertys[(UInt16)pAvatar_component1.aliasID] = pAvatar_component1;
+
+			//Dbg.DEBUG_MSG("EntityDef::initScriptModules: add(Avatar), property(component1 / 16).");
+
+			Property pAvatar_component2 = new Property();
+			pAvatar_component2.name = "component2";
+			pAvatar_component2.properUtype = 21;
+			pAvatar_component2.properFlags = 255;
+			pAvatar_component2.aliasID = 9;
+			pAvatarModule.propertys["component2"] = pAvatar_component2; 
+
+			pAvatarModule.usePropertyDescrAlias = true;
+			pAvatarModule.idpropertys[(UInt16)pAvatar_component2.aliasID] = pAvatar_component2;
+
+			//Dbg.DEBUG_MSG("EntityDef::initScriptModules: add(Avatar), property(component2 / 21).");
+
+			Property pAvatar_component3 = new Property();
+			pAvatar_component3.name = "component3";
+			pAvatar_component3.properUtype = 22;
+			pAvatar_component3.properFlags = 159;
+			pAvatar_component3.aliasID = 10;
+			pAvatarModule.propertys["component3"] = pAvatar_component3; 
+
+			pAvatarModule.usePropertyDescrAlias = true;
+			pAvatarModule.idpropertys[(UInt16)pAvatar_component3.aliasID] = pAvatar_component3;
+
+			//Dbg.DEBUG_MSG("EntityDef::initScriptModules: add(Avatar), property(component3 / 22).");
+
 			Property pAvatar_forbids = new Property();
 			pAvatar_forbids.name = "forbids";
 			pAvatar_forbids.properUtype = 47005;
 			pAvatar_forbids.properFlags = 4;
-			pAvatar_forbids.aliasID = 8;
+			pAvatar_forbids.aliasID = 11;
 			Int32 Avatar_forbids_defval;
 			Int32.TryParse("0", out Avatar_forbids_defval);
 			pAvatar_forbids.defaultVal = Avatar_forbids_defval;
@@ -389,7 +425,7 @@ namespace KBEngine
 			pAvatar_level.name = "level";
 			pAvatar_level.properUtype = 41002;
 			pAvatar_level.properFlags = 8;
-			pAvatar_level.aliasID = 9;
+			pAvatar_level.aliasID = 12;
 			UInt16 Avatar_level_defval;
 			UInt16.TryParse("", out Avatar_level_defval);
 			pAvatar_level.defaultVal = Avatar_level_defval;
@@ -404,7 +440,7 @@ namespace KBEngine
 			pAvatar_modelID.name = "modelID";
 			pAvatar_modelID.properUtype = 41006;
 			pAvatar_modelID.properFlags = 4;
-			pAvatar_modelID.aliasID = 10;
+			pAvatar_modelID.aliasID = 13;
 			UInt32 Avatar_modelID_defval;
 			UInt32.TryParse("0", out Avatar_modelID_defval);
 			pAvatar_modelID.defaultVal = Avatar_modelID_defval;
@@ -419,7 +455,7 @@ namespace KBEngine
 			pAvatar_modelScale.name = "modelScale";
 			pAvatar_modelScale.properUtype = 41007;
 			pAvatar_modelScale.properFlags = 4;
-			pAvatar_modelScale.aliasID = 11;
+			pAvatar_modelScale.aliasID = 14;
 			Byte Avatar_modelScale_defval;
 			Byte.TryParse("30", out Avatar_modelScale_defval);
 			pAvatar_modelScale.defaultVal = Avatar_modelScale_defval;
@@ -434,7 +470,7 @@ namespace KBEngine
 			pAvatar_moveSpeed.name = "moveSpeed";
 			pAvatar_moveSpeed.properUtype = 11;
 			pAvatar_moveSpeed.properFlags = 4;
-			pAvatar_moveSpeed.aliasID = 12;
+			pAvatar_moveSpeed.aliasID = 15;
 			Byte Avatar_moveSpeed_defval;
 			Byte.TryParse("50", out Avatar_moveSpeed_defval);
 			pAvatar_moveSpeed.defaultVal = Avatar_moveSpeed_defval;
@@ -449,7 +485,7 @@ namespace KBEngine
 			pAvatar_name.name = "name";
 			pAvatar_name.properUtype = 41003;
 			pAvatar_name.properFlags = 4;
-			pAvatar_name.aliasID = 13;
+			pAvatar_name.aliasID = 16;
 			string Avatar_name_defval = "";
 			pAvatar_name.defaultVal = Avatar_name_defval;
 			pAvatarModule.propertys["name"] = pAvatar_name; 
@@ -463,7 +499,7 @@ namespace KBEngine
 			pAvatar_own_val.name = "own_val";
 			pAvatar_own_val.properUtype = 6;
 			pAvatar_own_val.properFlags = 16;
-			pAvatar_own_val.aliasID = 14;
+			pAvatar_own_val.aliasID = 17;
 			UInt16 Avatar_own_val_defval;
 			UInt16.TryParse("", out Avatar_own_val_defval);
 			pAvatar_own_val.defaultVal = Avatar_own_val_defval;
@@ -478,7 +514,7 @@ namespace KBEngine
 			pAvatar_spaceUType.name = "spaceUType";
 			pAvatar_spaceUType.properUtype = 41001;
 			pAvatar_spaceUType.properFlags = 8;
-			pAvatar_spaceUType.aliasID = 15;
+			pAvatar_spaceUType.aliasID = 18;
 			UInt32 Avatar_spaceUType_defval;
 			UInt32.TryParse("", out Avatar_spaceUType_defval);
 			pAvatar_spaceUType.defaultVal = Avatar_spaceUType_defval;
@@ -493,7 +529,7 @@ namespace KBEngine
 			pAvatar_state.name = "state";
 			pAvatar_state.properUtype = 47006;
 			pAvatar_state.properFlags = 4;
-			pAvatar_state.aliasID = 16;
+			pAvatar_state.aliasID = 19;
 			SByte Avatar_state_defval;
 			SByte.TryParse("0", out Avatar_state_defval);
 			pAvatar_state.defaultVal = Avatar_state_defval;
@@ -508,7 +544,7 @@ namespace KBEngine
 			pAvatar_subState.name = "subState";
 			pAvatar_subState.properUtype = 47007;
 			pAvatar_subState.properFlags = 4;
-			pAvatar_subState.aliasID = 17;
+			pAvatar_subState.aliasID = 20;
 			Byte Avatar_subState_defval;
 			Byte.TryParse("", out Avatar_subState_defval);
 			pAvatar_subState.defaultVal = Avatar_subState_defval;
@@ -523,7 +559,7 @@ namespace KBEngine
 			pAvatar_uid.name = "uid";
 			pAvatar_uid.properUtype = 41004;
 			pAvatar_uid.properFlags = 4;
-			pAvatar_uid.aliasID = 18;
+			pAvatar_uid.aliasID = 21;
 			UInt32 Avatar_uid_defval;
 			UInt32.TryParse("0", out Avatar_uid_defval);
 			pAvatar_uid.defaultVal = Avatar_uid_defval;
@@ -538,7 +574,7 @@ namespace KBEngine
 			pAvatar_utype.name = "utype";
 			pAvatar_utype.properUtype = 41005;
 			pAvatar_utype.properFlags = 4;
-			pAvatar_utype.aliasID = 19;
+			pAvatar_utype.aliasID = 22;
 			UInt32 Avatar_utype_defval;
 			UInt32.TryParse("0", out Avatar_utype_defval);
 			pAvatar_utype.defaultVal = Avatar_utype_defval;
@@ -741,9 +777,241 @@ namespace KBEngine
 
 			//Dbg.DEBUG_MSG("EntityDef::initScriptModules: add(Avatar), method(useTargetSkill / 11001).");
 
+			ScriptModule pTestModule = new ScriptModule("Test");
+			EntityDef.moduledefs["Test"] = pTestModule;
+			EntityDef.idmoduledefs[3] = pTestModule;
+
+			Property pTest_position = new Property();
+			pTest_position.name = "position";
+			pTest_position.properUtype = 40000;
+			pTest_position.properFlags = 4;
+			pTest_position.aliasID = 1;
+			Vector3 Test_position_defval = new Vector3();
+			pTest_position.defaultVal = Test_position_defval;
+			pTestModule.propertys["position"] = pTest_position; 
+
+			pTestModule.usePropertyDescrAlias = true;
+			pTestModule.idpropertys[(UInt16)pTest_position.aliasID] = pTest_position;
+
+			//Dbg.DEBUG_MSG("EntityDef::initScriptModules: add(Test), property(position / 40000).");
+
+			Property pTest_direction = new Property();
+			pTest_direction.name = "direction";
+			pTest_direction.properUtype = 40001;
+			pTest_direction.properFlags = 4;
+			pTest_direction.aliasID = 2;
+			Vector3 Test_direction_defval = new Vector3();
+			pTest_direction.defaultVal = Test_direction_defval;
+			pTestModule.propertys["direction"] = pTest_direction; 
+
+			pTestModule.usePropertyDescrAlias = true;
+			pTestModule.idpropertys[(UInt16)pTest_direction.aliasID] = pTest_direction;
+
+			//Dbg.DEBUG_MSG("EntityDef::initScriptModules: add(Test), property(direction / 40001).");
+
+			Property pTest_spaceID = new Property();
+			pTest_spaceID.name = "spaceID";
+			pTest_spaceID.properUtype = 40002;
+			pTest_spaceID.properFlags = 16;
+			pTest_spaceID.aliasID = 3;
+			UInt32 Test_spaceID_defval;
+			UInt32.TryParse("", out Test_spaceID_defval);
+			pTest_spaceID.defaultVal = Test_spaceID_defval;
+			pTestModule.propertys["spaceID"] = pTest_spaceID; 
+
+			pTestModule.usePropertyDescrAlias = true;
+			pTestModule.idpropertys[(UInt16)pTest_spaceID.aliasID] = pTest_spaceID;
+
+			//Dbg.DEBUG_MSG("EntityDef::initScriptModules: add(Test), property(spaceID / 40002).");
+
+			Property pTest_own = new Property();
+			pTest_own.name = "own";
+			pTest_own.properUtype = 18;
+			pTest_own.properFlags = 8;
+			pTest_own.aliasID = 4;
+			Int32 Test_own_defval;
+			Int32.TryParse("1001", out Test_own_defval);
+			pTest_own.defaultVal = Test_own_defval;
+			pTestModule.propertys["own"] = pTest_own; 
+
+			pTestModule.usePropertyDescrAlias = true;
+			pTestModule.idpropertys[(UInt16)pTest_own.aliasID] = pTest_own;
+
+			//Dbg.DEBUG_MSG("EntityDef::initScriptModules: add(Test), property(own / 18).");
+
+			Property pTest_state = new Property();
+			pTest_state.name = "state";
+			pTest_state.properUtype = 17;
+			pTest_state.properFlags = 4;
+			pTest_state.aliasID = 5;
+			Int32 Test_state_defval;
+			Int32.TryParse("100", out Test_state_defval);
+			pTest_state.defaultVal = Test_state_defval;
+			pTestModule.propertys["state"] = pTest_state; 
+
+			pTestModule.usePropertyDescrAlias = true;
+			pTestModule.idpropertys[(UInt16)pTest_state.aliasID] = pTest_state;
+
+			//Dbg.DEBUG_MSG("EntityDef::initScriptModules: add(Test), property(state / 17).");
+
+			List<DATATYPE_BASE> pTest_helloCB_args = new List<DATATYPE_BASE>();
+			pTest_helloCB_args.Add(EntityDef.id2datatypes[8]);
+
+			Method pTest_helloCB = new Method();
+			pTest_helloCB.name = "helloCB";
+			pTest_helloCB.methodUtype = 28;
+			pTest_helloCB.aliasID = 1;
+			pTest_helloCB.args = pTest_helloCB_args;
+
+			pTestModule.methods["helloCB"] = pTest_helloCB; 
+			pTestModule.useMethodDescrAlias = true;
+			pTestModule.idmethods[(UInt16)pTest_helloCB.aliasID] = pTest_helloCB;
+
+			//Dbg.DEBUG_MSG("EntityDef::initScriptModules: add(Test), method(helloCB / 28).");
+
+			List<DATATYPE_BASE> pTest_say_args = new List<DATATYPE_BASE>();
+			pTest_say_args.Add(EntityDef.id2datatypes[8]);
+
+			Method pTest_say = new Method();
+			pTest_say.name = "say";
+			pTest_say.methodUtype = 27;
+			pTest_say.aliasID = -1;
+			pTest_say.args = pTest_say_args;
+
+			pTestModule.methods["say"] = pTest_say; 
+			pTestModule.base_methods["say"] = pTest_say;
+
+			pTestModule.idbase_methods[pTest_say.methodUtype] = pTest_say;
+
+			//Dbg.DEBUG_MSG("EntityDef::initScriptModules: add(Test), method(say / 27).");
+
+			List<DATATYPE_BASE> pTest_hello_args = new List<DATATYPE_BASE>();
+			pTest_hello_args.Add(EntityDef.id2datatypes[8]);
+
+			Method pTest_hello = new Method();
+			pTest_hello.name = "hello";
+			pTest_hello.methodUtype = 26;
+			pTest_hello.aliasID = -1;
+			pTest_hello.args = pTest_hello_args;
+
+			pTestModule.methods["hello"] = pTest_hello; 
+			pTestModule.cell_methods["hello"] = pTest_hello;
+
+			pTestModule.idcell_methods[pTest_hello.methodUtype] = pTest_hello;
+
+			//Dbg.DEBUG_MSG("EntityDef::initScriptModules: add(Test), method(hello / 26).");
+
+			ScriptModule pTestNoBaseModule = new ScriptModule("TestNoBase");
+			EntityDef.moduledefs["TestNoBase"] = pTestNoBaseModule;
+			EntityDef.idmoduledefs[4] = pTestNoBaseModule;
+
+			Property pTestNoBase_position = new Property();
+			pTestNoBase_position.name = "position";
+			pTestNoBase_position.properUtype = 40000;
+			pTestNoBase_position.properFlags = 4;
+			pTestNoBase_position.aliasID = 1;
+			Vector3 TestNoBase_position_defval = new Vector3();
+			pTestNoBase_position.defaultVal = TestNoBase_position_defval;
+			pTestNoBaseModule.propertys["position"] = pTestNoBase_position; 
+
+			pTestNoBaseModule.usePropertyDescrAlias = true;
+			pTestNoBaseModule.idpropertys[(UInt16)pTestNoBase_position.aliasID] = pTestNoBase_position;
+
+			//Dbg.DEBUG_MSG("EntityDef::initScriptModules: add(TestNoBase), property(position / 40000).");
+
+			Property pTestNoBase_direction = new Property();
+			pTestNoBase_direction.name = "direction";
+			pTestNoBase_direction.properUtype = 40001;
+			pTestNoBase_direction.properFlags = 4;
+			pTestNoBase_direction.aliasID = 2;
+			Vector3 TestNoBase_direction_defval = new Vector3();
+			pTestNoBase_direction.defaultVal = TestNoBase_direction_defval;
+			pTestNoBaseModule.propertys["direction"] = pTestNoBase_direction; 
+
+			pTestNoBaseModule.usePropertyDescrAlias = true;
+			pTestNoBaseModule.idpropertys[(UInt16)pTestNoBase_direction.aliasID] = pTestNoBase_direction;
+
+			//Dbg.DEBUG_MSG("EntityDef::initScriptModules: add(TestNoBase), property(direction / 40001).");
+
+			Property pTestNoBase_spaceID = new Property();
+			pTestNoBase_spaceID.name = "spaceID";
+			pTestNoBase_spaceID.properUtype = 40002;
+			pTestNoBase_spaceID.properFlags = 16;
+			pTestNoBase_spaceID.aliasID = 3;
+			UInt32 TestNoBase_spaceID_defval;
+			UInt32.TryParse("", out TestNoBase_spaceID_defval);
+			pTestNoBase_spaceID.defaultVal = TestNoBase_spaceID_defval;
+			pTestNoBaseModule.propertys["spaceID"] = pTestNoBase_spaceID; 
+
+			pTestNoBaseModule.usePropertyDescrAlias = true;
+			pTestNoBaseModule.idpropertys[(UInt16)pTestNoBase_spaceID.aliasID] = pTestNoBase_spaceID;
+
+			//Dbg.DEBUG_MSG("EntityDef::initScriptModules: add(TestNoBase), property(spaceID / 40002).");
+
+			Property pTestNoBase_own = new Property();
+			pTestNoBase_own.name = "own";
+			pTestNoBase_own.properUtype = 24;
+			pTestNoBase_own.properFlags = 8;
+			pTestNoBase_own.aliasID = 4;
+			Int32 TestNoBase_own_defval;
+			Int32.TryParse("1001", out TestNoBase_own_defval);
+			pTestNoBase_own.defaultVal = TestNoBase_own_defval;
+			pTestNoBaseModule.propertys["own"] = pTestNoBase_own; 
+
+			pTestNoBaseModule.usePropertyDescrAlias = true;
+			pTestNoBaseModule.idpropertys[(UInt16)pTestNoBase_own.aliasID] = pTestNoBase_own;
+
+			//Dbg.DEBUG_MSG("EntityDef::initScriptModules: add(TestNoBase), property(own / 24).");
+
+			Property pTestNoBase_state = new Property();
+			pTestNoBase_state.name = "state";
+			pTestNoBase_state.properUtype = 23;
+			pTestNoBase_state.properFlags = 4;
+			pTestNoBase_state.aliasID = 5;
+			Int32 TestNoBase_state_defval;
+			Int32.TryParse("100", out TestNoBase_state_defval);
+			pTestNoBase_state.defaultVal = TestNoBase_state_defval;
+			pTestNoBaseModule.propertys["state"] = pTestNoBase_state; 
+
+			pTestNoBaseModule.usePropertyDescrAlias = true;
+			pTestNoBaseModule.idpropertys[(UInt16)pTestNoBase_state.aliasID] = pTestNoBase_state;
+
+			//Dbg.DEBUG_MSG("EntityDef::initScriptModules: add(TestNoBase), property(state / 23).");
+
+			List<DATATYPE_BASE> pTestNoBase_helloCB_args = new List<DATATYPE_BASE>();
+			pTestNoBase_helloCB_args.Add(EntityDef.id2datatypes[8]);
+
+			Method pTestNoBase_helloCB = new Method();
+			pTestNoBase_helloCB.name = "helloCB";
+			pTestNoBase_helloCB.methodUtype = 30;
+			pTestNoBase_helloCB.aliasID = 1;
+			pTestNoBase_helloCB.args = pTestNoBase_helloCB_args;
+
+			pTestNoBaseModule.methods["helloCB"] = pTestNoBase_helloCB; 
+			pTestNoBaseModule.useMethodDescrAlias = true;
+			pTestNoBaseModule.idmethods[(UInt16)pTestNoBase_helloCB.aliasID] = pTestNoBase_helloCB;
+
+			//Dbg.DEBUG_MSG("EntityDef::initScriptModules: add(TestNoBase), method(helloCB / 30).");
+
+			List<DATATYPE_BASE> pTestNoBase_hello_args = new List<DATATYPE_BASE>();
+			pTestNoBase_hello_args.Add(EntityDef.id2datatypes[8]);
+
+			Method pTestNoBase_hello = new Method();
+			pTestNoBase_hello.name = "hello";
+			pTestNoBase_hello.methodUtype = 29;
+			pTestNoBase_hello.aliasID = -1;
+			pTestNoBase_hello.args = pTestNoBase_hello_args;
+
+			pTestNoBaseModule.methods["hello"] = pTestNoBase_hello; 
+			pTestNoBaseModule.cell_methods["hello"] = pTestNoBase_hello;
+
+			pTestNoBaseModule.idcell_methods[pTestNoBase_hello.methodUtype] = pTestNoBase_hello;
+
+			//Dbg.DEBUG_MSG("EntityDef::initScriptModules: add(TestNoBase), method(hello / 29).");
+
 			ScriptModule pMonsterModule = new ScriptModule("Monster");
 			EntityDef.moduledefs["Monster"] = pMonsterModule;
-			EntityDef.idmoduledefs[3] = pMonsterModule;
+			EntityDef.idmoduledefs[5] = pMonsterModule;
 
 			Property pMonster_position = new Property();
 			pMonster_position.name = "position";
@@ -910,7 +1178,7 @@ namespace KBEngine
 
 			Property pMonster_moveSpeed = new Property();
 			pMonster_moveSpeed.name = "moveSpeed";
-			pMonster_moveSpeed.properUtype = 22;
+			pMonster_moveSpeed.properUtype = 32;
 			pMonster_moveSpeed.properFlags = 4;
 			pMonster_moveSpeed.aliasID = 12;
 			Byte Monster_moveSpeed_defval;
@@ -921,7 +1189,7 @@ namespace KBEngine
 			pMonsterModule.usePropertyDescrAlias = true;
 			pMonsterModule.idpropertys[(UInt16)pMonster_moveSpeed.aliasID] = pMonster_moveSpeed;
 
-			//Dbg.DEBUG_MSG("EntityDef::initScriptModules: add(Monster), property(moveSpeed / 22).");
+			//Dbg.DEBUG_MSG("EntityDef::initScriptModules: add(Monster), property(moveSpeed / 32).");
 
 			Property pMonster_name = new Property();
 			pMonster_name.name = "name";
@@ -1005,7 +1273,7 @@ namespace KBEngine
 
 			Method pMonster_recvDamage = new Method();
 			pMonster_recvDamage.name = "recvDamage";
-			pMonster_recvDamage.methodUtype = 29;
+			pMonster_recvDamage.methodUtype = 34;
 			pMonster_recvDamage.aliasID = 1;
 			pMonster_recvDamage.args = pMonster_recvDamage_args;
 
@@ -1013,11 +1281,11 @@ namespace KBEngine
 			pMonsterModule.useMethodDescrAlias = true;
 			pMonsterModule.idmethods[(UInt16)pMonster_recvDamage.aliasID] = pMonster_recvDamage;
 
-			//Dbg.DEBUG_MSG("EntityDef::initScriptModules: add(Monster), method(recvDamage / 29).");
+			//Dbg.DEBUG_MSG("EntityDef::initScriptModules: add(Monster), method(recvDamage / 34).");
 
 			ScriptModule pNPCModule = new ScriptModule("NPC");
 			EntityDef.moduledefs["NPC"] = pNPCModule;
-			EntityDef.idmoduledefs[4] = pNPCModule;
+			EntityDef.idmoduledefs[6] = pNPCModule;
 
 			Property pNPC_position = new Property();
 			pNPC_position.name = "position";
@@ -1109,7 +1377,7 @@ namespace KBEngine
 
 			Property pNPC_moveSpeed = new Property();
 			pNPC_moveSpeed.name = "moveSpeed";
-			pNPC_moveSpeed.properUtype = 33;
+			pNPC_moveSpeed.properUtype = 43;
 			pNPC_moveSpeed.properFlags = 4;
 			pNPC_moveSpeed.aliasID = 7;
 			Byte NPC_moveSpeed_defval;
@@ -1120,7 +1388,7 @@ namespace KBEngine
 			pNPCModule.usePropertyDescrAlias = true;
 			pNPCModule.idpropertys[(UInt16)pNPC_moveSpeed.aliasID] = pNPC_moveSpeed;
 
-			//Dbg.DEBUG_MSG("EntityDef::initScriptModules: add(NPC), property(moveSpeed / 33).");
+			//Dbg.DEBUG_MSG("EntityDef::initScriptModules: add(NPC), property(moveSpeed / 43).");
 
 			Property pNPC_name = new Property();
 			pNPC_name.name = "name";
@@ -1168,7 +1436,7 @@ namespace KBEngine
 
 			ScriptModule pGateModule = new ScriptModule("Gate");
 			EntityDef.moduledefs["Gate"] = pGateModule;
-			EntityDef.idmoduledefs[5] = pGateModule;
+			EntityDef.idmoduledefs[7] = pGateModule;
 
 			Property pGate_position = new Property();
 			pGate_position.name = "position";
@@ -1605,6 +1873,39 @@ namespace KBEngine
 				string typeName = "AnonymousArray_32";
 				DATATYPE_AnonymousArray_32 datatype = new DATATYPE_AnonymousArray_32();
 				EntityDef.datatypes[typeName] = datatype;
+				EntityDef.id2datatypes[utype] = EntityDef.datatypes[typeName];
+				EntityDef.datatype2id[typeName] = utype;
+			}
+
+			{
+				UInt16 utype = 33;
+				string typeName = "AnonymousArray_33";
+				string name = "ENTITY_COMPONENT";
+				DATATYPE_BASE val = null;
+				EntityDef.datatypes.TryGetValue(name, out val);
+				EntityDef.datatypes[typeName] = val;
+				EntityDef.id2datatypes[utype] = EntityDef.datatypes[typeName];
+				EntityDef.datatype2id[typeName] = utype;
+			}
+
+			{
+				UInt16 utype = 34;
+				string typeName = "AnonymousArray_34";
+				string name = "ENTITY_COMPONENT";
+				DATATYPE_BASE val = null;
+				EntityDef.datatypes.TryGetValue(name, out val);
+				EntityDef.datatypes[typeName] = val;
+				EntityDef.id2datatypes[utype] = EntityDef.datatypes[typeName];
+				EntityDef.datatype2id[typeName] = utype;
+			}
+
+			{
+				UInt16 utype = 35;
+				string typeName = "AnonymousArray_35";
+				string name = "ENTITY_COMPONENT";
+				DATATYPE_BASE val = null;
+				EntityDef.datatypes.TryGetValue(name, out val);
+				EntityDef.datatypes[typeName] = val;
 				EntityDef.id2datatypes[utype] = EntityDef.datatypes[typeName];
 				EntityDef.datatype2id[typeName] = utype;
 			}

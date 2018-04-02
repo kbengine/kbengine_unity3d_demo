@@ -15,9 +15,15 @@ namespace KBEngine
 	// defined in */scripts/entity_defs/Avatar.def
 	public class EntityBaseEntityCall_AvatarBase : EntityCall
 	{
+		public EntityBaseEntityCall_TestBase component1 = null;
+		public EntityBaseEntityCall_TestBase component2 = null;
+		public EntityBaseEntityCall_TestNoBaseBase component3 = null;
 
 		public EntityBaseEntityCall_AvatarBase(Int32 eid, string ename) : base(eid, ename)
 		{
+			component1 = new EntityBaseEntityCall_TestBase(16, id);
+			component2 = new EntityBaseEntityCall_TestBase(21, id);
+			component3 = new EntityBaseEntityCall_TestNoBaseBase(22, id);
 			type = ENTITYCALL_TYPE.ENTITYCALL_TYPE_BASE;
 		}
 
@@ -25,9 +31,15 @@ namespace KBEngine
 
 	public class EntityCellEntityCall_AvatarBase : EntityCall
 	{
+		public EntityCellEntityCall_TestBase component1 = null;
+		public EntityCellEntityCall_TestBase component2 = null;
+		public EntityCellEntityCall_TestNoBaseBase component3 = null;
 
 		public EntityCellEntityCall_AvatarBase(Int32 eid, string ename) : base(eid, ename)
 		{
+			component1 = new EntityCellEntityCall_TestBase(16, id);
+			component2 = new EntityCellEntityCall_TestBase(21, id);
+			component3 = new EntityCellEntityCall_TestNoBaseBase(22, id);
 			type = ENTITYCALL_TYPE.ENTITYCALL_TYPE_CELL;
 		}
 
