@@ -143,16 +143,16 @@ http://www.kbengine.org
 		Scripts\u3d_scripts\UI.cs:
 			维护游戏的UI处理脚本。
 
-	Scenes\start.unity:
+	start.unity:
 		起始场景，由此启动进入游戏。
 
-	Scenes\_scenes\login.unity:
+	Scenes\login.unity:
 		登陆场景。
 
-	Scenes\_scenes\selavatars.unity:
+	Scenes\selavatars.unity:
 		角色选取场景。
 
-	Scenes\_scenes\world.unity:
+	Scenes\world.unity:
 		游戏中大地图/副本场景。
 
 ## 演示截图:
