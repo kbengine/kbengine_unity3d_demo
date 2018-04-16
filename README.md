@@ -144,16 +144,16 @@ http://www.kbengine.org
 		Scripts\u3d_scripts\UI.cs:
 			the game's UI processing script.
 
-	Scenes\start.unity:
+	start.unity:
 		Start the scene, which starts to enter the game.
 
-	Scenes\_scenes\login.unity:
+	Scenes\login.unity:
 		login map.
 
-	Scenes\_scenes\selavatars.unity:
+	Scenes\selavatars.unity:
 		Game character selection map.
 
-	Scenes\_scenes\world.unity:
+	Scenes\world.unity:
 		A map of the scene in the game.
 
 ## Screenshots:
