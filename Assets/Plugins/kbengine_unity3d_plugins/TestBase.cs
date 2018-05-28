@@ -15,12 +15,22 @@ namespace KBEngine
 	// defined in */scripts/entity_defs/Test.def
 	public abstract class TestBase : EntityComponent
 	{
+		public EntityBaseEntityCall_TestBase baseEntityCall = null;
+		public EntityCellEntityCall_TestBase cellEntityCall = null;
+
 		public Int32 own = 1001;
 		public virtual void onOwnChanged(Int32 oldValue) {}
 		public Int32 state = 100;
 		public virtual void onStateChanged(Int32 oldValue) {}
 
 		public abstract void helloCB(Int32 arg1); 
+
+		public override void createFromStream(MemoryStream stream)
+		{
+			base.createFromStream(stream);
+			baseEntityCall = new EntityBaseEntityCall_TestBase(entityComponentPropertyID, ownerID);
+			cellEntityCall = new EntityCellEntityCall_TestBase(entityComponentPropertyID, ownerID);
+		}
 
 		public override void onRemoteMethodCall(UInt16 methodUtype, MemoryStream stream)
 		{
