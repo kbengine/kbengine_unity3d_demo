@@ -80,7 +80,7 @@
 		public string clientVersion = "1.1.8";
 		public string serverScriptVersion = "";
 		public string clientScriptVersion = "0.1.0";
-		public string serverProtocolMD5 = "A27C011AA0FCAC031A349A8A3D288C7D";
+		public string serverProtocolMD5 = "4930E6C01028CE4D5B3CE228CA841378";
 		public string serverEntitydefMD5 = "39BBC4CA001B76B399F5F1CF960055BD";
 		
 		// 当前玩家的实体id与实体类别
