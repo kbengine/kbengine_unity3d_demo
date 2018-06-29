@@ -25,20 +25,20 @@ http://www.kbengine.org
 			https://github.com/kbengine/kbengine/releases/latest
 
 		Build(KBEngine):
-			http://www.kbengine.org/docs/build.html
+			http://kbengine.github.io/docs/build.html
 
 		Installation(KBEngine):
-			http://www.kbengine.org/docs/installation.html
+			http://kbengine.github.io/docs/installation.html
 
 	2. Use git to get the demo-assets(server):
 
 		In the kbengine_unity3d_demo directory:
 
 		* Git command: git submodule update --init --remote
-![submodule_update1](http://www.kbengine.org/assets/img/screenshots/gitbash_submodule.png)
+![submodule_update1](http://kbengine.github.io/assets/img/screenshots/gitbash_submodule.png)
 
 		* Or use TortoiseGit(menu): TortoiseGit -> Submodule Update:
-![submodule_update2](http://www.kbengine.org/assets/img/screenshots/unity3d_plugins_submodule_update.jpg)
+![submodule_update2](http://kbengine.github.io/assets/img/screenshots/unity3d_plugins_submodule_update.jpg)
 
 		* Or manually get the demo-assets(server)
 
@@ -47,7 +47,7 @@ http://www.kbengine.org
 				unzip and copy to "kbengine/"  (The root directory server engine, such as $KBE_ROOT)
 
 	3. Copy "kbengine_unity3d_demo\kbengine_demos_assets" to "kbengine\" root directory
-![demo_configure](http://www.kbengine.org/assets/img/screenshots/demo_copy_kbengine.jpg)
+![demo_configure](http://kbengine.github.io/assets/img/screenshots/demo_copy_kbengine.jpg)
 
 
 	4. Generate a Client plugins from the server-side asset library (optional, one by default unless the server-assets is modified)
@@ -58,7 +58,7 @@ http://www.kbengine.org
 ## Configure Demo(Optional):
 
 	Change the login address:
-![demo_configure](http://www.kbengine.org/assets/img/screenshots/demo_configure.jpg)
+![demo_configure](http://kbengine.github.io/assets/img/screenshots/demo_configure.jpg)
 
 		kbengine_unity3d_demo\Scripts\kbe_scripts\clientapp.cs -> ip
 		kbengine_unity3d_demo\Scripts\kbe_scripts\clientapp.cs -> port
@@ -81,7 +81,7 @@ http://www.kbengine.org
 		Linux:
 			kbengine\kbengine_demos_assets\start_server.sh
 
-		(More: http://www.kbengine.org/docs/startup_shutdown.html)
+		(More: http://kbengine.github.io/docs/startup_shutdown.html)
 
 
 ## Start the Client:
@@ -158,6 +158,6 @@ http://www.kbengine.org
 
 ## Screenshots:
 
-![screenshots1](http://www.kbengine.org/assets/img/screenshots/unity3d_demo9.jpg)
-![screenshots2](http://www.kbengine.org/assets/img/screenshots/unity3d_demo10.jpg)
-![screenshots3](http://www.kbengine.org/assets/img/screenshots/unity3d_demo11.jpg)
+![screenshots1](http://kbengine.github.io/assets/img/screenshots/unity3d_demo9.jpg)
+![screenshots2](http://kbengine.github.io/assets/img/screenshots/unity3d_demo10.jpg)
+![screenshots3](http://kbengine.github.io/assets/img/screenshots/unity3d_demo11.jpg)
