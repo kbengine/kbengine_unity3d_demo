@@ -72,7 +72,7 @@ http://www.kbengine.org
 	Check the startup status:
 		If successful will find log "Components::process(): Found all the components!".
 		Otherwise, please search the "ERROR" keyword in logs, according to the error description to try to solve.
-		(More: http://www.kbengine.org/docs/startup_shutdown.html)
+		(More: http://kbengine.github.io/docs/startup_shutdown.html)
 
 	Start server:
 		Windows:
