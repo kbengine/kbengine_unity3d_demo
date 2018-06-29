@@ -31,20 +31,20 @@ http://www.kbengine.org
 			https://github.com/kbengine/kbengine/releases/latest
 
 		编译(KBEngine)：
-			http://www.kbengine.org/docs/build.html
+			http://kbengine.github.io/docs/build.html
 
 		安装(KBEngine)：
-			http://www.kbengine.org/docs/installation.html
+			http://kbengine.github.io/docs/installation.html
 
 	2. 下载服务端Demo资产库:
 
 	    * 使用git命令行，进入到kbengine_unity3d_demo目录执行：
 
 	        git submodule update --init --remote
-![submodule_update1](http://www.kbengine.org/assets/img/screenshots/gitbash_submodule.png)
+![submodule_update1](http://kbengine.github.io/assets/img/screenshots/gitbash_submodule.png)
 
 		* 或者使用 TortoiseGit(选择菜单): TortoiseGit -> Submodule Update:
-![submodule_update2](http://www.kbengine.org/assets/img/screenshots/unity3d_plugins_submodule_update.jpg)
+![submodule_update2](http://kbengine.github.io/assets/img/screenshots/unity3d_plugins_submodule_update.jpg)
 
                 * 也可以手动下载服务端Demo资产库
 
@@ -53,7 +53,7 @@ http://www.kbengine.org
 		            下载后请将其解压缩,并将目录文件放置于服务端引擎根目录"kbengine/"之下，如下图：
 
 	3. 拷贝服务端资产库"kbengine_demos_assets"到服务端引擎根目录"kbengine/"之下，如下图：
-![demo_configure](http://www.kbengine.org/assets/img/screenshots/demo_copy_kbengine.jpg)
+![demo_configure](http://kbengine.github.io/assets/img/screenshots/demo_copy_kbengine.jpg)
 
 
 	4. 通过服务端资产库生成KBE客户端插件（可选，默认已经带有一份，除非服务器有相关改动才需要再次生成）
@@ -63,8 +63,8 @@ http://www.kbengine.org
 
 ## 配置Demo(可选):
 
-	改变登录IP地址与端口（注意：关于服务端端口部分参看http://www.kbengine.org/cn/docs/installation.html）:
-![demo_configure](http://www.kbengine.org/assets/img/screenshots/demo_configure.jpg)
+	改变登录IP地址与端口（注意：关于服务端端口部分参看http://kbengine.github.io/cn/docs/installation.html）:
+![demo_configure](http://kbengine.github.io/assets/img/screenshots/demo_configure.jpg)
 
 		kbengine_unity3d_demo\Scripts\kbe_scripts\clientapp.cs -> ip
 		kbengine_unity3d_demo\Scripts\kbe_scripts\clientapp.cs -> port
@@ -85,7 +85,7 @@ http://www.kbengine.org
 	检查启动状态：
 			如果启动成功将会在日志中找到"Components::process(): Found all the components!"。
 			任何其他情况请在日志中搜索"ERROR"关键字，根据错误描述尝试解决。
-			(更多参考: http://www.kbengine.org/docs/startup_shutdown.html)
+			(更多参考: http://kbengine.github.io/docs/startup_shutdown.html)
 
 
 ## 启动客户端:
@@ -157,6 +157,6 @@ http://www.kbengine.org
 
 ## 演示截图:
 
-![screenshots1](http://www.kbengine.org/assets/img/screenshots/unity3d_demo9.jpg)
-![screenshots2](http://www.kbengine.org/assets/img/screenshots/unity3d_demo10.jpg)
-![screenshots3](http://www.kbengine.org/assets/img/screenshots/unity3d_demo11.jpg)
+![screenshots1](http://kbengine.github.io/assets/img/screenshots/unity3d_demo9.jpg)
+![screenshots2](http://kbengine.github.io/assets/img/screenshots/unity3d_demo10.jpg)
+![screenshots3](http://kbengine.github.io/assets/img/screenshots/unity3d_demo11.jpg)
