@@ -1753,7 +1753,7 @@ namespace KBEngine
 			}
 
 			{
-				UInt16 utype = 10;
+				UInt16 utype = 20;
 				string typeName = "ENTITYCALL";
 				string name = "ENTITYCALL";
 				DATATYPE_BASE val = null;
