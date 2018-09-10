@@ -78,7 +78,7 @@
 		
 		// 服务端与客户端的版本号以及协议MD5
 		public string serverVersion = "";
-		public string clientVersion = "2.2.4";
+		public string clientVersion = "2.2.6";
 		public string serverScriptVersion = "";
 		public string clientScriptVersion = "0.1.0";
 		public string serverProtocolMD5 = "F3E12B81CB8A779E828749819B6F970C";
