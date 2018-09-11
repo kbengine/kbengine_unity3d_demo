@@ -18,6 +18,7 @@ public class KBEMain : MonoBehaviour
 	public string ip = "127.0.0.1";
 	public int port = 20013;
 	public KBEngineApp.CLIENT_TYPE clientType = KBEngineApp.CLIENT_TYPE.CLIENT_TYPE_MINI;
+	public KBEngineApp.ENCRYPT_TYPE encryptType = KBEngineApp.ENCRYPT_TYPE.ENCRYPT_TYPE_NONE;
 	public int syncPlayerMS = 1000 / 10;
 	public int threadUpdateHZ = 10 * 2;
 	public int serverHeartbeatTick = 60 / 2;
@@ -54,7 +55,8 @@ public class KBEMain : MonoBehaviour
 		args.ip = ip;
 		args.port = port;
 		args.clientType = clientType;
-		args.syncPlayerMS = syncPlayerMS;
+        args.encryptType = encryptType;
+        args.syncPlayerMS = syncPlayerMS;
 		args.threadUpdateHZ = threadUpdateHZ;
 		args.serverHeartbeatTick = serverHeartbeatTick;
 		args.useAliasEntityID = useAliasEntityID;
