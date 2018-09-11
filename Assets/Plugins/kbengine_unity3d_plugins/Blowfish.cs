@@ -12,9 +12,16 @@
         const int N = 16;
         const int KEYBYTES = 8;
         private byte[] _key = new byte[0];
-        private int _keySize = 16;
+        private bool _isGood = true;
 
         private static RNGCryptoServiceProvider rngCsp = new RNGCryptoServiceProvider();
+
+        // key的最小和最大大小
+        private const int MIN_KEY_SIZE = 32 / 8;
+        private const int MAX_KEY_SIZE = 448 / 8;
+
+        // 默认key的大小
+        private const int DEFAULT_KEY_SIZE = 128 / 8;
 
         static uint[] _P =
         {
@@ -212,8 +219,7 @@
         public Blowfish(byte[] key)
         {
             _key = key;
-            _keySize = _key.Length;
-             Init();
+             init();
         }
 
         public Blowfish(string key) : this(Encoding.Unicode.GetBytes(key))
@@ -221,19 +227,31 @@
 
         }
 
-        public Blowfish(int keySize=16)
+        public Blowfish(int keySize = DEFAULT_KEY_SIZE)
         {
             _key = new byte[keySize];
             rngCsp.GetBytes(_key);
-            Init();
+            init();
         }
 
         ~Blowfish()
         {
         }
 
-        private void Init()
+        public bool isGood()
         {
+            return _isGood;
+        }
+
+        private void init()
+        {
+            if(_key.Length < MIN_KEY_SIZE || _key.Length > MAX_KEY_SIZE)
+            {
+                _isGood = false;
+                Dbg.ERROR_MSG("Blowfish::init: invalid length " + _key.Length);
+                return;
+            }
+
             short i;
             short j;
             short k;
@@ -265,7 +283,7 @@
 
             for (i = 0; i < N + 2; i += 2)
             {
-                Encipher(ref datal, ref datar);
+                encipher(ref datal, ref datar);
                 P[i] = datal;
                 P[i + 1] = datar;
             }
@@ -274,18 +292,17 @@
             {
                 for (j = 0; j < 256; j += 2)
                 {
-                    Encipher(ref datal, ref datar);
+                    encipher(ref datal, ref datar);
 
                     S[i, j] = datal;
                     S[i, j + 1] = datar;
                 }
             }
 
-           // PrintKeyP();
-           // PrintKeyS();
+            _isGood = true;
         }
 
-        private uint F(uint x)
+        private uint f(uint x)
         {
             ushort a;
             ushort b;
@@ -308,26 +325,12 @@
             return y;
         }
 
-        public string StrBlowKey()
-        {
-            string hexString = string.Empty;
-            StringBuilder strB = new StringBuilder();
-            for (int i=0; i < _keySize; i++)
-            {
-                strB.Append(_key[i].ToString("X2"));
-                strB.Append(" ");
-            }
-            hexString = strB.ToString();
-
-            return hexString;
-        }
-
         /// <summary>
         /// Encrypts a byte array in place.
         /// </summary>
         /// <param name="data">The array to encrypt.</param>
         /// <param name="length">The amount to encrypt.</param>
-        public void Encipher(byte[] data, int length)
+        public void encipher(byte[] data, int length)
         {
             if ((length % 8) != 0)
                 throw new Exception("Invalid Length");
@@ -360,7 +363,7 @@
                 // Encode the data in 8 byte blocks.
                 xl = (uint)((data[i] << 24) | (data[i + 1] << 16) | (data[i + 2] << 8) | data[i + 3]);
                 xr = (uint)((data[i + 4] << 24) | (data[i + 5] << 16) | (data[i + 6] << 8) | data[i + 7]);
-                Encipher(ref xl, ref xr);
+                encipher(ref xl, ref xr);
                 // Now Replace the data.
                 data[i] = (byte)(xl >> 24);
                 data[i + 1] = (byte)(xl >> 16);
@@ -378,7 +381,7 @@
         /// </summary>
         /// <param name="xl">The left part of the 8 bytes.</param>
         /// <param name="xr">The right part of the 8 bytes.</param>
-        private void Encipher(ref uint xl, ref uint xr)
+        private void encipher(ref uint xl, ref uint xr)
         {
             uint Xl;
             uint Xr;
@@ -391,7 +394,7 @@
             for (i = 0; i < N; ++i)
             {
                 Xl = Xl ^ P[i];
-                Xr = F(Xl) ^ Xr;
+                Xr = f(Xl) ^ Xr;
 
                 temp = Xl;
                 Xl = Xr;
@@ -414,10 +417,10 @@
         /// </summary>
         /// <param name="data">The string to encrypt</param>
         /// <returns>Encrypted string</returns>
-        public String Encipher(String data)
+        public String encipher(String data)
         {
             byte[] b = Encoding.Unicode.GetBytes(data);
-            Encipher(b, b.Length);
+            encipher(b, b.Length);
 
             return Convert.ToBase64String(b);
         }
@@ -427,7 +430,7 @@
         /// </summary>
         /// <param name="data">The array to decrypt.</param>
         /// <param name="length">The amount to decrypt.</param>
-        public void Decipher(byte[] data, int startIndex, int length)
+        public void decipher(byte[] data, int startIndex, int length)
         {
             uint xl, xr;
             if ((length % 8) != 0)
@@ -440,7 +443,7 @@
                 int index = startIndex + i;
                 xl = (uint)((data[index] << 24) | (data[index + 1] << 16) | (data[index + 2] << 8) | data[index + 3]);
                 xr = (uint)((data[index + 4] << 24) | (data[index + 5] << 16) | (data[index + 6] << 8) | data[index + 7]);
-                Decipher(ref xl, ref xr);
+                decipher(ref xl, ref xr);
                 // Now Replace the data.
                 data[index] = (byte)(xl >> 24);
                 data[index + 1] = (byte)(xl >> 16);
@@ -474,7 +477,7 @@
         /// </summary>
         /// <param name="xl">The left part of the 8 bytes.</param>
         /// <param name="xr">The right part of the 8 bytes.</param>
-        private void Decipher(ref uint xl, ref uint xr)
+        private void decipher(ref uint xl, ref uint xr)
         {
             uint Xl;
             uint Xr;
@@ -487,7 +490,7 @@
             for (i = N + 1; i > 1; --i)
             {
                 Xl = Xl ^ P[i];
-                Xr = F(Xl) ^ Xr;
+                Xr = f(Xl) ^ Xr;
 
                 /* Exchange Xl and Xr */
                 temp = Xl;
@@ -512,15 +515,15 @@
         /// </summary>
         /// <param name="data">The String to decrypt</param>
         /// <returns>Decrypted string</returns>
-        public String Decipher(String data)
+        public String decipher(String data)
         {
             byte[] b = Convert.FromBase64String(data);
-            Decipher(b, 0, b.Length);
+            decipher(b, 0, b.Length);
 
             return Encoding.Unicode.GetString(b);
         }
 
-        public byte[] Key()
+        public byte[] key()
         {
             return _key;
         }

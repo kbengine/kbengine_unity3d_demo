@@ -41,7 +41,7 @@
 
         public  byte[] key()
         {
-            return _blowfish.Key();
+            return _blowfish.key();
         }
 
         public override void encrypt(MemoryStream stream)
@@ -54,7 +54,7 @@
                 Debug.Assert(stream.wpos <= MemoryStream.BUFFER_MAX);
             }
 
-            _blowfish.Encipher(stream.data(), (int)stream.length());
+            _blowfish.encipher(stream.data(), (int)stream.length());
 
             UInt16 packLen = (UInt16)(stream.length() + 1);
             _enctyptStrem.writeUint16(packLen);
@@ -65,26 +65,36 @@
             _enctyptStrem.clear();
         }
 
-
-
         public override void decrypt(MemoryStream stream)
         {
-            _blowfish.Decipher(stream.data(), stream.rpos, (int)stream.length());
+            _blowfish.decipher(stream.data(), stream.rpos, (int)stream.length());
         }
 
         public override void decrypt(byte[] buffer, int startIndex, int length)
         {
-            _blowfish.Decipher(buffer, startIndex, length);
+            _blowfish.decipher(buffer, startIndex, length);
         }
 
         public override bool send(PacketSenderBase sender, MemoryStream stream)
         {
+            if(!_blowfish.isGood())
+            {
+                Dbg.ERROR_MSG("BlowfishFilter::send: Dropping packet, due to invalid filter");
+                return false;
+            }
+
             encrypt(stream);
             return sender.send(stream);
         }
 
         public override bool recv(MessageReaderBase reader, byte[] buffer, UInt32 rpos, UInt32 len)
         {
+            if (!_blowfish.isGood())
+            {
+                Dbg.ERROR_MSG("BlowfishFilter::recv: Dropping packet, due to invalid filter");
+                return false;
+            }
+
             if (_packet.length() == 0 && len >= MIN_PACKET_SIZE && BitConverter.ToUInt16(buffer, (int)rpos) - 1 == len - 3)
             {
                 int packLen = BitConverter.ToUInt16(buffer, (int)rpos) - 1;
@@ -116,7 +126,6 @@
                         _padSize = _packet.readUint8();
 
                         _packLen -= 1;
-
 
                         if (_packet.length() > _packLen)
                         {
@@ -173,7 +182,7 @@
                 _packLen = 0;
                 _padSize = 0;
             }
-
+            
             return true;
         }
     }
