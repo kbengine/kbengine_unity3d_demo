@@ -67,6 +67,7 @@
 		{
 			_packetReceiver = null;
 			_packetSender = null;
+			_filter = null;
 			connected = false;
 
 			if(_socket != null)

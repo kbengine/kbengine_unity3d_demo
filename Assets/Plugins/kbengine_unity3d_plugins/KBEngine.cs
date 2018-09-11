@@ -57,7 +57,7 @@
 		};
 
         //加密通信类型
-        public enum ENCRYPT_TYPE
+        public enum NETWORK_ENCRYPT_TYPE
         {
             //无加密
             ENCRYPT_TYPE_NONE = 0,
@@ -375,7 +375,7 @@
 			else
 				bundle.newMessage(Messages.messages["Baseapp_hello"]);
 
-            if (_args.encryptType == ENCRYPT_TYPE.ENCRYPT_TYPE_BLOWFISH)
+            if (_args.networkEncryptType == NETWORK_ENCRYPT_TYPE.ENCRYPT_TYPE_BLOWFISH)
             {
                 _filter = new BlowfishFilter();
                 _encryptedKey = ((BlowfishFilter)_filter).key();
@@ -419,9 +419,10 @@
                 return;
             }
 
-            if (_args.encryptType == ENCRYPT_TYPE.ENCRYPT_TYPE_BLOWFISH)
+            if (_args.networkEncryptType == NETWORK_ENCRYPT_TYPE.ENCRYPT_TYPE_BLOWFISH)
             {
                 _networkInterface.setFilter(_filter);
+				_filter = null;
             }
 
             onServerDigest();
