@@ -64,6 +64,14 @@ namespace KBEngine
 			return cellEntityCall;
 		}
 
+		public override void attachComponents()
+		{
+		}
+
+		public override void detachComponents()
+		{
+		}
+
 		public override void onRemoteMethodCall(MemoryStream stream)
 		{
 			ScriptModule sm = EntityDef.moduledefs["NPC"];

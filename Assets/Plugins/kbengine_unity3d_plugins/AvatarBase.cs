@@ -134,6 +134,20 @@ namespace KBEngine
 			return cellEntityCall;
 		}
 
+		public override void attachComponents()
+		{
+			component1.onAttached(this);
+			component2.onAttached(this);
+			component3.onAttached(this);
+		}
+
+		public override void detachComponents()
+		{
+			component1.onDetached(this);
+			component2.onDetached(this);
+			component3.onDetached(this);
+		}
+
 		public override void onRemoteMethodCall(MemoryStream stream)
 		{
 			ScriptModule sm = EntityDef.moduledefs["Avatar"];
