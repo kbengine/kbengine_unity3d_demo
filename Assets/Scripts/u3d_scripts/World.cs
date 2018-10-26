@@ -63,6 +63,7 @@ public class World : MonoBehaviour
 	void Update () 
 	{
 		createPlayer();
+	
         if (Input.GetKeyUp(KeyCode.Space))
         {
 			Debug.Log("KeyCode.Space");
@@ -97,7 +98,10 @@ public class World : MonoBehaviour
 	
 	public void addSpaceGeometryMapping(string respath)
 	{
+		// 这个事件可以理解为服务器通知客户端加载指定的场景资源
+		// 通过服务器的api KBEngine.addSpaceGeometryMapping设置到spaceData中，进入space的玩家就会被同步spaceData里面的内容
 		Debug.Log("loading scene(" + respath + ")...");
+
 		UI.inst.info("scene(" + respath + "), spaceID=" + KBEngineApp.app.spaceID);
 		if(terrain == null)
 			terrain = Instantiate(terrainPerfab) as UnityEngine.GameObject;
@@ -119,6 +123,7 @@ public class World : MonoBehaviour
 
 	public void createPlayer()
 	{
+		// 需要等场景加载完毕再显示玩家
 		if (player != null)
 		{
 			if(terrain != null)
@@ -152,7 +157,8 @@ public class World : MonoBehaviour
 		// 那么如果不设置renderObj的位置和方向将为0，人物会陷入地下
 		set_position(avatar);
 		set_direction(avatar);
-	}
+        set_entityName(avatar, avatar.name);
+    }
 
 	public void onAddSkill(KBEngine.Entity entity)
 	{
