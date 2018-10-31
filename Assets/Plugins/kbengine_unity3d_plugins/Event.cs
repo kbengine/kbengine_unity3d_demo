@@ -305,6 +305,7 @@
 		public static void resume()
 		{
 			_isPauseOut = false;
+			processOutEvents();
 		}
 
 		public static bool isPause()
@@ -619,7 +620,7 @@
 				return;
 			}
 			
-			if(eventsImmediately)
+			if(eventsImmediately && !_isPauseOut)
 			{
 				for(int i=0; i<lst.Count; i++)
 				{
