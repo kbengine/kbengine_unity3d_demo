@@ -36,10 +36,29 @@
 		    public Int32 iv;
 		}
 
-		/// <summary>
-		/// 把自己放回缓冲池
-		/// </summary>
-		public void reclaimObject()
+        public byte[] setBuffer(byte[] buffer)
+        {
+            byte[] outBuf = datas_;
+            datas_ = buffer;
+            return outBuf;
+        }
+
+        public void swap(MemoryStream stream)
+        {
+            int t_rpos = rpos;
+            int t_wpos = wpos;
+            rpos = stream.rpos;
+            wpos = stream.wpos;
+            stream.rpos = t_rpos;
+            stream.wpos = t_wpos;
+
+            datas_ = stream.setBuffer(datas_);
+        }
+
+        /// <summary>
+        /// 把自己放回缓冲池
+        /// </summary>
+        public void reclaimObject()
 		{
 			clear();
 			reclaimObject(this);
