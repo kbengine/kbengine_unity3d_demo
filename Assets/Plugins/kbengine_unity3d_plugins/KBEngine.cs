@@ -77,11 +77,11 @@
 		
 		// 服务端与客户端的版本号以及协议MD5
 		public string serverVersion = "";
-		public string clientVersion = "1.2.2";
+		public string clientVersion = "1.2.7";
 		public string serverScriptVersion = "";
 		public string clientScriptVersion = "0.1.0";
 		public string serverProtocolMD5 = "17061F20D3B5B20E521AA297375B036A";
-		public string serverEntitydefMD5 = "39BBC4CA001B76B399F5F1CF960055BD";
+		public string serverEntitydefMD5 = "2DEF58E1F1EC601256C7E0C50A7FBDBE";
 		
 		// 当前玩家的实体id与实体类别
 		public UInt64 entity_uuid = 0;
@@ -461,7 +461,7 @@
 		*/
 		public void Client_onKicked(UInt16 failedcode)
 		{
-			Dbg.DEBUG_MSG("Client_onKicked: failedcode=" + failedcode);
+			Dbg.DEBUG_MSG("Client_onKicked: failedcode=" + failedcode + "(" + serverErr(failedcode) + ")");
 			Event.fireAll("onKicked", new object[]{failedcode});
 		}
 		
@@ -808,7 +808,7 @@
 		{
 			UInt16 failedcode = stream.readUint16();
 			_serverdatas = stream.readBlob();
-			Dbg.ERROR_MSG("KBEngine::Client_onLoginFailed: failedcode(" + failedcode + "), datas(" + _serverdatas.Length + ")!");
+			Dbg.ERROR_MSG("KBEngine::Client_onLoginFailed: failedcode(" + failedcode + ":" + serverErr(failedcode) + "), datas(" + _serverdatas.Length + ")!");
 			Event.fireAll("onLoginFailed", new object[]{failedcode});
 		}
 		
@@ -834,7 +834,7 @@
 		*/
 		public void Client_onLoginBaseappFailed(UInt16 failedcode)
 		{
-			Dbg.ERROR_MSG("KBEngine::Client_onLoginBaseappFailed: failedcode(" + failedcode + ")!");
+			Dbg.ERROR_MSG("KBEngine::Client_onLoginBaseappFailed: failedcode="+ failedcode + "(" + serverErr(failedcode) + ")!");
 			Event.fireAll("onLoginBaseappFailed", new object[]{failedcode});
 		}
 
@@ -843,7 +843,7 @@
 		*/
 		public void Client_onReloginBaseappFailed(UInt16 failedcode)
 		{
-			Dbg.ERROR_MSG("KBEngine::Client_onReloginBaseappFailed: failedcode(" + failedcode + ")!");
+			Dbg.ERROR_MSG("KBEngine::Client_onReloginBaseappFailed: failedcode=" + failedcode + "("  + serverErr(failedcode) + ")!");
 			Event.fireAll("onReloginBaseappFailed", new object[]{failedcode});
 		}
 		
@@ -1265,7 +1265,7 @@
 			
 			if(retcode != 0)
 			{
-				Dbg.WARNING_MSG("KBEngine::Client_onCreateAccountResult: " + username + " create is failed! code=" + retcode + "!");
+				Dbg.WARNING_MSG("KBEngine::Client_onCreateAccountResult: " + username + " create is failed! code=" + retcode + "(" + serverErr(retcode) +")!");
 				return;
 			}
 	
