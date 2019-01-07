@@ -263,7 +263,6 @@ public class UI : MonoBehaviour
 			labelMsg = "version not match(curr=" + KBEngineApp.app.clientVersion + ", srv=" + KBEngineApp.app.serverVersion + " )(版本不匹配)";
             labelMsg += "\nExecute the gensdk script to generate matching client SDK in the server-assets directory.";
             labelMsg += "\n(在服务端的资产目录下执行gensdk脚本生成匹配的客户端SDK)";
-
         }
 		else if(KBEngineApp.app != null && KBEngineApp.app.serverScriptVersion != "" 
 			&& KBEngineApp.app.serverScriptVersion != KBEngineApp.app.clientScriptVersion)
