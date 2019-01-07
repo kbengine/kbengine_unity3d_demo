@@ -32,6 +32,11 @@ namespace KBEngine
 			cellEntityCall = new EntityCellEntityCall_TestBase(entityComponentPropertyID, ownerID);
 		}
 
+		public override ScriptModule getScriptModule()
+		{
+			return EntityDef.moduledefs["Test"];
+		}
+
 		public override void onRemoteMethodCall(UInt16 methodUtype, MemoryStream stream)
 		{
 			ScriptModule sm = EntityDef.moduledefs["Test"];

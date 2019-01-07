@@ -88,11 +88,11 @@
 		
 		// 服务端与客户端的版本号以及协议MD5
 		public string serverVersion = "";
-		public string clientVersion = "2.3.0";
+		public string clientVersion = "2.3.4";
 		public string serverScriptVersion = "";
 		public string clientScriptVersion = "0.1.0";
-		public string serverProtocolMD5 = "193D9F820FE858940A7875F64FD9E051";
-		public string serverEntitydefMD5 = "BA476624996C0725B207BA1652CBF394";
+		public string serverProtocolMD5 = "15BB33A3346B4DBF182B132C85E37536";
+		public string serverEntitydefMD5 = "90AA620FCF194B85FBE7A8E4F4F8F938";
 		
 		// 当前玩家的实体id与实体类别
 		public UInt64 entity_uuid = 0;
@@ -875,7 +875,7 @@
 		{
 			UInt16 failedcode = stream.readUint16();
 			_serverdatas = stream.readBlob();
-			Dbg.ERROR_MSG("KBEngine::Client_onLoginFailed: failedcode=" + failedcode + "(" + serverErr(failedcode) +"), datas=" + _serverdatas.Length + " !");
+			Dbg.ERROR_MSG("KBEngine::Client_onLoginFailed: failedcode(" + failedcode + ":" + serverErr(failedcode) + "), datas(" + _serverdatas.Length + ")!");
 			Event.fireAll(EventOutTypes.onLoginFailed, failedcode);
 		}
 		
