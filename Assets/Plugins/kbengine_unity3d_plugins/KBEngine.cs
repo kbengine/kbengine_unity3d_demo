@@ -88,10 +88,10 @@
 		
 		// 服务端与客户端的版本号以及协议MD5
 		public string serverVersion = "";
-		public string clientVersion = "2.3.4";
+		public string clientVersion = "2.3.5";
 		public string serverScriptVersion = "";
 		public string clientScriptVersion = "0.1.0";
-		public string serverProtocolMD5 = "15BB33A3346B4DBF182B132C85E37536";
+		public string serverProtocolMD5 = "91E15FF1D8FE1B072A89D153B9263A1A";
 		public string serverEntitydefMD5 = "90AA620FCF194B85FBE7A8E4F4F8F938";
 		
 		// 当前玩家的实体id与实体类别
@@ -481,6 +481,23 @@
 			// 无需实现，已由插件生成静态代码
 		}
 
+		public void Client_onImportClientSDK(MemoryStream stream)
+		{
+			int remainingFiles = 0;
+			remainingFiles = stream.readInt32();
+
+			string fileName;
+			fileName = stream.readString();
+
+			int fileSize = 0;
+			fileSize = stream.readInt32();
+
+			byte[] fileDatas = new byte[0];
+			fileDatas = stream.readBlob();
+
+			Event.fireIn("onImportClientSDK", remainingFiles, fileName, fileSize, fileDatas);
+		}
+		
 		/*
 			引擎版本不匹配
 		*/
@@ -2010,16 +2027,19 @@
 		*/
 		public void Client_onStreamDataStarted(Int16 id, UInt32 datasize, string descr)
 		{
+			Event.fireOut(EventOutTypes.onStreamDataStarted, id, datasize, descr);
 		}
 		
 		public void Client_onStreamDataRecv(MemoryStream stream)
 		{
-			// Int16 resID = stream.readInt16();
-			// byte[] datas = stream.readBlob();
+			Int16 resID = stream.readInt16();
+			byte[] datas = stream.readBlob();
+			Event.fireOut(EventOutTypes.onStreamDataRecv, resID, datas);
 		}
 		
 		public void Client_onStreamDataCompleted(Int16 id)
 		{
+			Event.fireOut(EventOutTypes.onStreamDataCompleted, id);
 		}
 	}
 	
@@ -2161,3 +2181,4 @@
 		}
 	}
 } 
+
