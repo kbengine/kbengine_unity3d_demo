@@ -1,5 +1,6 @@
 namespace KBEngine
 {
+#if UNITY_EDITOR
     using UnityEngine;
     using UnityEditor;
     using System.Collections;
@@ -81,8 +82,6 @@ namespace KBEngine
 
         void downloadSDKFromServer()
         {
-   //         EditorApplication.LockReloadAssemblies();
-
             downloadFiles = 0;
 
             if (Directory.Exists(sdkTempPath))
@@ -119,7 +118,6 @@ namespace KBEngine
             // 删除旧的SKD文件夹
             Directory.Delete(sdkBakPath, true);
 
-        //    EditorApplication.UnlockReloadAssemblies();
             EditorApplication.isPlaying = false;
             AssetDatabase.Refresh();
         }
@@ -145,4 +143,5 @@ namespace KBEngine
 
         }
     }
+#endif
 }

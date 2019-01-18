@@ -54,14 +54,18 @@ public class KBEMain : MonoBehaviour
 	
 	public void onVersionNotMatch(string verInfo, string serVerInfo)
 	{
+#if UNITY_EDITOR
 		if(automaticallyUpdateSDK)
 			gameObject.AddComponent<ClientSDKUpdater>();
+#endif
 	}
 
 	public void onScriptVersionNotMatch(string verInfo, string serVerInfo)
 	{
+#if UNITY_EDITOR
 		if(automaticallyUpdateSDK)
 			gameObject.AddComponent<ClientSDKUpdater>();
+#endif
 	}
 
 	public virtual void initKBEngine()
@@ -122,4 +126,3 @@ public class KBEMain : MonoBehaviour
 		KBEngine.Event.processOutEvents();
 	}
 }
-
