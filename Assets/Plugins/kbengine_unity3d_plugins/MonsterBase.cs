@@ -54,6 +54,14 @@ namespace KBEngine
 		{
 		}
 
+		public override void onComponentsEnterworld()
+		{
+		}
+
+		public override void onComponentsLeaveworld()
+		{
+		}
+
 		public override void onGetBase()
 		{
 			baseEntityCall = new EntityBaseEntityCall_MonsterBase(id, className);

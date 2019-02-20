@@ -109,6 +109,20 @@ namespace KBEngine
 
 		}
 
+		public override void onComponentsEnterworld()
+		{
+			component1.onEnterworld();
+			component2.onEnterworld();
+			component3.onEnterworld();
+		}
+
+		public override void onComponentsLeaveworld()
+		{
+			component1.onLeaveworld();
+			component2.onLeaveworld();
+			component3.onLeaveworld();
+		}
+
 		public override void onGetBase()
 		{
 			baseEntityCall = new EntityBaseEntityCall_AvatarBase(id, className);
