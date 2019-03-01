@@ -87,10 +87,10 @@
 		
 		// 服务端与客户端的版本号以及协议MD5
 		public string serverVersion = "";
-		public string clientVersion = "1.3.1";
+		public string clientVersion = "1.3.2";
 		public string serverScriptVersion = "";
 		public string clientScriptVersion = "0.1.0";
-		public string serverProtocolMD5 = "A3CA8DE2ED97E73718690E99B2DCA0A7";
+		public string serverProtocolMD5 = "7B8CCB9938E6E87ADB6E56C1148C0ABC";
 		public string serverEntitydefMD5 = "D9BE27DA40153A58EFB4835189190B5D";
 		
 		// 当前玩家的实体id与实体类别
@@ -2474,3 +2474,4 @@
 		}
 	}
 } 
+
