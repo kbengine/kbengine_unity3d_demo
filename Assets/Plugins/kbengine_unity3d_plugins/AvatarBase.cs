@@ -73,6 +73,7 @@ namespace KBEngine
 					component1 = (TestBase)Activator.CreateInstance(entityComponentScript);
 					component1.owner = this;
 					component1.entityComponentPropertyID = 16;
+					component1.name_ = "Test";
 				}
 			}
 
@@ -87,6 +88,7 @@ namespace KBEngine
 					component2 = (TestBase)Activator.CreateInstance(entityComponentScript);
 					component2.owner = this;
 					component2.entityComponentPropertyID = 21;
+					component2.name_ = "Test";
 				}
 			}
 
@@ -101,6 +103,7 @@ namespace KBEngine
 					component3 = (TestNoBaseBase)Activator.CreateInstance(entityComponentScript);
 					component3.owner = this;
 					component3.entityComponentPropertyID = 22;
+					component3.name_ = "TestNoBase";
 				}
 			}
 
@@ -121,6 +124,34 @@ namespace KBEngine
 			component1.onLeaveworld();
 			component2.onLeaveworld();
 			component3.onLeaveworld();
+		}
+
+		public override List<EntityComponent> getComponents(string componentName, bool all)
+		{
+			List<EntityComponent> founds = new List<EntityComponent>();
+
+			if (component1.name_ == componentName)
+			{
+				founds.Add(component1);
+				if (!all)
+					return founds;
+			}
+
+			if (component2.name_ == componentName)
+			{
+				founds.Add(component2);
+				if (!all)
+					return founds;
+			}
+
+			if (component3.name_ == componentName)
+			{
+				founds.Add(component3);
+				if (!all)
+					return founds;
+			}
+
+			return founds;
 		}
 
 		public override void onGetBase()
