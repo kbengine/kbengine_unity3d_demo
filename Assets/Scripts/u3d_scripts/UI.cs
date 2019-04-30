@@ -331,12 +331,12 @@ public class UI : MonoBehaviour
 			info("connect successfully, please wait...(连接成功，请等候...)");
 	}
 	
-	public void onLoginFailed(UInt16 failedcode)
+	public void onLoginFailed(UInt16 failedcode, byte[] serverdatas)
 	{
-		if(failedcode == 20)
+        if (failedcode == 20)
 		{
-			err("login is failed(登陆失败), err=" + KBEngineApp.app.serverErr(failedcode) + ", " + System.Text.Encoding.ASCII.GetString(KBEngineApp.app.serverdatas()));
-		}
+            err("login is failed(登陆失败), err=" + KBEngineApp.app.serverErr(failedcode) + ", " + System.Text.Encoding.ASCII.GetString(serverdatas));
+        }
 		else
 		{
 			err("login is failed(登陆失败), err=" + KBEngineApp.app.serverErr(failedcode));
