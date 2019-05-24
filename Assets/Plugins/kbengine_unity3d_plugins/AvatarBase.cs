@@ -157,16 +157,25 @@ namespace KBEngine
 		public override void onGetBase()
 		{
 			baseEntityCall = new EntityBaseEntityCall_AvatarBase(id, className);
+			component1.onGetBase();
+			component2.onGetBase();
+			component3.onGetBase();
 		}
 
 		public override void onGetCell()
 		{
 			cellEntityCall = new EntityCellEntityCall_AvatarBase(id, className);
+			component1.onGetCell();
+			component2.onGetCell();
+			component3.onGetCell();
 		}
 
 		public override void onLoseCell()
 		{
 			cellEntityCall = null;
+			component1.onLoseCell();
+			component2.onLoseCell();
+			component3.onLoseCell();
 		}
 
 		public override EntityCall getBaseEntityCall()
