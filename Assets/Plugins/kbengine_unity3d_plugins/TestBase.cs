@@ -32,11 +32,13 @@ namespace KBEngine
 
 		public override void onGetBase()
 		{
+			ownerID = owner.id;
 			baseEntityCall = new EntityBaseEntityCall_TestBase(entityComponentPropertyID, ownerID);
 		}
 
 		public override void onGetCell()
 		{
+			ownerID = owner.id;
 			cellEntityCall = new EntityCellEntityCall_TestBase(entityComponentPropertyID, ownerID);
 		}
 
