@@ -16,4 +16,3 @@
 			public abstract void process(byte[] datas, MessageLengthEx offset, MessageLengthEx length);
     }
 } 
-
