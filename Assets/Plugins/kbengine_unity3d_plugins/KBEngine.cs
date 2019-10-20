@@ -87,7 +87,7 @@
 		
 		// 服务端与客户端的版本号以及协议MD5
 		public string serverVersion = "";
-		public string clientVersion = "1.3.6";
+		public string clientVersion = "1.3.12";
 		public string serverScriptVersion = "";
 		public string clientScriptVersion = "0.1.0";
 		public string serverProtocolMD5 = "13AF19B0A958067AEB2BC4ED1CD3B46F";
@@ -746,6 +746,8 @@
 		
 		public void Client_onReqAccountResetPasswordCB(UInt16 failcode)
 		{
+			Event.fireOut(EventOutTypes.onResetPassword, failcode);
+			
 			if(failcode != 0)
 			{
 				Dbg.ERROR_MSG("KBEngine::Client_onReqAccountResetPasswordCB: " + username + " failed! code=" + failcode + "(" + serverErr(failcode) + ")!");
@@ -770,6 +772,8 @@
 
 		public void Client_onReqAccountBindEmailCB(UInt16 failcode)
 		{
+			Event.fireOut(EventOutTypes.onBindAccountEmail, failcode);
+
 			if(failcode != 0)
 			{
 				Dbg.ERROR_MSG("KBEngine::Client_onReqAccountBindEmailCB: " + username + " failed! code=" + failcode + "(" + serverErr(failcode) + ")!");
@@ -794,6 +798,8 @@
 
 		public void Client_onReqAccountNewPasswordCB(UInt16 failcode)
 		{
+			Event.fireOut(EventOutTypes.onNewPassword, failcode);
+
 			if(failcode != 0)
 			{
 				Dbg.ERROR_MSG("KBEngine::Client_onReqAccountNewPasswordCB: " + username + " failed! code=" + failcode + "(" + serverErr(failcode) + ")!");
